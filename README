@@ -1,4 +1,4 @@
-==Introdução
+h2. Introdução
 
 Este documento mostra como instalar e utilizar a API de Streaming. Além dele, você deve encontrar na raiz do diretório streaming-cpp os diretórios bindings, doc, include, src e test. Nos diretórios include e src está o código-fonte da biblioteca que contém a Streaming API. A documentação do código-fonte pode ser encontrada no diretório doc. Várias aplicações exemplo desenvolvidas com a API podem ser encontradas no diretório test. Dentro do
 diretório bindings está localizado o código-fonte da interface para a linguagem Java da API desenvolvida com o framework JNI.
