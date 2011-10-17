@@ -1,0 +1,110 @@
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1SharedBuffer}{
+\section{br::ufscar::lince::streaming::SharedBuffer Class Reference}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1SharedBuffer}\index{br::ufscar::lince::streaming::SharedBuffer@{br::ufscar::lince::streaming::SharedBuffer}}
+}
+
+
+This class represents a input device that used the Unix Shared Memory to generate images.  
+
+
+
+
+{\ttfamily \#include $<$SharedBuffer.h$>$}
+
+Inheritance diagram for br::ufscar::lince::streaming::SharedBuffer:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classbr_1_1ufscar_1_1lince_1_1streaming_1_1SharedBuffer}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1SharedBuffer_af2437fb2e8b6838c91bf56a8f4b2fd8f}{SharedBuffer} ()
+\begin{DoxyCompactList}\small\item\em Construtor. \item\end{DoxyCompactList}\item 
+virtual \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1SharedBuffer_a9389b51eb706e3a9431645784415b684}{$\sim$SharedBuffer} ()
+\begin{DoxyCompactList}\small\item\em Virtual Destructor. \item\end{DoxyCompactList}\item 
+int \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1SharedBuffer_a80a2f60b900c8e7a440b1ad12a03e5d2}{getWidth} ()
+\begin{DoxyCompactList}\small\item\em Return the current width of the images in the buffer. \item\end{DoxyCompactList}\item 
+int \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1SharedBuffer_aee8fc805662cb56cb5842f6ed090b138}{getHeight} ()
+\begin{DoxyCompactList}\small\item\em Return the current height of the images in the buffer. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1SharedBuffer_a7479737f634864d9d5756eb41c68cec3}{configure} (void $\ast$ffrapper)
+\begin{DoxyCompactList}\small\item\em This protected method is internally used to allow the SharedBuffer's instance to configure the transcoding process with her parameters. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class represents a input device that used the Unix Shared Memory to generate images. Using this \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVSource}{AVSource}, the transcoding process will utilize images in a specific buffer in memory as a raw images to generate video. An application that generate image and video must put its in a shared buffer, using the \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface}{DeviceInterface} class. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1SharedBuffer_af2437fb2e8b6838c91bf56a8f4b2fd8f}{
+\index{br::ufscar::lince::streaming::SharedBuffer@{br::ufscar::lince::streaming::SharedBuffer}!SharedBuffer@{SharedBuffer}}
+\index{SharedBuffer@{SharedBuffer}!br::ufscar::lince::streaming::SharedBuffer@{br::ufscar::lince::streaming::SharedBuffer}}
+\subsubsection[{SharedBuffer}]{\setlength{\rightskip}{0pt plus 5cm}br::ufscar::lince::streaming::SharedBuffer::SharedBuffer ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1SharedBuffer_af2437fb2e8b6838c91bf56a8f4b2fd8f}
+
+
+Construtor. 
+
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1SharedBuffer_a9389b51eb706e3a9431645784415b684}{
+\index{br::ufscar::lince::streaming::SharedBuffer@{br::ufscar::lince::streaming::SharedBuffer}!$\sim$SharedBuffer@{$\sim$SharedBuffer}}
+\index{$\sim$SharedBuffer@{$\sim$SharedBuffer}!br::ufscar::lince::streaming::SharedBuffer@{br::ufscar::lince::streaming::SharedBuffer}}
+\subsubsection[{$\sim$SharedBuffer}]{\setlength{\rightskip}{0pt plus 5cm}virtual br::ufscar::lince::streaming::SharedBuffer::$\sim$SharedBuffer ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1SharedBuffer_a9389b51eb706e3a9431645784415b684}
+
+
+Virtual Destructor. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1SharedBuffer_a7479737f634864d9d5756eb41c68cec3}{
+\index{br::ufscar::lince::streaming::SharedBuffer@{br::ufscar::lince::streaming::SharedBuffer}!configure@{configure}}
+\index{configure@{configure}!br::ufscar::lince::streaming::SharedBuffer@{br::ufscar::lince::streaming::SharedBuffer}}
+\subsubsection[{configure}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::streaming::SharedBuffer::configure (void $\ast$ {\em ffrapper})\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1SharedBuffer_a7479737f634864d9d5756eb41c68cec3}
+
+
+This protected method is internally used to allow the SharedBuffer's instance to configure the transcoding process with her parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em ffrapper}]a pointer to the FFrapper instance that will processed the transcoding. \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em OptionException}]when parameters are wrong or invalids. \end{DoxyExceptions}
+
+
+Implements \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVSource_a728f6eaeafe68040ccd8424627658db3}{br::ufscar::lince::streaming::AVSource}.
+
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1SharedBuffer_aee8fc805662cb56cb5842f6ed090b138}{
+\index{br::ufscar::lince::streaming::SharedBuffer@{br::ufscar::lince::streaming::SharedBuffer}!getHeight@{getHeight}}
+\index{getHeight@{getHeight}!br::ufscar::lince::streaming::SharedBuffer@{br::ufscar::lince::streaming::SharedBuffer}}
+\subsubsection[{getHeight}]{\setlength{\rightskip}{0pt plus 5cm}int br::ufscar::lince::streaming::SharedBuffer::getHeight ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1SharedBuffer_aee8fc805662cb56cb5842f6ed090b138}
+
+
+Return the current height of the images in the buffer. 
+
+\begin{DoxyReturn}{Returns}
+height of the Images 
+\end{DoxyReturn}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1SharedBuffer_a80a2f60b900c8e7a440b1ad12a03e5d2}{
+\index{br::ufscar::lince::streaming::SharedBuffer@{br::ufscar::lince::streaming::SharedBuffer}!getWidth@{getWidth}}
+\index{getWidth@{getWidth}!br::ufscar::lince::streaming::SharedBuffer@{br::ufscar::lince::streaming::SharedBuffer}}
+\subsubsection[{getWidth}]{\setlength{\rightskip}{0pt plus 5cm}int br::ufscar::lince::streaming::SharedBuffer::getWidth ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1SharedBuffer_a80a2f60b900c8e7a440b1ad12a03e5d2}
+
+
+Return the current width of the images in the buffer. 
+
+\begin{DoxyReturn}{Returns}
+width of the Images 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{SharedBuffer_8h}{SharedBuffer.h}\end{DoxyCompactItemize}

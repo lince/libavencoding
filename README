@@ -1,0 +1,43 @@
+h2. Introdução
+
+Este documento mostra como instalar e utilizar a API de Streaming. Além dele, você deve encontrar na raiz do diretório streaming-cpp os diretórios bindings, doc, include, src e test. Nos diretórios include e src está o código-fonte da biblioteca que contém a Streaming API. A documentação do código-fonte pode ser encontrada no diretório doc. Várias aplicações exemplo desenvolvidas com a API podem ser encontradas no diretório test. Dentro do
+diretório bindings está localizado o código-fonte da interface para a linguagem Java da API desenvolvida com o framework JNI.
+
+h2. Dependências
+*lince-util http://lince.dc.ufscar.br/redmine/projects/xpta/wiki/Lince-Util)
+*libffmpeg (http://lince.dc.ufscar.br/redmine/projects/xpta/wiki/Libffmpeg)
+*Java-JDK (http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+
+h2. Instalação
+Dentro do diretório raiz do streaming-cpp:
+$ make
+$ sudo make install
+
+Os arquivos de cabeçalho da Streaming API serão instalados em /usr/local/include/streaming e a biblioteca libstreaming.so será instalada em /usr/local/lib.
+
+Para instalar a interface Java, é necessário definir a variável de ambiente $JAVA_HOME. Considerando que a Java-JDK esteja instalada no diretório /opt/java:
+$ export JAVA_HOME=/opt/java/
+
+Em seguida, no diretório streaming-cpp/bindings/java/:
+$ make
+$ sudo make install
+
+A biblioteca libstreamingjava.so será instalada em /usr/local/lib.
+
+Lembre-se de adicionar o arquivo libstreaming.jar ao CLASSPATH para poder utilizar a API
+em aplicações Java.
+
+h2. Utilização
+Para compilar uma aplicação que utiliza a Streaming API, é necessário linkar a biblioteca libstreaming.so, como pode ser visto no exemplo:
+$ g++ exemplo.cpp -o exemplo –lstreaming
+
+h2. Aplicações Exemplo
+No diretório streaming-cpp/test/ existem algumas aplicações exemplo desenvolvidas utilizando a API. Para compilá-las:
+$ cd test
+$ make
+
+A aplicação test1.cpp, por exemplo, captura o terminal X11 e o codifica em vídeo utilizando o
+codificador h.264. O vídeo resultante é enviado por RTP para o endereço 127.0.0.1 (localhost)
+na porta 5004. Para testar a aplicação, faça:
+$ ./test1
+

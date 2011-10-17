@@ -1,0 +1,100 @@
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1WowzaUDPInput}{
+\section{br::ufscar::lince::streaming::WowzaUDPInput Class Reference}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1WowzaUDPInput}\index{br::ufscar::lince::streaming::WowzaUDPInput@{br::ufscar::lince::streaming::WowzaUDPInput}}
+}
+
+
+This class is used to generate a MpegTS of a audio and video stream addressed to the wowza media server.  
+
+
+
+
+{\ttfamily \#include $<$WowzaUDPInput.h$>$}
+
+Inheritance diagram for br::ufscar::lince::streaming::WowzaUDPInput:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{classbr_1_1ufscar_1_1lince_1_1streaming_1_1WowzaUDPInput}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1WowzaUDPInput_a3cd953cb0be364b786b15745e69f6bd6}{WowzaUDPInput} (string ip, int port)
+\begin{DoxyCompactList}\small\item\em Construtor. \item\end{DoxyCompactList}\item 
+virtual \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1WowzaUDPInput_aa8aa52ebcc298f8e7e60df193cc0fefc}{$\sim$WowzaUDPInput} ()
+\begin{DoxyCompactList}\small\item\em Virtual Destructor. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1WowzaUDPInput_a0b9876d39a409092f24b5b291a410b90}{addStream} (\hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVEncoder}{AVEncoder} $\ast$stream)
+\begin{DoxyCompactList}\small\item\em This method is used to add a new audio-\/video stream to the network stream that will be generated. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1WowzaUDPInput_a90d2675c73c201ed7bc54d64e419f5a8}{stop} ()
+\begin{DoxyCompactList}\small\item\em Abort the transcoding process. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class is used to generate a MpegTS of a audio and video stream addressed to the wowza media server. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1WowzaUDPInput_a3cd953cb0be364b786b15745e69f6bd6}{
+\index{br::ufscar::lince::streaming::WowzaUDPInput@{br::ufscar::lince::streaming::WowzaUDPInput}!WowzaUDPInput@{WowzaUDPInput}}
+\index{WowzaUDPInput@{WowzaUDPInput}!br::ufscar::lince::streaming::WowzaUDPInput@{br::ufscar::lince::streaming::WowzaUDPInput}}
+\subsubsection[{WowzaUDPInput}]{\setlength{\rightskip}{0pt plus 5cm}br::ufscar::lince::streaming::WowzaUDPInput::WowzaUDPInput (string {\em ip}, \/  int {\em port})}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1WowzaUDPInput_a3cd953cb0be364b786b15745e69f6bd6}
+
+
+Construtor. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em ip}]The ip address of the wowza mediaserver. \item[{\em ip}]The port number of the wowza mediaserver. \end{DoxyParams}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1WowzaUDPInput_aa8aa52ebcc298f8e7e60df193cc0fefc}{
+\index{br::ufscar::lince::streaming::WowzaUDPInput@{br::ufscar::lince::streaming::WowzaUDPInput}!$\sim$WowzaUDPInput@{$\sim$WowzaUDPInput}}
+\index{$\sim$WowzaUDPInput@{$\sim$WowzaUDPInput}!br::ufscar::lince::streaming::WowzaUDPInput@{br::ufscar::lince::streaming::WowzaUDPInput}}
+\subsubsection[{$\sim$WowzaUDPInput}]{\setlength{\rightskip}{0pt plus 5cm}virtual br::ufscar::lince::streaming::WowzaUDPInput::$\sim$WowzaUDPInput ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1WowzaUDPInput_aa8aa52ebcc298f8e7e60df193cc0fefc}
+
+
+Virtual Destructor. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1WowzaUDPInput_a0b9876d39a409092f24b5b291a410b90}{
+\index{br::ufscar::lince::streaming::WowzaUDPInput@{br::ufscar::lince::streaming::WowzaUDPInput}!addStream@{addStream}}
+\index{addStream@{addStream}!br::ufscar::lince::streaming::WowzaUDPInput@{br::ufscar::lince::streaming::WowzaUDPInput}}
+\subsubsection[{addStream}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::streaming::WowzaUDPInput::addStream ({\bf AVEncoder} $\ast$ {\em stream})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1WowzaUDPInput_a0b9876d39a409092f24b5b291a410b90}
+
+
+This method is used to add a new audio-\/video stream to the network stream that will be generated. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em InitializationException}]when try to add a second stream. \end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em stream}]the audio-\/video stream. \end{DoxyParams}
+
+
+Implements \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Streaming_ab2739b46d9bd285d4d64100b9d5bb796}{br::ufscar::lince::streaming::Streaming}.
+
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1WowzaUDPInput_a90d2675c73c201ed7bc54d64e419f5a8}{
+\index{br::ufscar::lince::streaming::WowzaUDPInput@{br::ufscar::lince::streaming::WowzaUDPInput}!stop@{stop}}
+\index{stop@{stop}!br::ufscar::lince::streaming::WowzaUDPInput@{br::ufscar::lince::streaming::WowzaUDPInput}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::streaming::WowzaUDPInput::stop ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1WowzaUDPInput_a90d2675c73c201ed7bc54d64e419f5a8}
+
+
+Abort the transcoding process. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em InitializationException}]if the process hasn't begun. \end{DoxyExceptions}
+
+
+Implements \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Streaming_a6fa79a5e9bac37069e91d77be9ef4a54}{br::ufscar::lince::streaming::Streaming}.
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{WowzaUDPInput_8h}{WowzaUDPInput.h}\end{DoxyCompactItemize}

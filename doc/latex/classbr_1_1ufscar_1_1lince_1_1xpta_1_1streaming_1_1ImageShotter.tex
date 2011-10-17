@@ -1,0 +1,241 @@
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter}{
+\section{br::ufscar::lince::xpta::streaming::ImageShotter Class Reference}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter}\index{br::ufscar::lince::xpta::streaming::ImageShotter@{br::ufscar::lince::xpta::streaming::ImageShotter}}
+}
+
+
+This class can take shots of video sources.  
+
+
+
+
+{\ttfamily \#include $<$ImageShotter.h$>$}
+
+Inheritance diagram for br::ufscar::lince::xpta::streaming::ImageShotter:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_ad173f44eb1cc0ec3f0e9cb36414f72af}{ImageShotter} (\hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVSource}{AVSource} $\ast$source)
+\begin{DoxyCompactList}\small\item\em Constructor. \item\end{DoxyCompactList}\item 
+virtual \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_aea554a4e9db247c2179bfd3663d7a728}{$\sim$ImageShotter} ()
+\begin{DoxyCompactList}\small\item\em Virtual Destructor. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_a81423686fdfd9103f7312ac14449c557}{takeShot} (string filename)
+\begin{DoxyCompactList}\small\item\em Take a shot of the actual state of the source and save in a file. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_a5a0a946cefef2f0c45d1c5f16ac5929a}{takeShot} (string filename, int time)
+\begin{DoxyCompactList}\small\item\em Take a shot of the specific moment of the source and save in a file. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_a63be9fc7d24a3b4a5951378b3192d85c}{takeShot} (string filename, string time)
+\begin{DoxyCompactList}\small\item\em Take a shot of the specific moment of the source and save in a file. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_ab5aeb865dbfd30d615678be2ef0b614b}{setImageSize} (int width, int heigh)
+\begin{DoxyCompactList}\small\item\em This methods set the size of the captured images. \item\end{DoxyCompactList}\item 
+int \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_afe99a0aec363646190f8f416f6ac7139}{getImageWidht} ()
+\begin{DoxyCompactList}\small\item\em Return the width of the captured images. \item\end{DoxyCompactList}\item 
+int \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_a792e9f6fef3a213c993b5707ad0ccfdf}{getImageHeight} ()
+\begin{DoxyCompactList}\small\item\em Return the height of the captured images. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_aaf80d398d7f9a939760cf00c02f576d2}{setImageCodec} (\hyperlink{namespacebr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_a2b9d08b18e23472bf55daa690c56169e}{ImageCodec} codec)
+\begin{DoxyCompactList}\small\item\em This methods set the image codec used during the transcoding process. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_a574f65cd5a37b49817c2298b25f9ac45}{setImageCodec} (string codec)
+\begin{DoxyCompactList}\small\item\em This methods set the image codec used during the transcoding process. \item\end{DoxyCompactList}\item 
+\hyperlink{namespacebr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_a2b9d08b18e23472bf55daa690c56169e}{ImageCodec} \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_ab22098b501aacf71e98ec633b0372977}{getImageCodec} ()
+\begin{DoxyCompactList}\small\item\em This method returns the current image codec. \item\end{DoxyCompactList}\item 
+bool \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_a66d326a0a24e08c4b88e3a07ec1f4c5d}{isFinished} ()
+\begin{DoxyCompactList}\small\item\em This method returns true if the transcoding process is finished. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_a68b16838853a0703f75ba80c5b31ee94}{waitFinishing} ()
+\begin{DoxyCompactList}\small\item\em This method waits until the transcoding process is finished. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class can take shots of video sources. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_ad173f44eb1cc0ec3f0e9cb36414f72af}{
+\index{br::ufscar::lince::xpta::streaming::ImageShotter@{br::ufscar::lince::xpta::streaming::ImageShotter}!ImageShotter@{ImageShotter}}
+\index{ImageShotter@{ImageShotter}!br::ufscar::lince::xpta::streaming::ImageShotter@{br::ufscar::lince::xpta::streaming::ImageShotter}}
+\subsubsection[{ImageShotter}]{\setlength{\rightskip}{0pt plus 5cm}br::ufscar::lince::xpta::streaming::ImageShotter::ImageShotter ({\bf AVSource} $\ast$ {\em source})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_ad173f44eb1cc0ec3f0e9cb36414f72af}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em source}]The source of the images. \end{DoxyParams}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_aea554a4e9db247c2179bfd3663d7a728}{
+\index{br::ufscar::lince::xpta::streaming::ImageShotter@{br::ufscar::lince::xpta::streaming::ImageShotter}!$\sim$ImageShotter@{$\sim$ImageShotter}}
+\index{$\sim$ImageShotter@{$\sim$ImageShotter}!br::ufscar::lince::xpta::streaming::ImageShotter@{br::ufscar::lince::xpta::streaming::ImageShotter}}
+\subsubsection[{$\sim$ImageShotter}]{\setlength{\rightskip}{0pt plus 5cm}virtual br::ufscar::lince::xpta::streaming::ImageShotter::$\sim$ImageShotter ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_aea554a4e9db247c2179bfd3663d7a728}
+
+
+Virtual Destructor. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_ab22098b501aacf71e98ec633b0372977}{
+\index{br::ufscar::lince::xpta::streaming::ImageShotter@{br::ufscar::lince::xpta::streaming::ImageShotter}!getImageCodec@{getImageCodec}}
+\index{getImageCodec@{getImageCodec}!br::ufscar::lince::xpta::streaming::ImageShotter@{br::ufscar::lince::xpta::streaming::ImageShotter}}
+\subsubsection[{getImageCodec}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ImageCodec} br::ufscar::lince::xpta::streaming::ImageShotter::getImageCodec ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_ab22098b501aacf71e98ec633b0372977}
+
+
+This method returns the current image codec. 
+
+\begin{DoxyReturn}{Returns}
+A value from enumeration ImageCodec that represents the current image codec. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{namespacebr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_a252e3034c41c058052743c39f2e66103}{AspectRatio} 
+\end{DoxySeeAlso}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_a792e9f6fef3a213c993b5707ad0ccfdf}{
+\index{br::ufscar::lince::xpta::streaming::ImageShotter@{br::ufscar::lince::xpta::streaming::ImageShotter}!getImageHeight@{getImageHeight}}
+\index{getImageHeight@{getImageHeight}!br::ufscar::lince::xpta::streaming::ImageShotter@{br::ufscar::lince::xpta::streaming::ImageShotter}}
+\subsubsection[{getImageHeight}]{\setlength{\rightskip}{0pt plus 5cm}int br::ufscar::lince::xpta::streaming::ImageShotter::getImageHeight ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_a792e9f6fef3a213c993b5707ad0ccfdf}
+
+
+Return the height of the captured images. 
+
+\begin{DoxyReturn}{Returns}
+height 
+\end{DoxyReturn}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_afe99a0aec363646190f8f416f6ac7139}{
+\index{br::ufscar::lince::xpta::streaming::ImageShotter@{br::ufscar::lince::xpta::streaming::ImageShotter}!getImageWidht@{getImageWidht}}
+\index{getImageWidht@{getImageWidht}!br::ufscar::lince::xpta::streaming::ImageShotter@{br::ufscar::lince::xpta::streaming::ImageShotter}}
+\subsubsection[{getImageWidht}]{\setlength{\rightskip}{0pt plus 5cm}int br::ufscar::lince::xpta::streaming::ImageShotter::getImageWidht ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_afe99a0aec363646190f8f416f6ac7139}
+
+
+Return the width of the captured images. 
+
+\begin{DoxyReturn}{Returns}
+width 
+\end{DoxyReturn}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_a66d326a0a24e08c4b88e3a07ec1f4c5d}{
+\index{br::ufscar::lince::xpta::streaming::ImageShotter@{br::ufscar::lince::xpta::streaming::ImageShotter}!isFinished@{isFinished}}
+\index{isFinished@{isFinished}!br::ufscar::lince::xpta::streaming::ImageShotter@{br::ufscar::lince::xpta::streaming::ImageShotter}}
+\subsubsection[{isFinished}]{\setlength{\rightskip}{0pt plus 5cm}bool br::ufscar::lince::xpta::streaming::ImageShotter::isFinished ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_a66d326a0a24e08c4b88e3a07ec1f4c5d}
+
+
+This method returns true if the transcoding process is finished. 
+
+It can be used to create a non-\/block program, that will not sleep until the coding is finished. \begin{DoxyReturn}{Returns}
+True if the transcoding process is finished; false otherwise. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1Transcoder_aceabe1e9bb931313d5a52a53b9ab4af6}{br::ufscar::lince::xpta::streaming::Transcoder}.
+
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_a574f65cd5a37b49817c2298b25f9ac45}{
+\index{br::ufscar::lince::xpta::streaming::ImageShotter@{br::ufscar::lince::xpta::streaming::ImageShotter}!setImageCodec@{setImageCodec}}
+\index{setImageCodec@{setImageCodec}!br::ufscar::lince::xpta::streaming::ImageShotter@{br::ufscar::lince::xpta::streaming::ImageShotter}}
+\subsubsection[{setImageCodec}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::ImageShotter::setImageCodec (string {\em codec})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_a574f65cd5a37b49817c2298b25f9ac45}
+
+
+This methods set the image codec used during the transcoding process. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em codec}]String that represents a image codec. \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em IllegalParameterException}]When codec is bad formated or a invalid image codec. \end{DoxyExceptions}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_aaf80d398d7f9a939760cf00c02f576d2}{
+\index{br::ufscar::lince::xpta::streaming::ImageShotter@{br::ufscar::lince::xpta::streaming::ImageShotter}!setImageCodec@{setImageCodec}}
+\index{setImageCodec@{setImageCodec}!br::ufscar::lince::xpta::streaming::ImageShotter@{br::ufscar::lince::xpta::streaming::ImageShotter}}
+\subsubsection[{setImageCodec}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::ImageShotter::setImageCodec ({\bf ImageCodec} {\em codec})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_aaf80d398d7f9a939760cf00c02f576d2}
+
+
+This methods set the image codec used during the transcoding process. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em codec}]the image codec, defined by the enumeration ImageCodec. \end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{namespacebr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_a2b9d08b18e23472bf55daa690c56169e}{ImageCodec}. 
+\end{DoxySeeAlso}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_ab5aeb865dbfd30d615678be2ef0b614b}{
+\index{br::ufscar::lince::xpta::streaming::ImageShotter@{br::ufscar::lince::xpta::streaming::ImageShotter}!setImageSize@{setImageSize}}
+\index{setImageSize@{setImageSize}!br::ufscar::lince::xpta::streaming::ImageShotter@{br::ufscar::lince::xpta::streaming::ImageShotter}}
+\subsubsection[{setImageSize}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::ImageShotter::setImageSize (int {\em width}, \/  int {\em heigh})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_ab5aeb865dbfd30d615678be2ef0b614b}
+
+
+This methods set the size of the captured images. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em width}]The width of the images. \item[{\em height}]The height of the Images. \end{DoxyParams}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_a63be9fc7d24a3b4a5951378b3192d85c}{
+\index{br::ufscar::lince::xpta::streaming::ImageShotter@{br::ufscar::lince::xpta::streaming::ImageShotter}!takeShot@{takeShot}}
+\index{takeShot@{takeShot}!br::ufscar::lince::xpta::streaming::ImageShotter@{br::ufscar::lince::xpta::streaming::ImageShotter}}
+\subsubsection[{takeShot}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::ImageShotter::takeShot (string {\em filename}, \/  string {\em time})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_a63be9fc7d24a3b4a5951378b3192d85c}
+
+
+Take a shot of the specific moment of the source and save in a file. 
+
+This method create a thread that will handle with shot and transcoding process. For real-\/time devices's source, the time informed will be counted from the current moment, is the same as a delayed shot. 
+\begin{DoxyParams}{Parameters}
+\item[{\em filename}]The name of the file that will be create. \item[{\em time}]a string in the format \char`\"{}HH:MM:SS\char`\"{} with the moment of the shot. \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em OptionException}]when parameters informed are wrong or invalids. \item[{\em TranscodingException}]when errors occurs during the transcoding processes. \end{DoxyExceptions}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_a5a0a946cefef2f0c45d1c5f16ac5929a}{
+\index{br::ufscar::lince::xpta::streaming::ImageShotter@{br::ufscar::lince::xpta::streaming::ImageShotter}!takeShot@{takeShot}}
+\index{takeShot@{takeShot}!br::ufscar::lince::xpta::streaming::ImageShotter@{br::ufscar::lince::xpta::streaming::ImageShotter}}
+\subsubsection[{takeShot}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::ImageShotter::takeShot (string {\em filename}, \/  int {\em time})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_a5a0a946cefef2f0c45d1c5f16ac5929a}
+
+
+Take a shot of the specific moment of the source and save in a file. 
+
+This method create a thread that will handle with shot and transcoding process. For real-\/time devices's source, the time informed will be counted from the current moment, is the same as a delayed shot. 
+\begin{DoxyParams}{Parameters}
+\item[{\em filename}]The name of the file that will be create. \item[{\em time}]The moment of the shot in seconds counted from the begin. \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em OptionException}]when parameters informed are wrong or invalids. \item[{\em TranscodingException}]when errors occurs during the transcoding processes. \end{DoxyExceptions}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_a81423686fdfd9103f7312ac14449c557}{
+\index{br::ufscar::lince::xpta::streaming::ImageShotter@{br::ufscar::lince::xpta::streaming::ImageShotter}!takeShot@{takeShot}}
+\index{takeShot@{takeShot}!br::ufscar::lince::xpta::streaming::ImageShotter@{br::ufscar::lince::xpta::streaming::ImageShotter}}
+\subsubsection[{takeShot}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::ImageShotter::takeShot (string {\em filename})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_a81423686fdfd9103f7312ac14449c557}
+
+
+Take a shot of the actual state of the source and save in a file. 
+
+This method create a thread that will handle with shot and transcoding process. For AVInputFile's source, the actual state is considered the first frame. 
+\begin{DoxyParams}{Parameters}
+\item[{\em filename}]The name of the file that will be create. \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em OptionException}]when parameters informed are wrong or invalids. \item[{\em TranscodingException}]when errors occurs during the transcoding processes. \end{DoxyExceptions}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_a68b16838853a0703f75ba80c5b31ee94}{
+\index{br::ufscar::lince::xpta::streaming::ImageShotter@{br::ufscar::lince::xpta::streaming::ImageShotter}!waitFinishing@{waitFinishing}}
+\index{waitFinishing@{waitFinishing}!br::ufscar::lince::xpta::streaming::ImageShotter@{br::ufscar::lince::xpta::streaming::ImageShotter}}
+\subsubsection[{waitFinishing}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::ImageShotter::waitFinishing ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1ImageShotter_a68b16838853a0703f75ba80c5b31ee94}
+
+
+This method waits until the transcoding process is finished. 
+
+It can be used to create a block program, that will sleep until the coding is finished. 
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em InitializationException}]when the transcoding process hasn't begun. \item[{\em InitializationException}]when the transcoding process hasn't begun. \end{DoxyExceptions}
+
+
+Implements \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1Transcoder_ac060d2266b2b4b41b1f62eb0c6a48be3}{br::ufscar::lince::xpta::streaming::Transcoder}.
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{ImageShotter_8h}{ImageShotter.h}\end{DoxyCompactItemize}

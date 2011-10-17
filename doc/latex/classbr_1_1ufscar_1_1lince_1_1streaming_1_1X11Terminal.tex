@@ -1,0 +1,152 @@
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1X11Terminal}{
+\section{br::ufscar::lince::streaming::X11Terminal Class Reference}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1X11Terminal}\index{br::ufscar::lince::streaming::X11Terminal@{br::ufscar::lince::streaming::X11Terminal}}
+}
+
+
+This class allow to use the X11 Terminal as a video source.  
+
+
+
+
+{\ttfamily \#include $<$X11Terminal.h$>$}
+
+Inheritance diagram for br::ufscar::lince::streaming::X11Terminal:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classbr_1_1ufscar_1_1lince_1_1streaming_1_1X11Terminal}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1X11Terminal_a2b6c293d655945d52e0d4d3ab7205e09}{X11Terminal} (int width, int height, int fps)
+\begin{DoxyCompactList}\small\item\em Construtor. \item\end{DoxyCompactList}\item 
+\hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1X11Terminal_ade5b6ffc05bc6012ea5616812320e51e}{X11Terminal} (int fps)
+\begin{DoxyCompactList}\small\item\em Construtor. \item\end{DoxyCompactList}\item 
+\hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1X11Terminal_a917bccc807324e153eabb87bc5dcc8e9}{X11Terminal} ()
+\begin{DoxyCompactList}\small\item\em Construtor It will assume the size of current screen as width and height and 25 as frames per second frequency. \item\end{DoxyCompactList}\item 
+virtual \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1X11Terminal_af2ad9a116dcaf89650ad95703fc1db09}{$\sim$X11Terminal} ()
+\begin{DoxyCompactList}\small\item\em Virtual Destructor. \item\end{DoxyCompactList}\item 
+int \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1X11Terminal_a97415fbf1c4a44664ba8d810ce77bf93}{getWidth} ()
+\begin{DoxyCompactList}\small\item\em Return the screen width. \item\end{DoxyCompactList}\item 
+int \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1X11Terminal_a5e2a1b9e3318b58b9d2c7b44dba5757e}{getHeight} ()
+\begin{DoxyCompactList}\small\item\em Return the screen height. \item\end{DoxyCompactList}\item 
+int \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1X11Terminal_ac4a3e267600e5be0296e86094d10c9ec}{getFps} ()
+\begin{DoxyCompactList}\small\item\em Return the screen frames per second frequency. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1X11Terminal_ada874bb3c4ab58963a29c6ae0cdf25ed}{configure} (void $\ast$ffrapper)
+\begin{DoxyCompactList}\small\item\em This protected method is internally used to allow the X11Terminal's instance to configure the transcoding process with her parameters. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class allow to use the X11 Terminal as a video source. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1X11Terminal_a2b6c293d655945d52e0d4d3ab7205e09}{
+\index{br::ufscar::lince::streaming::X11Terminal@{br::ufscar::lince::streaming::X11Terminal}!X11Terminal@{X11Terminal}}
+\index{X11Terminal@{X11Terminal}!br::ufscar::lince::streaming::X11Terminal@{br::ufscar::lince::streaming::X11Terminal}}
+\subsubsection[{X11Terminal}]{\setlength{\rightskip}{0pt plus 5cm}br::ufscar::lince::streaming::X11Terminal::X11Terminal (int {\em width}, \/  int {\em height}, \/  int {\em fps})}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1X11Terminal_a2b6c293d655945d52e0d4d3ab7205e09}
+
+
+Construtor. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em width}]The width of the screen. \item[{\em width}]The height of the screen. \item[{\em fps}]The frames per second frequency of the screen. \end{DoxyParams}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1X11Terminal_ade5b6ffc05bc6012ea5616812320e51e}{
+\index{br::ufscar::lince::streaming::X11Terminal@{br::ufscar::lince::streaming::X11Terminal}!X11Terminal@{X11Terminal}}
+\index{X11Terminal@{X11Terminal}!br::ufscar::lince::streaming::X11Terminal@{br::ufscar::lince::streaming::X11Terminal}}
+\subsubsection[{X11Terminal}]{\setlength{\rightskip}{0pt plus 5cm}br::ufscar::lince::streaming::X11Terminal::X11Terminal (int {\em fps})}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1X11Terminal_ade5b6ffc05bc6012ea5616812320e51e}
+
+
+Construtor. 
+
+It will assume the size of current screen as width and height. 
+\begin{DoxyParams}{Parameters}
+\item[{\em fps}]The frames per second frequency of the screen. \end{DoxyParams}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1X11Terminal_a917bccc807324e153eabb87bc5dcc8e9}{
+\index{br::ufscar::lince::streaming::X11Terminal@{br::ufscar::lince::streaming::X11Terminal}!X11Terminal@{X11Terminal}}
+\index{X11Terminal@{X11Terminal}!br::ufscar::lince::streaming::X11Terminal@{br::ufscar::lince::streaming::X11Terminal}}
+\subsubsection[{X11Terminal}]{\setlength{\rightskip}{0pt plus 5cm}br::ufscar::lince::streaming::X11Terminal::X11Terminal ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1X11Terminal_a917bccc807324e153eabb87bc5dcc8e9}
+
+
+Construtor It will assume the size of current screen as width and height and 25 as frames per second frequency. 
+
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1X11Terminal_af2ad9a116dcaf89650ad95703fc1db09}{
+\index{br::ufscar::lince::streaming::X11Terminal@{br::ufscar::lince::streaming::X11Terminal}!$\sim$X11Terminal@{$\sim$X11Terminal}}
+\index{$\sim$X11Terminal@{$\sim$X11Terminal}!br::ufscar::lince::streaming::X11Terminal@{br::ufscar::lince::streaming::X11Terminal}}
+\subsubsection[{$\sim$X11Terminal}]{\setlength{\rightskip}{0pt plus 5cm}virtual br::ufscar::lince::streaming::X11Terminal::$\sim$X11Terminal ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1X11Terminal_af2ad9a116dcaf89650ad95703fc1db09}
+
+
+Virtual Destructor. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1X11Terminal_ada874bb3c4ab58963a29c6ae0cdf25ed}{
+\index{br::ufscar::lince::streaming::X11Terminal@{br::ufscar::lince::streaming::X11Terminal}!configure@{configure}}
+\index{configure@{configure}!br::ufscar::lince::streaming::X11Terminal@{br::ufscar::lince::streaming::X11Terminal}}
+\subsubsection[{configure}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::streaming::X11Terminal::configure (void $\ast$ {\em ffrapper})\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1X11Terminal_ada874bb3c4ab58963a29c6ae0cdf25ed}
+
+
+This protected method is internally used to allow the X11Terminal's instance to configure the transcoding process with her parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em ffrapper}]a pointer to the FFrapper instance that will processed the transcoding. \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em OptionException}]when parameters are wrong or invalids. \end{DoxyExceptions}
+
+
+Implements \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVSource_a728f6eaeafe68040ccd8424627658db3}{br::ufscar::lince::streaming::AVSource}.
+
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1X11Terminal_ac4a3e267600e5be0296e86094d10c9ec}{
+\index{br::ufscar::lince::streaming::X11Terminal@{br::ufscar::lince::streaming::X11Terminal}!getFps@{getFps}}
+\index{getFps@{getFps}!br::ufscar::lince::streaming::X11Terminal@{br::ufscar::lince::streaming::X11Terminal}}
+\subsubsection[{getFps}]{\setlength{\rightskip}{0pt plus 5cm}int br::ufscar::lince::streaming::X11Terminal::getFps ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1X11Terminal_ac4a3e267600e5be0296e86094d10c9ec}
+
+
+Return the screen frames per second frequency. 
+
+\begin{DoxyReturn}{Returns}
+frames per second. 
+\end{DoxyReturn}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1X11Terminal_a5e2a1b9e3318b58b9d2c7b44dba5757e}{
+\index{br::ufscar::lince::streaming::X11Terminal@{br::ufscar::lince::streaming::X11Terminal}!getHeight@{getHeight}}
+\index{getHeight@{getHeight}!br::ufscar::lince::streaming::X11Terminal@{br::ufscar::lince::streaming::X11Terminal}}
+\subsubsection[{getHeight}]{\setlength{\rightskip}{0pt plus 5cm}int br::ufscar::lince::streaming::X11Terminal::getHeight ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1X11Terminal_a5e2a1b9e3318b58b9d2c7b44dba5757e}
+
+
+Return the screen height. 
+
+\begin{DoxyReturn}{Returns}
+screen height 
+\end{DoxyReturn}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1X11Terminal_a97415fbf1c4a44664ba8d810ce77bf93}{
+\index{br::ufscar::lince::streaming::X11Terminal@{br::ufscar::lince::streaming::X11Terminal}!getWidth@{getWidth}}
+\index{getWidth@{getWidth}!br::ufscar::lince::streaming::X11Terminal@{br::ufscar::lince::streaming::X11Terminal}}
+\subsubsection[{getWidth}]{\setlength{\rightskip}{0pt plus 5cm}int br::ufscar::lince::streaming::X11Terminal::getWidth ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1X11Terminal_a97415fbf1c4a44664ba8d810ce77bf93}
+
+
+Return the screen width. 
+
+\begin{DoxyReturn}{Returns}
+screen width 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{X11Terminal_8h}{X11Terminal.h}\end{DoxyCompactItemize}

@@ -1,0 +1,220 @@
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider}{
+\section{br::ufscar::lince::xpta::streaming::StreamingProvider Class Reference}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider}\index{br::ufscar::lince::xpta::streaming::StreamingProvider@{br::ufscar::lince::xpta::streaming::StreamingProvider}}
+}
+
+
+This class can be used to define the Streaming Protocol to be used in the streaming Protocol.  
+
+
+
+
+{\ttfamily \#include $<$StreamingProvider.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a818fc0b11a298e4d52fc7de746acb9cf}{
+\hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a818fc0b11a298e4d52fc7de746acb9cf}{StreamingProvider} ()}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a818fc0b11a298e4d52fc7de746acb9cf}
+
+\begin{DoxyCompactList}\small\item\em Default Constructor. \item\end{DoxyCompactList}\item 
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a1caaff67dce32cae00d49cf7f9ed39f8}{
+virtual \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a1caaff67dce32cae00d49cf7f9ed39f8}{$\sim$StreamingProvider} ()}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a1caaff67dce32cae00d49cf7f9ed39f8}
+
+\begin{DoxyCompactList}\small\item\em Default Destructor. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a8a61c4a2e411c5b3717727c37b67d4bd}{setStreamingProtocol} (StreamingProtocol streamingProtocol)
+\begin{DoxyCompactList}\small\item\em This methods defines the streaming protocol that will be used. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a9afc0aa0416ae6925e8fa312a57b08d3}{setStreamingProtocol} (string streamingProtocol)
+\begin{DoxyCompactList}\small\item\em This methods defines the streaming protocol that will be used. \item\end{DoxyCompactList}\item 
+StreamingProtocol \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a733b72dcdd112eec46b4c516c13bfef6}{getStreamingProtocol} ()
+\begin{DoxyCompactList}\small\item\em This methods returns the current streaming protocol. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a792536fb56d8292d8ca7bc5a2edb1154}{setAVContent} (\hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVContent}{AVContent} $\ast$avContent)
+\begin{DoxyCompactList}\small\item\em This methods can be used to the \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVContent}{AVContent} that will be used to generate the stream. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_acea32e698109cd8d558e5b710f74a48e}{start} ()
+\begin{DoxyCompactList}\small\item\em This methods start the streaming processes using the parameters defines. \item\end{DoxyCompactList}\item 
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a573ecb625afd9283285113ac782c6ff0}{
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a573ecb625afd9283285113ac782c6ff0}{stop} ()}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a573ecb625afd9283285113ac782c6ff0}
+
+\begin{DoxyCompactList}\small\item\em This methods finishes the streaming processes. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a2d1a5f1906bd18a9a307d138982c5426}{setNetworkAddress} (string address)
+\begin{DoxyCompactList}\small\item\em This method defines the network address of the destiny streaming machine. \item\end{DoxyCompactList}\item 
+string \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_afc775d9f2e59a95f2b7f6174b0dfaec7}{getNetworkAddress} ()
+\begin{DoxyCompactList}\small\item\em This method returns the current network address of the destiny streaming machine. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a2ff06395159cbe67ff5431e9c81df31e}{setPortNumber} (int port)
+\begin{DoxyCompactList}\small\item\em This method defines the port number of the socket that will receive the streaming. \item\end{DoxyCompactList}\item 
+int \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_ac909e10bd3de4a717302b52bf28e47ca}{getPortNumber} ()
+\begin{DoxyCompactList}\small\item\em This method returns the current port number of the socket that will receive the streaming. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_aba9b16a248950888bbade4fb80347933}{setStreamingListener} (\hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingListener}{StreamingListener} $\ast$streamingListener)
+\begin{DoxyCompactList}\small\item\em This method can be used to add \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingListener}{StreamingListener} instances. \item\end{DoxyCompactList}\item 
+bool \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a025cbecf87db14f39b0601ea19005c3f}{removeStreamingListener} (\hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingListener}{StreamingListener} $\ast$streamingListener)
+\begin{DoxyCompactList}\small\item\em This method can be used to remove \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingListener}{StreamingListener} instances. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class can be used to define the Streaming Protocol to be used in the streaming Protocol. You should define valid \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVContent}{AVContent} to be streaming and define the address of the destiny machine and port number too. To realize the streaming for a specific class, you should define the INTERNAL streaming protocol and provide a \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingListener}{StreamingListener} instance. This class contains the start and stop methods that are used to initialize and finish the streaming process. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_afc775d9f2e59a95f2b7f6174b0dfaec7}{
+\index{br::ufscar::lince::xpta::streaming::StreamingProvider@{br::ufscar::lince::xpta::streaming::StreamingProvider}!getNetworkAddress@{getNetworkAddress}}
+\index{getNetworkAddress@{getNetworkAddress}!br::ufscar::lince::xpta::streaming::StreamingProvider@{br::ufscar::lince::xpta::streaming::StreamingProvider}}
+\subsubsection[{getNetworkAddress}]{\setlength{\rightskip}{0pt plus 5cm}string br::ufscar::lince::xpta::streaming::StreamingProvider::getNetworkAddress ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_afc775d9f2e59a95f2b7f6174b0dfaec7}
+
+
+This method returns the current network address of the destiny streaming machine. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em A}]String that contains the network address. \end{DoxyParams}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_ac909e10bd3de4a717302b52bf28e47ca}{
+\index{br::ufscar::lince::xpta::streaming::StreamingProvider@{br::ufscar::lince::xpta::streaming::StreamingProvider}!getPortNumber@{getPortNumber}}
+\index{getPortNumber@{getPortNumber}!br::ufscar::lince::xpta::streaming::StreamingProvider@{br::ufscar::lince::xpta::streaming::StreamingProvider}}
+\subsubsection[{getPortNumber}]{\setlength{\rightskip}{0pt plus 5cm}int br::ufscar::lince::xpta::streaming::StreamingProvider::getPortNumber ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_ac909e10bd3de4a717302b52bf28e47ca}
+
+
+This method returns the current port number of the socket that will receive the streaming. 
+
+\begin{DoxyReturn}{Returns}
+The port number. 
+\end{DoxyReturn}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a733b72dcdd112eec46b4c516c13bfef6}{
+\index{br::ufscar::lince::xpta::streaming::StreamingProvider@{br::ufscar::lince::xpta::streaming::StreamingProvider}!getStreamingProtocol@{getStreamingProtocol}}
+\index{getStreamingProtocol@{getStreamingProtocol}!br::ufscar::lince::xpta::streaming::StreamingProvider@{br::ufscar::lince::xpta::streaming::StreamingProvider}}
+\subsubsection[{getStreamingProtocol}]{\setlength{\rightskip}{0pt plus 5cm}StreamingProtocol br::ufscar::lince::xpta::streaming::StreamingProvider::getStreamingProtocol ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a733b72dcdd112eec46b4c516c13bfef6}
+
+
+This methods returns the current streaming protocol. 
+
+\begin{DoxyReturn}{Returns}
+A instance of StreamingProtocol emuneration that represents the current streaming protocol. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+StreamingProtocol. 
+\end{DoxySeeAlso}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a025cbecf87db14f39b0601ea19005c3f}{
+\index{br::ufscar::lince::xpta::streaming::StreamingProvider@{br::ufscar::lince::xpta::streaming::StreamingProvider}!removeStreamingListener@{removeStreamingListener}}
+\index{removeStreamingListener@{removeStreamingListener}!br::ufscar::lince::xpta::streaming::StreamingProvider@{br::ufscar::lince::xpta::streaming::StreamingProvider}}
+\subsubsection[{removeStreamingListener}]{\setlength{\rightskip}{0pt plus 5cm}bool br::ufscar::lince::xpta::streaming::StreamingProvider::removeStreamingListener ({\bf StreamingListener} $\ast$ {\em streamingListener})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a025cbecf87db14f39b0601ea19005c3f}
+
+
+This method can be used to remove \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingListener}{StreamingListener} instances. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em streamingListener}]The Instance to be removed. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingListener}{StreamingListener} was successful removed; False otherwise. 
+\end{DoxyReturn}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a792536fb56d8292d8ca7bc5a2edb1154}{
+\index{br::ufscar::lince::xpta::streaming::StreamingProvider@{br::ufscar::lince::xpta::streaming::StreamingProvider}!setAVContent@{setAVContent}}
+\index{setAVContent@{setAVContent}!br::ufscar::lince::xpta::streaming::StreamingProvider@{br::ufscar::lince::xpta::streaming::StreamingProvider}}
+\subsubsection[{setAVContent}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::StreamingProvider::setAVContent ({\bf AVContent} $\ast$ {\em avContent})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a792536fb56d8292d8ca7bc5a2edb1154}
+
+
+This methods can be used to the \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVContent}{AVContent} that will be used to generate the stream. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em avContent}]The AVContante. You can use both \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVContainer}{AVContainer} or AVEnconder instances. \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em IllegalParameterException}]When avContent is NULL. \end{DoxyExceptions}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a2d1a5f1906bd18a9a307d138982c5426}{
+\index{br::ufscar::lince::xpta::streaming::StreamingProvider@{br::ufscar::lince::xpta::streaming::StreamingProvider}!setNetworkAddress@{setNetworkAddress}}
+\index{setNetworkAddress@{setNetworkAddress}!br::ufscar::lince::xpta::streaming::StreamingProvider@{br::ufscar::lince::xpta::streaming::StreamingProvider}}
+\subsubsection[{setNetworkAddress}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::StreamingProvider::setNetworkAddress (string {\em address})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a2d1a5f1906bd18a9a307d138982c5426}
+
+
+This method defines the network address of the destiny streaming machine. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em address}]A String that contains the ip address of the destiny. Must follow the pattern \char`\"{}X.X.X.X\char`\"{} like \char`\"{}192.168.1.1\char`\"{}. DNS names can be used too. \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em IllegalParameterException}]When address is a invalid network address. \end{DoxyExceptions}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a2ff06395159cbe67ff5431e9c81df31e}{
+\index{br::ufscar::lince::xpta::streaming::StreamingProvider@{br::ufscar::lince::xpta::streaming::StreamingProvider}!setPortNumber@{setPortNumber}}
+\index{setPortNumber@{setPortNumber}!br::ufscar::lince::xpta::streaming::StreamingProvider@{br::ufscar::lince::xpta::streaming::StreamingProvider}}
+\subsubsection[{setPortNumber}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::StreamingProvider::setPortNumber (int {\em port})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a2ff06395159cbe67ff5431e9c81df31e}
+
+
+This method defines the port number of the socket that will receive the streaming. 
+
+Some protocols don't allow the user change the port number. For these protocols, this method has no effect. 
+\begin{DoxyParams}{Parameters}
+\item[{\em port}]The number of the port. \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em IllegalParameterException}]When port is a invalid port number. \end{DoxyExceptions}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_aba9b16a248950888bbade4fb80347933}{
+\index{br::ufscar::lince::xpta::streaming::StreamingProvider@{br::ufscar::lince::xpta::streaming::StreamingProvider}!setStreamingListener@{setStreamingListener}}
+\index{setStreamingListener@{setStreamingListener}!br::ufscar::lince::xpta::streaming::StreamingProvider@{br::ufscar::lince::xpta::streaming::StreamingProvider}}
+\subsubsection[{setStreamingListener}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::StreamingProvider::setStreamingListener ({\bf StreamingListener} $\ast$ {\em streamingListener})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_aba9b16a248950888bbade4fb80347933}
+
+
+This method can be used to add \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingListener}{StreamingListener} instances. 
+
+For the INTERNAL streaming protocol, you must define a instance of \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingListener}{StreamingListener} that will be alerted always a new data package is ready. 
+\begin{DoxyParams}{Parameters}
+\item[{\em streamingListener}]The \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingListener}{StreamingListener} instance. \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em IllegalParameterException}]When streamingListener is NULL. \end{DoxyExceptions}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingListener}{StreamingListener}. 
+\end{DoxySeeAlso}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a9afc0aa0416ae6925e8fa312a57b08d3}{
+\index{br::ufscar::lince::xpta::streaming::StreamingProvider@{br::ufscar::lince::xpta::streaming::StreamingProvider}!setStreamingProtocol@{setStreamingProtocol}}
+\index{setStreamingProtocol@{setStreamingProtocol}!br::ufscar::lince::xpta::streaming::StreamingProvider@{br::ufscar::lince::xpta::streaming::StreamingProvider}}
+\subsubsection[{setStreamingProtocol}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::StreamingProvider::setStreamingProtocol (string {\em streamingProtocol})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a9afc0aa0416ae6925e8fa312a57b08d3}
+
+
+This methods defines the streaming protocol that will be used. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em streamingProtocol}]A string that represents the streaming protocol. Samples of valid strings area \char`\"{}rtp\char`\"{} or \char`\"{}rtps\char`\"{}. \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em IllegalParameterException}]When streamingProtocol contains a invalid streaming protocol. \end{DoxyExceptions}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a8a61c4a2e411c5b3717727c37b67d4bd}{
+\index{br::ufscar::lince::xpta::streaming::StreamingProvider@{br::ufscar::lince::xpta::streaming::StreamingProvider}!setStreamingProtocol@{setStreamingProtocol}}
+\index{setStreamingProtocol@{setStreamingProtocol}!br::ufscar::lince::xpta::streaming::StreamingProvider@{br::ufscar::lince::xpta::streaming::StreamingProvider}}
+\subsubsection[{setStreamingProtocol}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::StreamingProvider::setStreamingProtocol (StreamingProtocol {\em streamingProtocol})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_a8a61c4a2e411c5b3717727c37b67d4bd}
+
+
+This methods defines the streaming protocol that will be used. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em streamingProtocol}]A instance of the enumeration StreamingProtocol that represents the streaming protocol. \end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+streamingProtocol. 
+\end{DoxySeeAlso}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_acea32e698109cd8d558e5b710f74a48e}{
+\index{br::ufscar::lince::xpta::streaming::StreamingProvider@{br::ufscar::lince::xpta::streaming::StreamingProvider}!start@{start}}
+\index{start@{start}!br::ufscar::lince::xpta::streaming::StreamingProvider@{br::ufscar::lince::xpta::streaming::StreamingProvider}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::StreamingProvider::start ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1StreamingProvider_acea32e698109cd8d558e5b710f74a48e}
+
+
+This methods start the streaming processes using the parameters defines. 
+
+Start is a nonblocking methods that initialize a thread that will start the coding, multiplexing and streaming processes. 
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+StreamingProvider.h\end{DoxyCompactItemize}

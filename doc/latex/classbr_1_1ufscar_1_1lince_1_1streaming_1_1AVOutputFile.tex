@@ -1,0 +1,176 @@
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile}{
+\section{br::ufscar::lince::streaming::AVOutputFile Class Reference}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile}\index{br::ufscar::lince::streaming::AVOutputFile@{br::ufscar::lince::streaming::AVOutputFile}}
+}
+
+
+This class is used to generate a audio/video output file as result of a transcoding process.  
+
+
+
+
+{\ttfamily \#include $<$AVOutputFile.h$>$}
+
+Inheritance diagram for br::ufscar::lince::streaming::AVOutputFile:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_ace075f9dcbf56a275f646dcf5ca5075d}{AVOutputFile} (string filename, string format=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em Construtor. \item\end{DoxyCompactList}\item 
+virtual \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_a867bc52c953208f0ed240450a6a219e9}{$\sim$AVOutputFile} ()
+\begin{DoxyCompactList}\small\item\em Virtual Destructor. \item\end{DoxyCompactList}\item 
+string \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_ada28bb7fce4192d132a33becd5a4ab9d}{getFilename} ()
+\begin{DoxyCompactList}\small\item\em Return the name of the file that will be generate. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_a31a93f8972d0733a7b5dfe9cc376f66f}{stop} ()
+\begin{DoxyCompactList}\small\item\em Abort the transcoding process. \item\end{DoxyCompactList}\item 
+virtual void \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_a9f0853e01444d14e449dfbf820d60af1}{start} ()
+\begin{DoxyCompactList}\small\item\em Start the transcoding and streaming process. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_a0357f82095145d9842bb02ecdd186152}{addStream} (\hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVEncoder}{AVEncoder} $\ast$stream)
+\begin{DoxyCompactList}\small\item\em This method is used to add a new audio-\/video stream to the network stream that will be generated. \item\end{DoxyCompactList}\item 
+virtual bool \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_a38f6acb7513f621bb7322bb31929fda0}{isFinished} ()
+\begin{DoxyCompactList}\small\item\em This method returns true if the transcoding process is finished. \item\end{DoxyCompactList}\item 
+virtual void \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_acd69fe24c54d43ae5add25e3917286bb}{waitFinishing} ()
+\begin{DoxyCompactList}\small\item\em This method waits until the transcoding process is finished. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_a05bd40f9a819e79d6e7e0c79dbe270cd}{finished}
+\item 
+bool \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_ab618c1df2d6a894b7959f7f9a5d3dbb0}{started}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class is used to generate a audio/video output file as result of a transcoding process. It implements the abstract class \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Transcoder}{Transcoder}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_ace075f9dcbf56a275f646dcf5ca5075d}{
+\index{br::ufscar::lince::streaming::AVOutputFile@{br::ufscar::lince::streaming::AVOutputFile}!AVOutputFile@{AVOutputFile}}
+\index{AVOutputFile@{AVOutputFile}!br::ufscar::lince::streaming::AVOutputFile@{br::ufscar::lince::streaming::AVOutputFile}}
+\subsubsection[{AVOutputFile}]{\setlength{\rightskip}{0pt plus 5cm}br::ufscar::lince::streaming::AVOutputFile::AVOutputFile (string {\em filename}, \/  string {\em format} = {\ttfamily \char`\"{}\char`\"{}})}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_ace075f9dcbf56a275f646dcf5ca5075d}
+
+
+Construtor. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em filename}]the name of the file that will be generated. \item[{\em format}]the format of the fila that will be generated. \end{DoxyParams}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_a867bc52c953208f0ed240450a6a219e9}{
+\index{br::ufscar::lince::streaming::AVOutputFile@{br::ufscar::lince::streaming::AVOutputFile}!$\sim$AVOutputFile@{$\sim$AVOutputFile}}
+\index{$\sim$AVOutputFile@{$\sim$AVOutputFile}!br::ufscar::lince::streaming::AVOutputFile@{br::ufscar::lince::streaming::AVOutputFile}}
+\subsubsection[{$\sim$AVOutputFile}]{\setlength{\rightskip}{0pt plus 5cm}virtual br::ufscar::lince::streaming::AVOutputFile::$\sim$AVOutputFile ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_a867bc52c953208f0ed240450a6a219e9}
+
+
+Virtual Destructor. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_a0357f82095145d9842bb02ecdd186152}{
+\index{br::ufscar::lince::streaming::AVOutputFile@{br::ufscar::lince::streaming::AVOutputFile}!addStream@{addStream}}
+\index{addStream@{addStream}!br::ufscar::lince::streaming::AVOutputFile@{br::ufscar::lince::streaming::AVOutputFile}}
+\subsubsection[{addStream}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::streaming::AVOutputFile::addStream ({\bf AVEncoder} $\ast$ {\em stream})}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_a0357f82095145d9842bb02ecdd186152}
+
+
+This method is used to add a new audio-\/video stream to the network stream that will be generated. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em stream}]the audio-\/video stream. \end{DoxyParams}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_ada28bb7fce4192d132a33becd5a4ab9d}{
+\index{br::ufscar::lince::streaming::AVOutputFile@{br::ufscar::lince::streaming::AVOutputFile}!getFilename@{getFilename}}
+\index{getFilename@{getFilename}!br::ufscar::lince::streaming::AVOutputFile@{br::ufscar::lince::streaming::AVOutputFile}}
+\subsubsection[{getFilename}]{\setlength{\rightskip}{0pt plus 5cm}string br::ufscar::lince::streaming::AVOutputFile::getFilename ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_ada28bb7fce4192d132a33becd5a4ab9d}
+
+
+Return the name of the file that will be generate. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em the}]name of the file. \end{DoxyParams}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_a38f6acb7513f621bb7322bb31929fda0}{
+\index{br::ufscar::lince::streaming::AVOutputFile@{br::ufscar::lince::streaming::AVOutputFile}!isFinished@{isFinished}}
+\index{isFinished@{isFinished}!br::ufscar::lince::streaming::AVOutputFile@{br::ufscar::lince::streaming::AVOutputFile}}
+\subsubsection[{isFinished}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool br::ufscar::lince::streaming::AVOutputFile::isFinished ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_a38f6acb7513f621bb7322bb31929fda0}
+
+
+This method returns true if the transcoding process is finished. 
+
+It can be used to create a non-\/block program, that will not sleep until the coding is finished. \begin{DoxyReturn}{Returns}
+True if the transcoding process is finished; false otherwise. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Transcoder_a6d2588da9583e98496882efa9b472ec4}{br::ufscar::lince::streaming::Transcoder}.
+
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_a9f0853e01444d14e449dfbf820d60af1}{
+\index{br::ufscar::lince::streaming::AVOutputFile@{br::ufscar::lince::streaming::AVOutputFile}!start@{start}}
+\index{start@{start}!br::ufscar::lince::streaming::AVOutputFile@{br::ufscar::lince::streaming::AVOutputFile}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}virtual void br::ufscar::lince::streaming::AVOutputFile::start ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_a9f0853e01444d14e449dfbf820d60af1}
+
+
+Start the transcoding and streaming process. 
+
+This method should be called after the streaming and transcoding process was defined. It creates a new theard that will process with the process. 
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em InitializationException}]if no stream was add. \item[{\em OptionException}]when parameters informed are wrong or invalids. \item[{\em TranscodingException}]when errors occurs during the transcoding processes. \end{DoxyExceptions}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_a0357f82095145d9842bb02ecdd186152}{addStream} 
+\end{DoxySeeAlso}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_a31a93f8972d0733a7b5dfe9cc376f66f}{
+\index{br::ufscar::lince::streaming::AVOutputFile@{br::ufscar::lince::streaming::AVOutputFile}!stop@{stop}}
+\index{stop@{stop}!br::ufscar::lince::streaming::AVOutputFile@{br::ufscar::lince::streaming::AVOutputFile}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::streaming::AVOutputFile::stop ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_a31a93f8972d0733a7b5dfe9cc376f66f}
+
+
+Abort the transcoding process. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em InitializationException}]if the process hasn't begun. \end{DoxyExceptions}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_acd69fe24c54d43ae5add25e3917286bb}{
+\index{br::ufscar::lince::streaming::AVOutputFile@{br::ufscar::lince::streaming::AVOutputFile}!waitFinishing@{waitFinishing}}
+\index{waitFinishing@{waitFinishing}!br::ufscar::lince::streaming::AVOutputFile@{br::ufscar::lince::streaming::AVOutputFile}}
+\subsubsection[{waitFinishing}]{\setlength{\rightskip}{0pt plus 5cm}virtual void br::ufscar::lince::streaming::AVOutputFile::waitFinishing ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_acd69fe24c54d43ae5add25e3917286bb}
+
+
+This method waits until the transcoding process is finished. 
+
+It can be used to create a block program, that will sleep until the coding is finished. 
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em InitializationException}]when the transcoding process hasn't begun. \end{DoxyExceptions}
+
+
+Implements \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Transcoder_abec1e8b2d9e04e79bf878206a70df2d9}{br::ufscar::lince::streaming::Transcoder}.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_a05bd40f9a819e79d6e7e0c79dbe270cd}{
+\index{br::ufscar::lince::streaming::AVOutputFile@{br::ufscar::lince::streaming::AVOutputFile}!finished@{finished}}
+\index{finished@{finished}!br::ufscar::lince::streaming::AVOutputFile@{br::ufscar::lince::streaming::AVOutputFile}}
+\subsubsection[{finished}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf br::ufscar::lince::streaming::AVOutputFile::finished}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_a05bd40f9a819e79d6e7e0c79dbe270cd}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_ab618c1df2d6a894b7959f7f9a5d3dbb0}{
+\index{br::ufscar::lince::streaming::AVOutputFile@{br::ufscar::lince::streaming::AVOutputFile}!started@{started}}
+\index{started@{started}!br::ufscar::lince::streaming::AVOutputFile@{br::ufscar::lince::streaming::AVOutputFile}}
+\subsubsection[{started}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf br::ufscar::lince::streaming::AVOutputFile::started}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_ab618c1df2d6a894b7959f7f9a5d3dbb0}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{AVOutputFile_8h}{AVOutputFile.h}\end{DoxyCompactItemize}

@@ -1,0 +1,100 @@
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1UDPMpegTS}{
+\section{br::ufscar::lince::streaming::UDPMpegTS Class Reference}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1UDPMpegTS}\index{br::ufscar::lince::streaming::UDPMpegTS@{br::ufscar::lince::streaming::UDPMpegTS}}
+}
+
+
+This class is used to generate a MpegTS of several audio/video streams and streaming this MpegTS using the UDP protocol.  
+
+
+
+
+{\ttfamily \#include $<$UDPMpegTS.h$>$}
+
+Inheritance diagram for br::ufscar::lince::streaming::UDPMpegTS:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{classbr_1_1ufscar_1_1lince_1_1streaming_1_1UDPMpegTS}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1UDPMpegTS_a4bb698eefa459f445938a822a2eb1a8f}{UDPMpegTS} (string ip, int port)
+\begin{DoxyCompactList}\small\item\em Construtor. \item\end{DoxyCompactList}\item 
+virtual \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1UDPMpegTS_a806c474fe20b34b899bd048da6997bb2}{$\sim$UDPMpegTS} ()
+\begin{DoxyCompactList}\small\item\em Virtual Destructor. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1UDPMpegTS_a8dc5c2ece80e7cf6c94e10582b78de40}{addStream} (\hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVEncoder}{AVEncoder} $\ast$stream)
+\begin{DoxyCompactList}\small\item\em This method is used to add a new audio-\/video stream to the network stream that will be generated. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1UDPMpegTS_a38862cf512770e1a94df17d013744646}{stop} ()
+\begin{DoxyCompactList}\small\item\em Abort the transcoding process. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class is used to generate a MpegTS of several audio/video streams and streaming this MpegTS using the UDP protocol. Several different audio and video streams can be encapsulate in a MpegTS 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1UDPMpegTS_a4bb698eefa459f445938a822a2eb1a8f}{
+\index{br::ufscar::lince::streaming::UDPMpegTS@{br::ufscar::lince::streaming::UDPMpegTS}!UDPMpegTS@{UDPMpegTS}}
+\index{UDPMpegTS@{UDPMpegTS}!br::ufscar::lince::streaming::UDPMpegTS@{br::ufscar::lince::streaming::UDPMpegTS}}
+\subsubsection[{UDPMpegTS}]{\setlength{\rightskip}{0pt plus 5cm}br::ufscar::lince::streaming::UDPMpegTS::UDPMpegTS (string {\em ip}, \/  int {\em port})}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1UDPMpegTS_a4bb698eefa459f445938a822a2eb1a8f}
+
+
+Construtor. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em ip}]The ip address of the destiny host. \item[{\em ip}]The port number of the destiny process. \end{DoxyParams}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1UDPMpegTS_a806c474fe20b34b899bd048da6997bb2}{
+\index{br::ufscar::lince::streaming::UDPMpegTS@{br::ufscar::lince::streaming::UDPMpegTS}!$\sim$UDPMpegTS@{$\sim$UDPMpegTS}}
+\index{$\sim$UDPMpegTS@{$\sim$UDPMpegTS}!br::ufscar::lince::streaming::UDPMpegTS@{br::ufscar::lince::streaming::UDPMpegTS}}
+\subsubsection[{$\sim$UDPMpegTS}]{\setlength{\rightskip}{0pt plus 5cm}virtual br::ufscar::lince::streaming::UDPMpegTS::$\sim$UDPMpegTS ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1UDPMpegTS_a806c474fe20b34b899bd048da6997bb2}
+
+
+Virtual Destructor. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1UDPMpegTS_a8dc5c2ece80e7cf6c94e10582b78de40}{
+\index{br::ufscar::lince::streaming::UDPMpegTS@{br::ufscar::lince::streaming::UDPMpegTS}!addStream@{addStream}}
+\index{addStream@{addStream}!br::ufscar::lince::streaming::UDPMpegTS@{br::ufscar::lince::streaming::UDPMpegTS}}
+\subsubsection[{addStream}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::streaming::UDPMpegTS::addStream ({\bf AVEncoder} $\ast$ {\em stream})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1UDPMpegTS_a8dc5c2ece80e7cf6c94e10582b78de40}
+
+
+This method is used to add a new audio-\/video stream to the network stream that will be generated. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em InitializationException}]when try to add a second stream. \end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em stream}]the audio-\/video stream. \end{DoxyParams}
+
+
+Implements \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Streaming_ab2739b46d9bd285d4d64100b9d5bb796}{br::ufscar::lince::streaming::Streaming}.
+
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1UDPMpegTS_a38862cf512770e1a94df17d013744646}{
+\index{br::ufscar::lince::streaming::UDPMpegTS@{br::ufscar::lince::streaming::UDPMpegTS}!stop@{stop}}
+\index{stop@{stop}!br::ufscar::lince::streaming::UDPMpegTS@{br::ufscar::lince::streaming::UDPMpegTS}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::streaming::UDPMpegTS::stop ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1UDPMpegTS_a38862cf512770e1a94df17d013744646}
+
+
+Abort the transcoding process. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em InitializationException}]if the process hasn't begun. \end{DoxyExceptions}
+
+
+Implements \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Streaming_a6fa79a5e9bac37069e91d77be9ef4a54}{br::ufscar::lince::streaming::Streaming}.
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{UDPMpegTS_8h}{UDPMpegTS.h}\end{DoxyCompactItemize}

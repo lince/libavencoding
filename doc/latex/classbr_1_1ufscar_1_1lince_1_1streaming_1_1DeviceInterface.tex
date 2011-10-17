@@ -1,0 +1,178 @@
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface}{
+\section{br::ufscar::lince::streaming::DeviceInterface Class Reference}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface}\index{br::ufscar::lince::streaming::DeviceInterface@{br::ufscar::lince::streaming::DeviceInterface}}
+}
+
+
+Provide a interface with the a virtual Device created in memory.  
+
+
+
+
+{\ttfamily \#include $<$DeviceInterface.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_afb64a94cc5d0febe0cc167675a0c92bc}{mount} (int width, int height, int bitsPerPixel, int fps)
+\begin{DoxyCompactList}\small\item\em This method can be used to mounted and define the characteristics of device. \item\end{DoxyCompactList}\item 
+virtual void \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_a6c7a433458ca2b3cf93b2bc118fec114}{release} ()
+\begin{DoxyCompactList}\small\item\em This method can be used to destroy the device. \item\end{DoxyCompactList}\item 
+virtual void \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_a72af172828b8d1773fcf9e5d62d08353}{putBuffer} (unsigned char $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em This method can be used to put a new image in the device. \item\end{DoxyCompactList}\item 
+virtual int \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_a37072d863c297b69afebfb4f53516a95}{getWidth} ()
+\begin{DoxyCompactList}\small\item\em This method returns the width of the device. \item\end{DoxyCompactList}\item 
+virtual int \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_a70b3166ea9f6a5e5e531aa9456ce7b6c}{getHeight} ()
+\begin{DoxyCompactList}\small\item\em This method returns the height of the device. \item\end{DoxyCompactList}\item 
+virtual int \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_a4b067b1b359ab0b63caf177f2512dfcb}{getFPS} ()
+\begin{DoxyCompactList}\small\item\em This method returns the frames per second frequency of the device. \item\end{DoxyCompactList}\item 
+virtual int \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_ae792aa4c26dfc014c9de2939af442339}{getBitsPerPixel} ()
+\begin{DoxyCompactList}\small\item\em This method returns the number bits per pixel of the device. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface}{DeviceInterface} $\ast$ \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_a71372a3264033df2716d0300f54d4618}{getInstance} ()
+\begin{DoxyCompactList}\small\item\em This methods returns the unique instance of the \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface}{DeviceInterface}. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_a409c99b4d2a758d775bde989ca9e97be}{lock} ()
+\begin{DoxyCompactList}\small\item\em This internal method is used to protect the device, barring alterations on its content. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_aab816345220d1eed3838635dfebb40d6}{unlock} ()
+\begin{DoxyCompactList}\small\item\em This internal method is used to disable the protection the device, allow alterations on its contest. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_ae83c57ed7c71e480f596e21a64a6559f}{initDeviceInfo} ()
+\begin{DoxyCompactList}\small\item\em This internal method export the characteristics of the device in a shared memory, allowing external process interact with the shared buffer. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provide a interface with the a virtual Device created in memory. This class provide a interface with the shared buffer created in local memory to allow the application communicate with the coding process, sending its image frames. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_ae792aa4c26dfc014c9de2939af442339}{
+\index{br::ufscar::lince::streaming::DeviceInterface@{br::ufscar::lince::streaming::DeviceInterface}!getBitsPerPixel@{getBitsPerPixel}}
+\index{getBitsPerPixel@{getBitsPerPixel}!br::ufscar::lince::streaming::DeviceInterface@{br::ufscar::lince::streaming::DeviceInterface}}
+\subsubsection[{getBitsPerPixel}]{\setlength{\rightskip}{0pt plus 5cm}virtual int br::ufscar::lince::streaming::DeviceInterface::getBitsPerPixel ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_ae792aa4c26dfc014c9de2939af442339}
+
+
+This method returns the number bits per pixel of the device. 
+
+\begin{DoxyReturn}{Returns}
+number bits per pixel of the device 
+\end{DoxyReturn}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_a4b067b1b359ab0b63caf177f2512dfcb}{
+\index{br::ufscar::lince::streaming::DeviceInterface@{br::ufscar::lince::streaming::DeviceInterface}!getFPS@{getFPS}}
+\index{getFPS@{getFPS}!br::ufscar::lince::streaming::DeviceInterface@{br::ufscar::lince::streaming::DeviceInterface}}
+\subsubsection[{getFPS}]{\setlength{\rightskip}{0pt plus 5cm}virtual int br::ufscar::lince::streaming::DeviceInterface::getFPS ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_a4b067b1b359ab0b63caf177f2512dfcb}
+
+
+This method returns the frames per second frequency of the device. 
+
+\begin{DoxyReturn}{Returns}
+frames per second frequency of the device 
+\end{DoxyReturn}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_a70b3166ea9f6a5e5e531aa9456ce7b6c}{
+\index{br::ufscar::lince::streaming::DeviceInterface@{br::ufscar::lince::streaming::DeviceInterface}!getHeight@{getHeight}}
+\index{getHeight@{getHeight}!br::ufscar::lince::streaming::DeviceInterface@{br::ufscar::lince::streaming::DeviceInterface}}
+\subsubsection[{getHeight}]{\setlength{\rightskip}{0pt plus 5cm}virtual int br::ufscar::lince::streaming::DeviceInterface::getHeight ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_a70b3166ea9f6a5e5e531aa9456ce7b6c}
+
+
+This method returns the height of the device. 
+
+\begin{DoxyReturn}{Returns}
+height of the device 
+\end{DoxyReturn}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_a71372a3264033df2716d0300f54d4618}{
+\index{br::ufscar::lince::streaming::DeviceInterface@{br::ufscar::lince::streaming::DeviceInterface}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!br::ufscar::lince::streaming::DeviceInterface@{br::ufscar::lince::streaming::DeviceInterface}}
+\subsubsection[{getInstance}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf DeviceInterface}$\ast$ br::ufscar::lince::streaming::DeviceInterface::getInstance ()\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_a71372a3264033df2716d0300f54d4618}
+
+
+This methods returns the unique instance of the \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface}{DeviceInterface}. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface}{DeviceInterface} singleton. 
+\end{DoxyReturn}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_a37072d863c297b69afebfb4f53516a95}{
+\index{br::ufscar::lince::streaming::DeviceInterface@{br::ufscar::lince::streaming::DeviceInterface}!getWidth@{getWidth}}
+\index{getWidth@{getWidth}!br::ufscar::lince::streaming::DeviceInterface@{br::ufscar::lince::streaming::DeviceInterface}}
+\subsubsection[{getWidth}]{\setlength{\rightskip}{0pt plus 5cm}virtual int br::ufscar::lince::streaming::DeviceInterface::getWidth ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_a37072d863c297b69afebfb4f53516a95}
+
+
+This method returns the width of the device. 
+
+\begin{DoxyReturn}{Returns}
+width of the device 
+\end{DoxyReturn}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_ae83c57ed7c71e480f596e21a64a6559f}{
+\index{br::ufscar::lince::streaming::DeviceInterface@{br::ufscar::lince::streaming::DeviceInterface}!initDeviceInfo@{initDeviceInfo}}
+\index{initDeviceInfo@{initDeviceInfo}!br::ufscar::lince::streaming::DeviceInterface@{br::ufscar::lince::streaming::DeviceInterface}}
+\subsubsection[{initDeviceInfo}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::streaming::DeviceInterface::initDeviceInfo ()\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_ae83c57ed7c71e480f596e21a64a6559f}
+
+
+This internal method export the characteristics of the device in a shared memory, allowing external process interact with the shared buffer. 
+
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_a409c99b4d2a758d775bde989ca9e97be}{
+\index{br::ufscar::lince::streaming::DeviceInterface@{br::ufscar::lince::streaming::DeviceInterface}!lock@{lock}}
+\index{lock@{lock}!br::ufscar::lince::streaming::DeviceInterface@{br::ufscar::lince::streaming::DeviceInterface}}
+\subsubsection[{lock}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::streaming::DeviceInterface::lock ()\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_a409c99b4d2a758d775bde989ca9e97be}
+
+
+This internal method is used to protect the device, barring alterations on its content. 
+
+The content will be protect until the method unlock is called. \hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_afb64a94cc5d0febe0cc167675a0c92bc}{
+\index{br::ufscar::lince::streaming::DeviceInterface@{br::ufscar::lince::streaming::DeviceInterface}!mount@{mount}}
+\index{mount@{mount}!br::ufscar::lince::streaming::DeviceInterface@{br::ufscar::lince::streaming::DeviceInterface}}
+\subsubsection[{mount}]{\setlength{\rightskip}{0pt plus 5cm}virtual void br::ufscar::lince::streaming::DeviceInterface::mount (int {\em width}, \/  int {\em height}, \/  int {\em bitsPerPixel}, \/  int {\em fps})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_afb64a94cc5d0febe0cc167675a0c92bc}
+
+
+This method can be used to mounted and define the characteristics of device. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em width}]The width of the images that will be generated by the device. \item[{\em height}]The height of the images that will be generated by the device. \item[{\em bitsPerPixel}]The number of bits per pixel from the images fo the device. \item[{\em fps}]Number the frames per second generated by the device. \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em IllegalParameterException}]When one or more parameters are invalid. \end{DoxyExceptions}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_a72af172828b8d1773fcf9e5d62d08353}{
+\index{br::ufscar::lince::streaming::DeviceInterface@{br::ufscar::lince::streaming::DeviceInterface}!putBuffer@{putBuffer}}
+\index{putBuffer@{putBuffer}!br::ufscar::lince::streaming::DeviceInterface@{br::ufscar::lince::streaming::DeviceInterface}}
+\subsubsection[{putBuffer}]{\setlength{\rightskip}{0pt plus 5cm}virtual void br::ufscar::lince::streaming::DeviceInterface::putBuffer (unsigned char $\ast$ {\em buffer})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_a72af172828b8d1773fcf9e5d62d08353}
+
+
+This method can be used to put a new image in the device. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em buffer}]The buffer that contains the image. \end{DoxyParams}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_a6c7a433458ca2b3cf93b2bc118fec114}{
+\index{br::ufscar::lince::streaming::DeviceInterface@{br::ufscar::lince::streaming::DeviceInterface}!release@{release}}
+\index{release@{release}!br::ufscar::lince::streaming::DeviceInterface@{br::ufscar::lince::streaming::DeviceInterface}}
+\subsubsection[{release}]{\setlength{\rightskip}{0pt plus 5cm}virtual void br::ufscar::lince::streaming::DeviceInterface::release ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_a6c7a433458ca2b3cf93b2bc118fec114}
+
+
+This method can be used to destroy the device. 
+
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_aab816345220d1eed3838635dfebb40d6}{
+\index{br::ufscar::lince::streaming::DeviceInterface@{br::ufscar::lince::streaming::DeviceInterface}!unlock@{unlock}}
+\index{unlock@{unlock}!br::ufscar::lince::streaming::DeviceInterface@{br::ufscar::lince::streaming::DeviceInterface}}
+\subsubsection[{unlock}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::streaming::DeviceInterface::unlock ()\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1DeviceInterface_aab816345220d1eed3838635dfebb40d6}
+
+
+This internal method is used to disable the protection the device, allow alterations on its contest. 
+
+The content will be unprotected until the method lock is called. 
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{DeviceInterface_8h}{DeviceInterface.h}\end{DoxyCompactItemize}

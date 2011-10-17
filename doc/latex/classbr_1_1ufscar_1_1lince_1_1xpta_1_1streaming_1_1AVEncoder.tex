@@ -1,0 +1,621 @@
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder}{
+\section{br::ufscar::lince::xpta::streaming::AVEncoder Class Reference}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder}\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+}
+
+
+This class is used to define the video and audio coding parameters of some audio and video source.  
+
+
+
+
+{\ttfamily \#include $<$AVEncoder.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a1d1534f7205efbc155a7c4f85a2c6c7b}{AVEncoder} (\hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVSource}{AVSource} $\ast$avSource)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVSource}{AVSource} Constructor Initialize the codecs with the default values and define the \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVSource}{AVSource} that that will be coding. \item\end{DoxyCompactList}\item 
+\hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a7d4521d46902758f1354421233c45678}{AVEncoder} (\hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder}{AVEncoder} $\ast$copyAVEncoder)
+\begin{DoxyCompactList}\small\item\em Copy Constructor Initialize the codecs with the values of other AVEnconder. \item\end{DoxyCompactList}\item 
+virtual \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a52c01ec40955a064cfdcb053080d7388}{$\sim$AVEncoder} ()
+\begin{DoxyCompactList}\small\item\em Default Destructor. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_ab39d36dc72ceb6663da453afcfad5d0e}{setVideoBitrate} (int videoBitrate)
+\begin{DoxyCompactList}\small\item\em This method defines the Video bit rate. \item\end{DoxyCompactList}\item 
+int \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_ad59e0ed12e65047454d4f6031ade8a19}{getVideoBitrate} ()
+\begin{DoxyCompactList}\small\item\em This method returns the current video bit rate defined. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a942b6dc55d94adb7df4531cd04794552}{setFramesPerSecond} (int fps)
+\begin{DoxyCompactList}\small\item\em This method defines the number of frames per second of the video. \item\end{DoxyCompactList}\item 
+int \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_acca482f1651fe26c47bb267ee4b49985}{getFramesPerSecond} ()
+\begin{DoxyCompactList}\small\item\em This method returns the current video number of frames per second. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a9c9c36be5f81a78a2172d5779893f3b6}{setAspectRatio} (\hyperlink{namespacebr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_a252e3034c41c058052743c39f2e66103}{AspectRatio} aspectRatio)
+\begin{DoxyCompactList}\small\item\em This method defines the video aspect ratio. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_af84532eb71a0a2fea01d8cac6a4e3915}{setAspectRatio} (string aspectRatio)
+\begin{DoxyCompactList}\small\item\em This method defines the video aspect ratio. \item\end{DoxyCompactList}\item 
+\hyperlink{namespacebr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_a252e3034c41c058052743c39f2e66103}{AspectRatio} \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a6cf4a940089410c06c126a13e57fe157}{getAspectRatio} ()
+\begin{DoxyCompactList}\small\item\em This method returns the current video aspect ratio. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_ae99cf71b93bc17447fdc85df534e58d7}{setVideoSize} (int width, int heigh)
+\begin{DoxyCompactList}\small\item\em This method defines the video size. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a23325a577dc2b2fd5ae96d60a5f50beb}{setVideoSize} (string videoSize)
+\begin{DoxyCompactList}\small\item\em This method defines the video size. \item\end{DoxyCompactList}\item 
+int \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a711dede4f5b7351280a753310e199088}{getVideoWidht} ()
+\begin{DoxyCompactList}\small\item\em This method returns the current video's width. \item\end{DoxyCompactList}\item 
+int \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_ac80a2f59155f08f21285082270b89946}{getVideoHeight} ()
+\begin{DoxyCompactList}\small\item\em This method returns the current video's height. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a0b9d042b6ae7ef9aee384d311e4a773d}{setVideoCodec} (\hyperlink{namespacebr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_a0bc6a141499db1ee70a729b694d2dace}{VideoCodec} vcodec)
+\begin{DoxyCompactList}\small\item\em This method defines the video codec. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_aa70cdaa8e4298f3109fd494460a877fc}{setVideoCodec} (string vcodec)
+\begin{DoxyCompactList}\small\item\em This method defines the video codec. \item\end{DoxyCompactList}\item 
+\hyperlink{namespacebr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_a0bc6a141499db1ee70a729b694d2dace}{VideoCodec} \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a3cf3b06d1d90018ea7d32e56fc5d00f6}{getVideoCodec} ()
+\begin{DoxyCompactList}\small\item\em This method returns the current video codec. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_ad26256a91e67d240cba5f520e18f1800}{setAudioSamplingRate} (int samplingRate)
+\begin{DoxyCompactList}\small\item\em This method defines the audio sampling rate value. \item\end{DoxyCompactList}\item 
+int \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a345a87d86daa1c1973f5b55949c00954}{getAudioSamplingRate} ()
+\begin{DoxyCompactList}\small\item\em This method returns the current audio sampling rate value. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a5a837df4be352cddcddba18db8f9823a}{setAudioBitrate} (int audioBitrate)
+\begin{DoxyCompactList}\small\item\em This method defines the audio bit rate value. \item\end{DoxyCompactList}\item 
+int \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a532d23d26f7f20dbb67f00131cbdafe9}{getAudioBitrate} ()
+\begin{DoxyCompactList}\small\item\em This method return the current audio bit rate value. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_ad4381d21f0ca4e1e6fc1d0dfb2c4da52}{setAudioChannelsNumber} (int channelsNumber)
+\begin{DoxyCompactList}\small\item\em This method defines the number of audio channels. \item\end{DoxyCompactList}\item 
+int \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_af32b48a3bb42e7e95b5c389fd61d6ce1}{getAudioChannelsNumber} ()
+\begin{DoxyCompactList}\small\item\em This method return the current number of audio channels. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a9a501788c30ee13b6f79053e5f94d21f}{setAudioCodec} (\hyperlink{namespacebr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_afc25fb5f7c0f63197ec25d8d9de19b01}{AudioCodec} acodec)
+\begin{DoxyCompactList}\small\item\em This method defines the audio codec. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_aec4925cdba6f2a4c5776f196e2cc6100}{setAudioCodec} (string acodec)
+\begin{DoxyCompactList}\small\item\em This method defines the audio codec. \item\end{DoxyCompactList}\item 
+\hyperlink{namespacebr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_afc25fb5f7c0f63197ec25d8d9de19b01}{AudioCodec} \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a21a3ce2125b5df0e3d7a8a47df6e5012}{getAudioCodec} ()
+\begin{DoxyCompactList}\small\item\em This method returns the current audio codec. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_ae4bbdcbc13bf874954d3087dda55080e}{setThreadsNumber} (int threads)
+\begin{DoxyCompactList}\small\item\em This method defines the number of threads used in the video coding process. \item\end{DoxyCompactList}\item 
+int \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a335b684db9eabcb884a4d34772c2283c}{getThreadsNumber} ()
+\begin{DoxyCompactList}\small\item\em This method returns the current number of threads that will be used in the video coding process. \item\end{DoxyCompactList}\item 
+\hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVSource}{AVSource} $\ast$ \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a63118f2d7a9b3631eceb04cbd9a59eb1}{getSource} ()
+\begin{DoxyCompactList}\small\item\em This method returns the audio/video source associated with the \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder}{AVEncoder}. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_aa9e6c923f02cfcdd8bc8c179bb87bcdb}{setVideoPreset} (string preset)
+\begin{DoxyCompactList}\small\item\em This method is used to set a ffmpeg-\/presets to the video coding process. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a65d94849c6d727a0612d6db3909e7abe}{setAudioPreset} (string preset)
+\begin{DoxyCompactList}\small\item\em This method is used to set a ffmpeg-\/presets to the audio coding process. \item\end{DoxyCompactList}\item 
+string \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_aeb8d6031685e79ce0e8bc4a4b9e6e8fb}{getVideoPreset} ()
+\begin{DoxyCompactList}\small\item\em This method returns the ffmpeg-\/presets used to coding video. \item\end{DoxyCompactList}\item 
+string \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a70813888818b9827e95f3fc19facf2b4}{getAudioPreset} ()
+\begin{DoxyCompactList}\small\item\em This method returns the ffmpeg-\/presets used to coding audio. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a9a623b8b8e47be5d61c47bf125f16483}{setPropertyValue} (string name, string value)
+\begin{DoxyCompactList}\small\item\em This method is used to set various video/audio coding dependent parameters. \item\end{DoxyCompactList}\item 
+string \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a6b126762cca6defb9a4ad23aef22c883}{getPropertyValue} (string name)
+\begin{DoxyCompactList}\small\item\em This method returns the value of various video/audio coding dependent parameters. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_af0ad1de4c1aee3cef2f1700fb69ccfcf}{enableCopyVideo} ()
+\begin{DoxyCompactList}\small\item\em This method force the coding process to copy the video of its source without transconding. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a4bb2b633a1fd7c42ae255b0badb49dae}{enableCopyAudio} ()
+\begin{DoxyCompactList}\small\item\em This method force the coding process to copy the audio of its source without transconding. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_ab2383236fa9ef21f14f90065257cd11f}{configure} (void $\ast$ffrapper)
+\begin{DoxyCompactList}\small\item\em This protected method is internally used to allow the AVEncodere's instance to configure the transcoding process with her parameters. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_af9f366fbe5cbc06f38791f120c62c182}{Transcoder}
+\begin{DoxyCompactList}\small\item\em This class is a friend of \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1Transcoder}{Transcoder} because transcoder need to call the configure AVEncoder's method to processed with the transcoding process. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class is used to define the video and audio coding parameters of some audio and video source. An AVEnconder's instance can represent a single audio or video stream, coded with the parameters specified by its methods. Each instance is associated with a instance of \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVSource}{AVSource}. An AVEnconder can be multiplexing in a instance and streamed by a instance of a \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1Streaming}{Streaming}. It also can be used to generate a output file by a AVOutputfile's instance. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a1d1534f7205efbc155a7c4f85a2c6c7b}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!AVEncoder@{AVEncoder}}
+\index{AVEncoder@{AVEncoder}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{AVEncoder}]{\setlength{\rightskip}{0pt plus 5cm}br::ufscar::lince::xpta::streaming::AVEncoder::AVEncoder ({\bf AVSource} $\ast$ {\em avSource})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a1d1534f7205efbc155a7c4f85a2c6c7b}
+
+
+\hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVSource}{AVSource} Constructor Initialize the codecs with the default values and define the \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVSource}{AVSource} that that will be coding. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em avSource}]the audio/video source. \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em InitializationException}]if avSource is NULL. \end{DoxyExceptions}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a7d4521d46902758f1354421233c45678}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!AVEncoder@{AVEncoder}}
+\index{AVEncoder@{AVEncoder}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{AVEncoder}]{\setlength{\rightskip}{0pt plus 5cm}br::ufscar::lince::xpta::streaming::AVEncoder::AVEncoder ({\bf AVEncoder} $\ast$ {\em copyAVEncoder})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a7d4521d46902758f1354421233c45678}
+
+
+Copy Constructor Initialize the codecs with the values of other AVEnconder. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em copyEncoder}]AVEnconder instance that will be used to initialize the new one. \end{DoxyParams}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a52c01ec40955a064cfdcb053080d7388}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!$\sim$AVEncoder@{$\sim$AVEncoder}}
+\index{$\sim$AVEncoder@{$\sim$AVEncoder}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{$\sim$AVEncoder}]{\setlength{\rightskip}{0pt plus 5cm}virtual br::ufscar::lince::xpta::streaming::AVEncoder::$\sim$AVEncoder ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a52c01ec40955a064cfdcb053080d7388}
+
+
+Default Destructor. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_ab2383236fa9ef21f14f90065257cd11f}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!configure@{configure}}
+\index{configure@{configure}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{configure}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::AVEncoder::configure (void $\ast$ {\em ffrapper})\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_ab2383236fa9ef21f14f90065257cd11f}
+
+
+This protected method is internally used to allow the AVEncodere's instance to configure the transcoding process with her parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em ffrapper}]a pointer to the FFrapper instance that will processed the transcoding. \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em OptionException}]when parameters are wrong or invalids. \end{DoxyExceptions}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a4bb2b633a1fd7c42ae255b0badb49dae}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!enableCopyAudio@{enableCopyAudio}}
+\index{enableCopyAudio@{enableCopyAudio}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{enableCopyAudio}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::AVEncoder::enableCopyAudio ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a4bb2b633a1fd7c42ae255b0badb49dae}
+
+
+This method force the coding process to copy the audio of its source without transconding. 
+
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_af0ad1de4c1aee3cef2f1700fb69ccfcf}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!enableCopyVideo@{enableCopyVideo}}
+\index{enableCopyVideo@{enableCopyVideo}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{enableCopyVideo}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::AVEncoder::enableCopyVideo ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_af0ad1de4c1aee3cef2f1700fb69ccfcf}
+
+
+This method force the coding process to copy the video of its source without transconding. 
+
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a6cf4a940089410c06c126a13e57fe157}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!getAspectRatio@{getAspectRatio}}
+\index{getAspectRatio@{getAspectRatio}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{getAspectRatio}]{\setlength{\rightskip}{0pt plus 5cm}{\bf AspectRatio} br::ufscar::lince::xpta::streaming::AVEncoder::getAspectRatio ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a6cf4a940089410c06c126a13e57fe157}
+
+
+This method returns the current video aspect ratio. 
+
+\begin{DoxyReturn}{Returns}
+A value from enumeration AspectRatio that represents the current video aspect ratio. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{namespacebr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_a252e3034c41c058052743c39f2e66103}{AspectRatio} 
+\end{DoxySeeAlso}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a532d23d26f7f20dbb67f00131cbdafe9}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!getAudioBitrate@{getAudioBitrate}}
+\index{getAudioBitrate@{getAudioBitrate}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{getAudioBitrate}]{\setlength{\rightskip}{0pt plus 5cm}int br::ufscar::lince::xpta::streaming::AVEncoder::getAudioBitrate ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a532d23d26f7f20dbb67f00131cbdafe9}
+
+
+This method return the current audio bit rate value. 
+
+\begin{DoxyReturn}{Returns}
+audio bit rate value. 
+\end{DoxyReturn}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_af32b48a3bb42e7e95b5c389fd61d6ce1}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!getAudioChannelsNumber@{getAudioChannelsNumber}}
+\index{getAudioChannelsNumber@{getAudioChannelsNumber}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{getAudioChannelsNumber}]{\setlength{\rightskip}{0pt plus 5cm}int br::ufscar::lince::xpta::streaming::AVEncoder::getAudioChannelsNumber ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_af32b48a3bb42e7e95b5c389fd61d6ce1}
+
+
+This method return the current number of audio channels. 
+
+\begin{DoxyReturn}{Returns}
+Current number of audio channels. 
+\end{DoxyReturn}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a21a3ce2125b5df0e3d7a8a47df6e5012}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!getAudioCodec@{getAudioCodec}}
+\index{getAudioCodec@{getAudioCodec}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{getAudioCodec}]{\setlength{\rightskip}{0pt plus 5cm}{\bf AudioCodec} br::ufscar::lince::xpta::streaming::AVEncoder::getAudioCodec ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a21a3ce2125b5df0e3d7a8a47df6e5012}
+
+
+This method returns the current audio codec. 
+
+\begin{DoxyReturn}{Returns}
+A instance of AudioCodec enumeration that represents the current audio codec. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{namespacebr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_afc25fb5f7c0f63197ec25d8d9de19b01}{AudioCodec} 
+\end{DoxySeeAlso}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a70813888818b9827e95f3fc19facf2b4}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!getAudioPreset@{getAudioPreset}}
+\index{getAudioPreset@{getAudioPreset}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{getAudioPreset}]{\setlength{\rightskip}{0pt plus 5cm}string br::ufscar::lince::xpta::streaming::AVEncoder::getAudioPreset ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a70813888818b9827e95f3fc19facf2b4}
+
+
+This method returns the ffmpeg-\/presets used to coding audio. 
+
+\begin{DoxyReturn}{Returns}
+the ffmpeg preset. 
+\end{DoxyReturn}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a345a87d86daa1c1973f5b55949c00954}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!getAudioSamplingRate@{getAudioSamplingRate}}
+\index{getAudioSamplingRate@{getAudioSamplingRate}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{getAudioSamplingRate}]{\setlength{\rightskip}{0pt plus 5cm}int br::ufscar::lince::xpta::streaming::AVEncoder::getAudioSamplingRate ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a345a87d86daa1c1973f5b55949c00954}
+
+
+This method returns the current audio sampling rate value. 
+
+\begin{DoxyReturn}{Returns}
+Current audio sampling rate. 
+\end{DoxyReturn}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_acca482f1651fe26c47bb267ee4b49985}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!getFramesPerSecond@{getFramesPerSecond}}
+\index{getFramesPerSecond@{getFramesPerSecond}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{getFramesPerSecond}]{\setlength{\rightskip}{0pt plus 5cm}int br::ufscar::lince::xpta::streaming::AVEncoder::getFramesPerSecond ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_acca482f1651fe26c47bb267ee4b49985}
+
+
+This method returns the current video number of frames per second. 
+
+\begin{DoxyReturn}{Returns}
+Current number of frames per second. 
+\end{DoxyReturn}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a6b126762cca6defb9a4ad23aef22c883}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!getPropertyValue@{getPropertyValue}}
+\index{getPropertyValue@{getPropertyValue}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{getPropertyValue}]{\setlength{\rightskip}{0pt plus 5cm}string br::ufscar::lince::xpta::streaming::AVEncoder::getPropertyValue (string {\em name})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a6b126762cca6defb9a4ad23aef22c883}
+
+
+This method returns the value of various video/audio coding dependent parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em name}]The parameter name. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the current value of the parameter. 
+\end{DoxyReturn}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a63118f2d7a9b3631eceb04cbd9a59eb1}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!getSource@{getSource}}
+\index{getSource@{getSource}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{getSource}]{\setlength{\rightskip}{0pt plus 5cm}{\bf AVSource}$\ast$ br::ufscar::lince::xpta::streaming::AVEncoder::getSource ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a63118f2d7a9b3631eceb04cbd9a59eb1}
+
+
+This method returns the audio/video source associated with the \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder}{AVEncoder}. 
+
+\begin{DoxyReturn}{Returns}
+a instance of \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVSource}{AVSource}. 
+\end{DoxyReturn}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a335b684db9eabcb884a4d34772c2283c}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!getThreadsNumber@{getThreadsNumber}}
+\index{getThreadsNumber@{getThreadsNumber}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{getThreadsNumber}]{\setlength{\rightskip}{0pt plus 5cm}int br::ufscar::lince::xpta::streaming::AVEncoder::getThreadsNumber ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a335b684db9eabcb884a4d34772c2283c}
+
+
+This method returns the current number of threads that will be used in the video coding process. 
+
+\begin{DoxyReturn}{Returns}
+Current number of threads. 
+\end{DoxyReturn}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_ad59e0ed12e65047454d4f6031ade8a19}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!getVideoBitrate@{getVideoBitrate}}
+\index{getVideoBitrate@{getVideoBitrate}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{getVideoBitrate}]{\setlength{\rightskip}{0pt plus 5cm}int br::ufscar::lince::xpta::streaming::AVEncoder::getVideoBitrate ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_ad59e0ed12e65047454d4f6031ade8a19}
+
+
+This method returns the current video bit rate defined. 
+
+\begin{DoxyReturn}{Returns}
+current Video bit rate. 
+\end{DoxyReturn}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a3cf3b06d1d90018ea7d32e56fc5d00f6}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!getVideoCodec@{getVideoCodec}}
+\index{getVideoCodec@{getVideoCodec}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{getVideoCodec}]{\setlength{\rightskip}{0pt plus 5cm}{\bf VideoCodec} br::ufscar::lince::xpta::streaming::AVEncoder::getVideoCodec ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a3cf3b06d1d90018ea7d32e56fc5d00f6}
+
+
+This method returns the current video codec. 
+
+\begin{DoxyReturn}{Returns}
+A instance of VideoCodec enumeration that represents the current video codec. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{namespacebr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_a0bc6a141499db1ee70a729b694d2dace}{VideoCodec} 
+\end{DoxySeeAlso}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_ac80a2f59155f08f21285082270b89946}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!getVideoHeight@{getVideoHeight}}
+\index{getVideoHeight@{getVideoHeight}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{getVideoHeight}]{\setlength{\rightskip}{0pt plus 5cm}int br::ufscar::lince::xpta::streaming::AVEncoder::getVideoHeight ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_ac80a2f59155f08f21285082270b89946}
+
+
+This method returns the current video's height. 
+
+\begin{DoxyReturn}{Returns}
+Current video's height. 
+\end{DoxyReturn}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_aeb8d6031685e79ce0e8bc4a4b9e6e8fb}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!getVideoPreset@{getVideoPreset}}
+\index{getVideoPreset@{getVideoPreset}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{getVideoPreset}]{\setlength{\rightskip}{0pt plus 5cm}string br::ufscar::lince::xpta::streaming::AVEncoder::getVideoPreset ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_aeb8d6031685e79ce0e8bc4a4b9e6e8fb}
+
+
+This method returns the ffmpeg-\/presets used to coding video. 
+
+\begin{DoxyReturn}{Returns}
+the ffmpeg preset. 
+\end{DoxyReturn}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a711dede4f5b7351280a753310e199088}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!getVideoWidht@{getVideoWidht}}
+\index{getVideoWidht@{getVideoWidht}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{getVideoWidht}]{\setlength{\rightskip}{0pt plus 5cm}int br::ufscar::lince::xpta::streaming::AVEncoder::getVideoWidht ()}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a711dede4f5b7351280a753310e199088}
+
+
+This method returns the current video's width. 
+
+\begin{DoxyReturn}{Returns}
+Current video's width. 
+\end{DoxyReturn}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_af84532eb71a0a2fea01d8cac6a4e3915}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!setAspectRatio@{setAspectRatio}}
+\index{setAspectRatio@{setAspectRatio}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{setAspectRatio}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::AVEncoder::setAspectRatio (string {\em aspectRatio})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_af84532eb71a0a2fea01d8cac6a4e3915}
+
+
+This method defines the video aspect ratio. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em aspectRatio}]String that represents a aspect ratio. Must follow the pattern \char`\"{}X:Y\char`\"{}, like \char`\"{}4:3\char`\"{}. \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em IllegalParameterException}]When aspectRatio is bad formated or a invalid aspect ratio value. \end{DoxyExceptions}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a9c9c36be5f81a78a2172d5779893f3b6}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!setAspectRatio@{setAspectRatio}}
+\index{setAspectRatio@{setAspectRatio}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{setAspectRatio}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::AVEncoder::setAspectRatio ({\bf AspectRatio} {\em aspectRatio})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a9c9c36be5f81a78a2172d5779893f3b6}
+
+
+This method defines the video aspect ratio. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em aspectRatio}]the video aspect ratio, defined by the enumeration AspectRatio. \end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{namespacebr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_a252e3034c41c058052743c39f2e66103}{AspectRatio}. 
+\end{DoxySeeAlso}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a5a837df4be352cddcddba18db8f9823a}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!setAudioBitrate@{setAudioBitrate}}
+\index{setAudioBitrate@{setAudioBitrate}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{setAudioBitrate}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::AVEncoder::setAudioBitrate (int {\em audioBitrate})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a5a837df4be352cddcddba18db8f9823a}
+
+
+This method defines the audio bit rate value. 
+
+The audio codec try to achieve the specified value, but no bit rate value is guaranteed. throw IllegalParameterException When audioBitrate contains a invalid audio bit rate value. \hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_ad4381d21f0ca4e1e6fc1d0dfb2c4da52}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!setAudioChannelsNumber@{setAudioChannelsNumber}}
+\index{setAudioChannelsNumber@{setAudioChannelsNumber}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{setAudioChannelsNumber}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::AVEncoder::setAudioChannelsNumber (int {\em channelsNumber})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_ad4381d21f0ca4e1e6fc1d0dfb2c4da52}
+
+
+This method defines the number of audio channels. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em channelsNumber}]The Number of audio channels. throw IllegalParameterException When channelsNumber contains a invalid number of audio channels. \end{DoxyParams}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_aec4925cdba6f2a4c5776f196e2cc6100}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!setAudioCodec@{setAudioCodec}}
+\index{setAudioCodec@{setAudioCodec}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{setAudioCodec}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::AVEncoder::setAudioCodec (string {\em acodec})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_aec4925cdba6f2a4c5776f196e2cc6100}
+
+
+This method defines the audio codec. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em acodec}]A string that a represent a audio codec. Some valid strings are \char`\"{}mp3\char`\"{}, \char`\"{}aac\char`\"{}. \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em IllegalParameterException}]When acodec contains a invalid audio codec. \end{DoxyExceptions}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a9a501788c30ee13b6f79053e5f94d21f}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!setAudioCodec@{setAudioCodec}}
+\index{setAudioCodec@{setAudioCodec}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{setAudioCodec}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::AVEncoder::setAudioCodec ({\bf AudioCodec} {\em acodec})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a9a501788c30ee13b6f79053e5f94d21f}
+
+
+This method defines the audio codec. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em acodec}]the video audio, defined by the enumeration AudioCodec. \end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{namespacebr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_afc25fb5f7c0f63197ec25d8d9de19b01}{AudioCodec} 
+\end{DoxySeeAlso}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a65d94849c6d727a0612d6db3909e7abe}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!setAudioPreset@{setAudioPreset}}
+\index{setAudioPreset@{setAudioPreset}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{setAudioPreset}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::AVEncoder::setAudioPreset (string {\em preset})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a65d94849c6d727a0612d6db3909e7abe}
+
+
+This method is used to set a ffmpeg-\/presets to the audio coding process. 
+
+ffmpeg-\/presets are a set of predefined configurations for several codecs. 
+\begin{DoxyParams}{Parameters}
+\item[{\em preset}]the ffmpeg preset. \end{DoxyParams}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_ad26256a91e67d240cba5f520e18f1800}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!setAudioSamplingRate@{setAudioSamplingRate}}
+\index{setAudioSamplingRate@{setAudioSamplingRate}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{setAudioSamplingRate}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::AVEncoder::setAudioSamplingRate (int {\em samplingRate})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_ad26256a91e67d240cba5f520e18f1800}
+
+
+This method defines the audio sampling rate value. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em samplingRate}]The audio sampling rate value. throw IllegalParameterException When samplingRate contains a invalid audio sampling rate value. \end{DoxyParams}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a942b6dc55d94adb7df4531cd04794552}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!setFramesPerSecond@{setFramesPerSecond}}
+\index{setFramesPerSecond@{setFramesPerSecond}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{setFramesPerSecond}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::AVEncoder::setFramesPerSecond (int {\em fps})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a942b6dc55d94adb7df4531cd04794552}
+
+
+This method defines the number of frames per second of the video. 
+
+If a zero ou negative value is informed, the value 1 is used instead. 
+\begin{DoxyParams}{Parameters}
+\item[{\em fps}]value that will be used to set the video frames per second. \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em IllegalParameterException}]When fps is a invalid video frames per second value. \end{DoxyExceptions}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a9a623b8b8e47be5d61c47bf125f16483}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!setPropertyValue@{setPropertyValue}}
+\index{setPropertyValue@{setPropertyValue}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{setPropertyValue}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::AVEncoder::setPropertyValue (string {\em name}, \/  string {\em value})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a9a623b8b8e47be5d61c47bf125f16483}
+
+
+This method is used to set various video/audio coding dependent parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em name}]The parameter name.  the new value of the parameter. \end{DoxyParams}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_ae4bbdcbc13bf874954d3087dda55080e}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!setThreadsNumber@{setThreadsNumber}}
+\index{setThreadsNumber@{setThreadsNumber}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{setThreadsNumber}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::AVEncoder::setThreadsNumber (int {\em threads})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_ae4bbdcbc13bf874954d3087dda55080e}
+
+
+This method defines the number of threads used in the video coding process. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em threads}]The number of threads. \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em IllegalParameterException}]When threds contains a invalid number of threads. \end{DoxyExceptions}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_ab39d36dc72ceb6663da453afcfad5d0e}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!setVideoBitrate@{setVideoBitrate}}
+\index{setVideoBitrate@{setVideoBitrate}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{setVideoBitrate}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::AVEncoder::setVideoBitrate (int {\em videoBitrate})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_ab39d36dc72ceb6663da453afcfad5d0e}
+
+
+This method defines the Video bit rate. 
+
+The video codec try to achieve the specified value, but no bit rate value is guaranteed. 
+\begin{DoxyParams}{Parameters}
+\item[{\em videoBitrate}]the value that will be used to set the bit rate. \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em IllegalParameterException}]When videoBitrate is a invalid video bitrate value. \end{DoxyExceptions}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_aa70cdaa8e4298f3109fd494460a877fc}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!setVideoCodec@{setVideoCodec}}
+\index{setVideoCodec@{setVideoCodec}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{setVideoCodec}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::AVEncoder::setVideoCodec (string {\em vcodec})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_aa70cdaa8e4298f3109fd494460a877fc}
+
+
+This method defines the video codec. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em vcodec}]A string that a represent a video codec. Some valid strings are \char`\"{}h264\char`\"{}, \char`\"{}mpeg2video\char`\"{}. \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em IllegalParameterException}]When vcodec contains a invalid video codec. \end{DoxyExceptions}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a0b9d042b6ae7ef9aee384d311e4a773d}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!setVideoCodec@{setVideoCodec}}
+\index{setVideoCodec@{setVideoCodec}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{setVideoCodec}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::AVEncoder::setVideoCodec ({\bf VideoCodec} {\em vcodec})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a0b9d042b6ae7ef9aee384d311e4a773d}
+
+
+This method defines the video codec. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em vcodec}]the video codec, defined by the enumeration VideoCodec. \end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{namespacebr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_a0bc6a141499db1ee70a729b694d2dace}{VideoCodec} 
+\end{DoxySeeAlso}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_aa9e6c923f02cfcdd8bc8c179bb87bcdb}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!setVideoPreset@{setVideoPreset}}
+\index{setVideoPreset@{setVideoPreset}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{setVideoPreset}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::AVEncoder::setVideoPreset (string {\em preset})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_aa9e6c923f02cfcdd8bc8c179bb87bcdb}
+
+
+This method is used to set a ffmpeg-\/presets to the video coding process. 
+
+ffmpeg-\/presets are a set of predefined configurations for several codecs. 
+\begin{DoxyParams}{Parameters}
+\item[{\em preset}]the ffmpeg preset. \end{DoxyParams}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a23325a577dc2b2fd5ae96d60a5f50beb}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!setVideoSize@{setVideoSize}}
+\index{setVideoSize@{setVideoSize}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{setVideoSize}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::AVEncoder::setVideoSize (string {\em videoSize})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_a23325a577dc2b2fd5ae96d60a5f50beb}
+
+
+This method defines the video size. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em videoSize}]String that defines the video size. Must follow the pattern \char`\"{}WxH\char`\"{}, where W is the width e H is height in pixels. You can use video size name too, like \char`\"{}HDTV\char`\"{} or \char`\"{}VGA\char`\"{} as parameters. \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em IllegalParameterException}]When videoSize contains a invalid values for video size. \end{DoxyExceptions}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_ae99cf71b93bc17447fdc85df534e58d7}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!setVideoSize@{setVideoSize}}
+\index{setVideoSize@{setVideoSize}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{setVideoSize}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::xpta::streaming::AVEncoder::setVideoSize (int {\em width}, \/  int {\em heigh})}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_ae99cf71b93bc17447fdc85df534e58d7}
+
+
+This method defines the video size. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em width}]The width of the video in pixels. \item[{\em height}]The height of the video in pixels. \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em IllegalParameterException}]When width and/or height are invalids values for video size. \end{DoxyExceptions}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_af9f366fbe5cbc06f38791f120c62c182}{
+\index{br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}!Transcoder@{Transcoder}}
+\index{Transcoder@{Transcoder}!br::ufscar::lince::xpta::streaming::AVEncoder@{br::ufscar::lince::xpta::streaming::AVEncoder}}
+\subsubsection[{Transcoder}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Transcoder}\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1AVEncoder_af9f366fbe5cbc06f38791f120c62c182}
+
+
+This class is a friend of \hyperlink{classbr_1_1ufscar_1_1lince_1_1xpta_1_1streaming_1_1Transcoder}{Transcoder} because transcoder need to call the configure AVEncoder's method to processed with the transcoding process. 
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{AVEncoder_8h}{AVEncoder.h}\end{DoxyCompactItemize}

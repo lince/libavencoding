@@ -1,0 +1,120 @@
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Transcoder}{
+\section{br::ufscar::lince::streaming::Transcoder Class Reference}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Transcoder}\index{br::ufscar::lince::streaming::Transcoder@{br::ufscar::lince::streaming::Transcoder}}
+}
+
+
+Realize generic a transcoding process.  
+
+
+
+
+{\ttfamily \#include $<$Transcoder.h$>$}
+
+Inheritance diagram for br::ufscar::lince::streaming::Transcoder:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.58491cm]{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Transcoder}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Transcoder_a4139c5f7d098ae0a2b9e2e4d314ab991}{$\sim$Transcoder} ()
+\begin{DoxyCompactList}\small\item\em Virtual Destructor. \item\end{DoxyCompactList}\item 
+virtual bool \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Transcoder_a6d2588da9583e98496882efa9b472ec4}{isFinished} ()=0
+\begin{DoxyCompactList}\small\item\em This method returns true if the transcoding process is finished. \item\end{DoxyCompactList}\item 
+virtual void \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Transcoder_abec1e8b2d9e04e79bf878206a70df2d9}{waitFinishing} ()=0
+\begin{DoxyCompactList}\small\item\em This method waits until the transcoding process is finished. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Transcoder_ac4c410516ff38a4b2a978077aea67064}{configure} (\hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVEncoder}{AVEncoder} $\ast$enc, void $\ast$ffrapper)
+\begin{DoxyCompactList}\small\item\em This protected method is internally used to allow the classes configure the transcoding process with her parameters. \item\end{DoxyCompactList}\item 
+void \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Transcoder_a04f5ea04a3111f055853b0975c6744ae}{configure} (\hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVSource}{AVSource} $\ast$src, void $\ast$ffrapper)
+\begin{DoxyCompactList}\small\item\em This protected method is internally used to allow the classes configure the transcoding process with her parameters. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Realize generic a transcoding process. This abstract class must be implemented by all the classes that realize a transcoding process. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Transcoder_a4139c5f7d098ae0a2b9e2e4d314ab991}{
+\index{br::ufscar::lince::streaming::Transcoder@{br::ufscar::lince::streaming::Transcoder}!$\sim$Transcoder@{$\sim$Transcoder}}
+\index{$\sim$Transcoder@{$\sim$Transcoder}!br::ufscar::lince::streaming::Transcoder@{br::ufscar::lince::streaming::Transcoder}}
+\subsubsection[{$\sim$Transcoder}]{\setlength{\rightskip}{0pt plus 5cm}virtual br::ufscar::lince::streaming::Transcoder::$\sim$Transcoder ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Transcoder_a4139c5f7d098ae0a2b9e2e4d314ab991}
+
+
+Virtual Destructor. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Transcoder_a04f5ea04a3111f055853b0975c6744ae}{
+\index{br::ufscar::lince::streaming::Transcoder@{br::ufscar::lince::streaming::Transcoder}!configure@{configure}}
+\index{configure@{configure}!br::ufscar::lince::streaming::Transcoder@{br::ufscar::lince::streaming::Transcoder}}
+\subsubsection[{configure}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::streaming::Transcoder::configure ({\bf AVSource} $\ast$ {\em src}, \/  void $\ast$ {\em ffrapper})\hspace{0.3cm}{\ttfamily  \mbox{[}inline, protected\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Transcoder_a04f5ea04a3111f055853b0975c6744ae}
+
+
+This protected method is internally used to allow the classes configure the transcoding process with her parameters. 
+
+The AVSources classes are friends of \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Transcoder}{Transcoder}, so he can call their protected method configure. 
+\begin{DoxyParams}{Parameters}
+\item[{\em src}]the source parameters that will be configured. \item[{\em ffrapper}]a pointer to the FFrapper instance that will processed the transcoding. \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em OptionException}]when parameters are wrong or invalids. \end{DoxyExceptions}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Transcoder_ac4c410516ff38a4b2a978077aea67064}{
+\index{br::ufscar::lince::streaming::Transcoder@{br::ufscar::lince::streaming::Transcoder}!configure@{configure}}
+\index{configure@{configure}!br::ufscar::lince::streaming::Transcoder@{br::ufscar::lince::streaming::Transcoder}}
+\subsubsection[{configure}]{\setlength{\rightskip}{0pt plus 5cm}void br::ufscar::lince::streaming::Transcoder::configure ({\bf AVEncoder} $\ast$ {\em enc}, \/  void $\ast$ {\em ffrapper})\hspace{0.3cm}{\ttfamily  \mbox{[}inline, protected\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Transcoder_ac4c410516ff38a4b2a978077aea67064}
+
+
+This protected method is internally used to allow the classes configure the transcoding process with her parameters. 
+
+The AVEncoders classes are friends of \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Transcoder}{Transcoder}, so he can call their protected method configure. 
+\begin{DoxyParams}{Parameters}
+\item[{\em enc}]the encoder parameters that will be configured. \item[{\em ffrapper}]a pointer to the FFrapper instance that will processed the transcoding. \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em OptionException}]when parameters are wrong or invalids. \end{DoxyExceptions}
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Transcoder_a6d2588da9583e98496882efa9b472ec4}{
+\index{br::ufscar::lince::streaming::Transcoder@{br::ufscar::lince::streaming::Transcoder}!isFinished@{isFinished}}
+\index{isFinished@{isFinished}!br::ufscar::lince::streaming::Transcoder@{br::ufscar::lince::streaming::Transcoder}}
+\subsubsection[{isFinished}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool br::ufscar::lince::streaming::Transcoder::isFinished ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Transcoder_a6d2588da9583e98496882efa9b472ec4}
+
+
+This method returns true if the transcoding process is finished. 
+
+It can be used to create a non-\/block program, that will not sleep until the coding is finished. \begin{DoxyReturn}{Returns}
+True if the transcoding process is finished; false otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_a38f6acb7513f621bb7322bb31929fda0}{br::ufscar::lince::streaming::AVOutputFile}, \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1ImageShotter_af48a5173662f7dea91dc8140f5e501cc}{br::ufscar::lince::streaming::ImageShotter}, and \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Streaming_ab9859ece4030fe9bf46416a5508f7a0c}{br::ufscar::lince::streaming::Streaming}.
+
+\hypertarget{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Transcoder_abec1e8b2d9e04e79bf878206a70df2d9}{
+\index{br::ufscar::lince::streaming::Transcoder@{br::ufscar::lince::streaming::Transcoder}!waitFinishing@{waitFinishing}}
+\index{waitFinishing@{waitFinishing}!br::ufscar::lince::streaming::Transcoder@{br::ufscar::lince::streaming::Transcoder}}
+\subsubsection[{waitFinishing}]{\setlength{\rightskip}{0pt plus 5cm}virtual void br::ufscar::lince::streaming::Transcoder::waitFinishing ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Transcoder_abec1e8b2d9e04e79bf878206a70df2d9}
+
+
+This method waits until the transcoding process is finished. 
+
+It can be used to create a block program, that will sleep until the coding is finished. 
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em InitializationException}]when the transcoding process hasn't begun. \item[{\em InitializationException}]when the transcoding process hasn't begun. \end{DoxyExceptions}
+
+
+Implemented in \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1AVOutputFile_acd69fe24c54d43ae5add25e3917286bb}{br::ufscar::lince::streaming::AVOutputFile}, \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1ImageShotter_ac65dc640a0e5d28661029fb387f18a1a}{br::ufscar::lince::streaming::ImageShotter}, and \hyperlink{classbr_1_1ufscar_1_1lince_1_1streaming_1_1Streaming_abe9c0683b3b97fe5c924907ce4c7b803}{br::ufscar::lince::streaming::Streaming}.
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{Transcoder_8h}{Transcoder.h}\end{DoxyCompactItemize}
