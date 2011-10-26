@@ -29,7 +29,7 @@ AVOutputFile::AVOutputFile(string filename, string format, bool fileOverwrite) :
 	this->fileOverwrite = fileOverwrite;
 	sources = new vector<AVSource*>();
 	encoders = new vector<AVEncoder*>();
-	FFMpeg_init(0);
+	FFMpeg_init(5);
 }
 
 AVOutputFile::~AVOutputFile() {
@@ -63,7 +63,8 @@ void AVOutputFile::run() {
 
 	for (int i=0; i < sources->size(); i++) {
 		string mapOpp = Functions::numberToString(i);
-		mapOpp += ":0";
+		mapOpp += "." + Functions::numberToString(i);
+		//mapOpp += ":0";
 		FFMpeg_setMap((char*) mapOpp.c_str());
 	}
 
