@@ -19,14 +19,14 @@ using namespace std;
 namespace br{
 namespace ufscar{
 namespace lince{
-namespace streaming{
+namespace avenconding{
 
 UDPMpegTS::UDPMpegTS(string ip, int port) : Streaming() {
 	this->ip = ip;
 	this->port = port;
 	sources = new vector<AVSource*>();
 	encoders = new 	vector<AVEncoder*>();
-	FFMpeg_init();
+	FFMpeg_init(0);
 }
 
 UDPMpegTS::~UDPMpegTS() {
@@ -73,7 +73,7 @@ void UDPMpegTS::run() {
 	string outputfile = "udp://" + ip + ":" + Functions::numberToString(port);
 	FFMpeg_setOutputFile((char*) outputfile.c_str());
 	FFMpeg_transcode();
-	FFMpeg_reset();
+	FFMpeg_reset(__LINE__);
 	finished = true;
 	Thread::unlockConditionSatisfied();
 }

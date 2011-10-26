@@ -13,7 +13,7 @@
 namespace br {
 namespace ufscar {
 namespace lince {
-namespace streaming {
+namespace avenconding {
 
 class AlsaDevice : public AVSource {
 public:

@@ -15,7 +15,7 @@
 namespace br{
 namespace ufscar{
 namespace lince {
-namespace streaming {
+namespace avenconding {
 
 /**
  * Realize generic a transcoding process.

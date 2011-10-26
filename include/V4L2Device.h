@@ -13,7 +13,7 @@
 namespace br {
 namespace ufscar {
 namespace lince {
-namespace streaming {
+namespace avenconding {
 
 class V4L2Device : public AVSource {
 public:

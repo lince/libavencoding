@@ -17,7 +17,7 @@ using namespace cpputil;
 namespace br {
 namespace ufscar {
 namespace lince {
-namespace streaming {
+namespace avenconding {
 
 V4L2Device::V4L2Device(int deviceId) : AVSource("video4linux2") {
 	if (deviceId > 0) {

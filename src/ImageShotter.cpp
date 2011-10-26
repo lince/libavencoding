@@ -20,7 +20,7 @@ using namespace std;
 namespace br {
 namespace ufscar {
 namespace lince {
-namespace streaming {
+namespace avenconding {
 
 ImageShotter::ImageShotter(AVSource* source) : Thread() {
 	this->source = source;
@@ -101,20 +101,20 @@ void ImageShotter::run() {
 	static bool iniciado = false;
 	if (!iniciado) {
 		cout<<"Vamos Chamar o Init!"<<endl;
-		FFMpeg_init();
+		FFMpeg_init(0);
 		iniciado = true;
 	}
 	configure(source, (void*) NULL);
 
-	FFMpeg_setRecordingTime((char*)"1");
+	FFMpeg_setRecordingTime1((char*)"1");
 	if (settedTime) {
 		cout<<"\n\ttempo inicial setado='"<<time<<"'"<<endl;
-		FFMpeg_setStartTime((char*) time.c_str());
+		FFMpeg_setStartTime1((char*) time.c_str());
 	}
 	cout<<"Vamos setar o formato"<<endl;
 	FFMpeg_setFormat((char*)"mjpeg");
 	if (height != 0 && width != 0) {
-		FFMpeg_setFrameSize1(width, height);
+		FFMpeg_setFrameSize2(width, height);
 	}
 	cout<<"Vamos setar o outputfile"<<endl;
 	FFMpeg_setOutputFile((char*) filename.c_str());
@@ -123,7 +123,7 @@ void ImageShotter::run() {
 	FFMpeg_transcode();
 
 	cout<<"ImageShotter::run() - Vamos chamar o reset"<<"'"<<endl;
-	FFMpeg_reset();
+	FFMpeg_reset(__LINE__);
 
 	cout<<"saindo do ImageShotter::run()\n\n\n";
 	finished = true;

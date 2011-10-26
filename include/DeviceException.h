@@ -16,7 +16,7 @@ using namespace std;
 namespace br{
 namespace ufscar{
 namespace lince{
-namespace streaming{
+namespace avenconding{
 
 class DeviceException : public exception {
 public:

@@ -11,14 +11,14 @@
  * to the localhost on port 5004.
  */
 
-#include <streaming/X11Terminal.h>
-#include <streaming/AVInputFile.h>
-#include <streaming/AVSource.h>
-#include <streaming/AVEncoder.h>
-#include <streaming/Streaming.h>
-#include <streaming/UDPMpegTS.h>
+#include <avenconding/X11Terminal.h>
+#include <avenconding/AVInputFile.h>
+#include <avenconding/AVSource.h>
+#include <avenconding/AVEncoder.h>
+#include <avenconding/Streaming.h>
+#include <avenconding/UDPMpegTS.h>
 
-using namespace ::br::ufscar::lince::streaming;
+using namespace ::br::ufscar::lince::avenconding;
 
 int main() {
 	AVSource* device = new X11Terminal(1280, 1024, 25);

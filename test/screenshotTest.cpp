@@ -9,10 +9,16 @@
  * and screenshot2.jpg. It uses the image codec MJPEG.
  */
 
-#include <streaming/X11Terminal.h>
-#include <streaming/ImageShotter.h>
+#include <avenconding/X11Terminal.h>
+#include <avenconding/ImageShotter.h>
+#include <cpputil/Functions.h>
 
-using namespace ::br::ufscar::lince::streaming;
+#include <iostream>
+#include <string>
+using namespace std;
+
+using namespace ::br::ufscar::lince::avenconding;
+using namespace ::cpputil;
 
 int main() {
 	AVSource* x11terminal = new X11Terminal(1280, 1024, 24);
@@ -26,5 +32,23 @@ int main() {
 	while (!shotter->isFinished()) {
 		usleep(50000);
 	}
+
+	bool continueLoop;
+	int index = 3;
+	do {
+		string resp;
+
+		continueLoop = false;
+		string resposta;
+		shotter->takeShot("screenshot" +
+				Functions::numberToString(index++) + ".jpg");
+		shotter->waitFinishing();
+		cout << "Continue take screenshots? (Y/N)";
+		cin >> resp;
+		if (resp == "y" || resp == "Y") {
+			continueLoop = true;
+		}
+	} while(continueLoop);
+
 	return 0;
 }

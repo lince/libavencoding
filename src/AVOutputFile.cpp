@@ -19,7 +19,7 @@ using namespace std;
 namespace br {
 namespace ufscar {
 namespace lince {
-namespace streaming {
+namespace avenconding {
 
 AVOutputFile::AVOutputFile(string filename, string format, bool fileOverwrite) : Transcoder() {
 	finished = false;
@@ -29,7 +29,7 @@ AVOutputFile::AVOutputFile(string filename, string format, bool fileOverwrite) :
 	this->fileOverwrite = fileOverwrite;
 	sources = new vector<AVSource*>();
 	encoders = new vector<AVEncoder*>();
-	FFMpeg_init();
+	FFMpeg_init(0);
 }
 
 AVOutputFile::~AVOutputFile() {
@@ -68,15 +68,26 @@ void AVOutputFile::run() {
 	}
 
 	if (fileOverwrite) {
-		FFMPeg_setFileOverwrite(1);
+		FFMpeg_setOverwriteFile(1);
 	}
 
 	if (format != "") {
 		FFMpeg_setFormat((char*) format.c_str());
 	}
-	FFMpeg_setOutputFile((char*) filename.c_str());
-	FFMpeg_transcode();
-	FFMpeg_reset();
+
+	if (FFMpeg_setOutputFile((char*) filename.c_str())
+			!= FFMpeg_SUCCESS) {
+
+		cerr << FFMpeg_getErrorStr() << endl;
+		return;
+	}
+
+	if (FFMpeg_transcode() != FFMpeg_SUCCESS) {
+		cerr << FFMpeg_getErrorStr() << endl;
+	}
+
+
+	FFMpeg_reset(__LINE__);
 	finished = true;
 	Thread::unlockConditionSatisfied();
 }

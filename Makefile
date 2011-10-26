@@ -1,5 +1,5 @@
 CC=g++
-HEADES_DIR= /usr/local/include/streaming
+HEADES_DIR= /usr/local/include/avenconding
 LIB_DIR= /usr/local/lib
 
 INCLUDES=	include/AVEncoder.h \
@@ -39,11 +39,11 @@ LIBS= 		-lffmpeg -lcpputil -lX11
 
 
 
-ALL: libstreaming.so
+ALL: libavenconding.so
 
-libstreaming.so: $(INCLUDES) $(SOURCES)
+libavenconding.so: $(INCLUDES) $(SOURCES)
 	$(CC) $(SOURCES) $(LIBS) \
-		-shared -fPIC -o libstreaming.so -g
+		-shared -o libavenconding.so -g
 	
 clean:
 	rm -f libstreaming.so
@@ -51,4 +51,4 @@ clean:
 install: libstreaming.so
 	install -d $(HEADES_DIR)
 	install -t $(HEADES_DIR) $(INCLUDES)
-	install -t $(LIB_DIR) libstreaming.so
+	install -t $(LIB_DIR) libavenconding.so

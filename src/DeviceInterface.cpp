@@ -31,7 +31,7 @@ using namespace std;
 namespace br{
 namespace ufscar{
 namespace lince{
-namespace streaming{
+namespace avenconding{
 
 #ifndef SHM_DEVICE_INFO
 #define SHM_DEVICE_INFO

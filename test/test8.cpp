@@ -10,11 +10,11 @@
  * for 8 seconds, after this time, the transcoding process is aborted by the method stop.
  */
 
-#include <streaming/X11Terminal.h>
-#include <streaming/AVEncoder.h>
-#include <streaming/RTPStream.h>
+#include <avenconding/X11Terminal.h>
+#include <avenconding/AVEncoder.h>
+#include <avenconding/RTPStream.h>
 
-using namespace ::br::ufscar::lince::streaming;
+using namespace ::br::ufscar::lince::avenconding;
 
 int main() {
 	AVSource* device = new X11Terminal(1280, 1024, 25);

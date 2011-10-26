@@ -37,8 +37,8 @@ CPP_DEPS += \
 # Each subdirectory must supply rules for building sources it contributes
 bindings/java/%.o: ../bindings/java/%.cpp
 	@echo 'Building file: $<'
-	@echo 'Invoking: GCC C++ Compiler'
-	g++ -I/opt/java/include -I/opt/java/include/linux -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o"$@" "$<"
+	@echo 'Invoking: Cross G++ Compiler'
+	g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

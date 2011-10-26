@@ -9,13 +9,13 @@
  * The coded video is used to generate a RTP Stream addressed to the localhost on port 5004.
  */
 
-#include <streaming/X11Terminal.h>
-#include <streaming/AVSource.h>
-#include <streaming/AVEncoder.h>
-#include <streaming/Streaming.h>
-#include <streaming/RTPStream.h>
+#include <avenconding/X11Terminal.h>
+#include <avenconding/AVSource.h>
+#include <avenconding/AVEncoder.h>
+#include <avenconding/Streaming.h>
+#include <avenconding/RTPStream.h>
 
-using namespace ::br::ufscar::lince::streaming;
+using namespace ::br::ufscar::lince::avenconding;
 
 int main() {
 	AVSource* source = new X11Terminal(25);

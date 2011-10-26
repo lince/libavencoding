@@ -9,31 +9,28 @@
  * using the video codec h264 and coping the original audio stream to the new file. It's generating
  * a new file called outputfile.mp4
  */
-#include <streaming/AVInputFile.h>
-#include <streaming/AVEncoder.h>
-#include <streaming/AVOutputFile.h>
+#include <avenconding/AVInputFile.h>
+#include <avenconding/AVEncoder.h>
+#include <avenconding/AVOutputFile.h>
 
-using namespace ::br::ufscar::lince::streaming;
+using namespace ::br::ufscar::lince::avenconding;
 
 int main() {
-	AVSource* videoInput = new AVInputFile("video.mp4", "mp4");
+	AVSource* videoInput = new AVInputFile("sintel_trailer-720p.mp4", "mp4");
 
 	AVEncoder* encoder = new AVEncoder(videoInput);
 	encoder->setVideoCodec(H264);
 	encoder->setVideoPreset("veryslow");
 	encoder->setPropertyValue("crf", "24");
-	encoder->setVideoSize(1280, 720);
+	encoder->setVideoSize(400, 400);
 	AVEncoder* audio = new AVEncoder(videoInput);
-	audio->setAudioCodec(A_COPY);
+	audio->setAudioCodec(MP3);
 
 	AVOutputFile* videoOutput = new AVOutputFile("outputfile.mp4");
 	videoOutput->addStream(encoder);
 	videoOutput->addStream(audio);
 	videoOutput->start();
 
-	while(!videoOutput->isFinished()) {
-		usleep(1000);
-	}
-
+	videoOutput->waitFinishing();
 	return 0;
 }

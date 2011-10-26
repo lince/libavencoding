@@ -15,7 +15,7 @@ using namespace cpputil;
 namespace br {
 namespace ufscar {
 namespace lince {
-namespace streaming {
+namespace avenconding {
 
 AlsaDevice::AlsaDevice(int cardId, int interfaceId, int captureRate) : AVSource("alsa") {
 	this->cardId = cardId;

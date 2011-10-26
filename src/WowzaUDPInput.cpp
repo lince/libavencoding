@@ -19,14 +19,14 @@ using namespace std;
 namespace br{
 namespace ufscar{
 namespace lince{
-namespace streaming{
+namespace avenconding{
 
 WowzaUDPInput::WowzaUDPInput(string ip, int port) : Streaming() {
 	this->ip = ip;
 	this->port = port;
 	source = NULL;
 	encoder = NULL;
-	FFMpeg_init();
+	FFMpeg_init(0);
 }
 
 WowzaUDPInput::~WowzaUDPInput() {
@@ -53,13 +53,13 @@ void WowzaUDPInput::run() {
 	FFMpeg_setVideoBitrate((char*)"150000");
 
 	FFMpeg_setFormat((char*)"mpegts");
-	FFMpeg_setVideoBsf((char*)"h264_mp4toannexb");
+	FFMpeg_setVideoBitstreamFilter((char*)"h264_mp4toannexb");
 	string outputfile = "udp://" + ip + ":" +
 			Functions::numberToString(port) + "?pkt_size=1316";
 
 	FFMpeg_setOutputFile((char*) outputfile.c_str());
 	FFMpeg_transcode();
-	FFMpeg_reset();
+	FFMpeg_reset(__LINE__);
 	finished = true;
 	Thread::unlockConditionSatisfied();
 }

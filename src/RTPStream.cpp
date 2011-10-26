@@ -21,13 +21,13 @@ using namespace cpputil;
 namespace br {
 namespace ufscar {
 namespace lince {
-namespace streaming {
+namespace avenconding {
 
 RTPStream::RTPStream(string ip, int port) : Streaming() {
 	this->ip = ip;
 	this->port = port;
 	this->output = NULL;
-	FFMpeg_init();
+	FFMpeg_init(1);
 }
 
 RTPStream::~RTPStream() {
@@ -62,7 +62,7 @@ inline void RTPStream::run() {
 	string outputfile = "rtp://" + ip + ":" + Functions::numberToString(port);
 	FFMpeg_setOutputFile((char*) outputfile.c_str());
 	FFMpeg_transcode();
-	FFMpeg_reset();
+	FFMpeg_reset(__LINE__);
 	finished = true;
 	Thread::unlockConditionSatisfied();
 }

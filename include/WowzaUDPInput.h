@@ -21,7 +21,7 @@ using namespace std;
 namespace br{
 namespace ufscar{
 namespace lince{
-namespace streaming{
+namespace avenconding{
 
 /**
  * This class is used to generate a MpegTS of a audio and video stream addressed to the

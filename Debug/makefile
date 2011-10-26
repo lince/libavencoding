@@ -40,19 +40,19 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: streaming-cpp
+all: liblibavencoding.so
 
 # Tool invocations
-streaming-cpp: $(OBJS) $(USER_OBJS)
+liblibavencoding.so: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
-	@echo 'Invoking: GCC C++ Linker'
-	g++  -o"streaming-cpp" $(OBJS) $(USER_OBJS) $(LIBS)
+	@echo 'Invoking: Cross G++ Linker'
+	g++ -shared -o "liblibavencoding.so" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(OBJS)$(C++_DEPS)$(C_DEPS)$(CC_DEPS)$(CPP_DEPS)$(EXECUTABLES)$(CXX_DEPS)$(C_UPPER_DEPS) streaming-cpp
+	-$(RM) $(C++_DEPS)$(OBJS)$(C_DEPS)$(CC_DEPS)$(LIBRARIES)$(CPP_DEPS)$(CXX_DEPS)$(C_UPPER_DEPS) liblibavencoding.so
 	-@echo ' '
 
 .PHONY: all clean dependents

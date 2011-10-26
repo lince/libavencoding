@@ -15,7 +15,7 @@
 namespace br{
 namespace ufscar{
 namespace lince{
-namespace streaming{
+namespace avenconding{
 
 /**
  * This class represents a input device that used the Unix Shared Memory to generate images.

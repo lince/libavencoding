@@ -9,10 +9,13 @@
 #include <libffmpeg/libffmpeg.h>
 #include "../include/AVInputFile.h"
 
+#include <iostream>
+using namespace std;
+
 namespace br{
 namespace ufscar{
 namespace lince{
-namespace streaming{
+namespace avenconding{
 
 AVInputFile::AVInputFile(string filename,
 		string format) : AVSource(format) {
@@ -31,7 +34,11 @@ void AVInputFile::configure(void *ffrapper_) {
 	configured = true;
 
 	FFMpeg_setFormat( (char*) getFormat().c_str());
-	FFMpeg_setInputFile( (char*) getFilename().c_str());
+	if (FFMpeg_setInputFile( (char*) getFilename().c_str())
+			!= FFMpeg_SUCCESS) {
+
+		cerr << FFMpeg_getErrorStr() << endl;
+	}
 }
 
 AVInputFile::~AVInputFile() {

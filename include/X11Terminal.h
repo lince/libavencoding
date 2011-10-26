@@ -14,7 +14,7 @@
 namespace br {
 namespace ufscar {
 namespace lince {
-namespace streaming {
+namespace avenconding {
 
 /**
  * This class allow to use the X11 Terminal as a video source.

@@ -21,7 +21,7 @@ using namespace cpputil;
 namespace br {
 namespace ufscar {
 namespace lince {
-namespace streaming {
+namespace avenconding {
 
 /**
  * Enumeration with the image codecs supported.

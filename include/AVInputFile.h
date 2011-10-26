@@ -14,7 +14,7 @@
 namespace br{
 namespace ufscar{
 namespace lince{
-namespace streaming{
+namespace avenconding{
 
 /**
  * This class represents a audio/video file that will be used as a input for trascoding process.

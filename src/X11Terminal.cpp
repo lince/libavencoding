@@ -21,7 +21,7 @@ using namespace std;
 namespace br {
 namespace ufscar {
 namespace lince {
-namespace streaming {
+namespace avenconding {
 
 X11Terminal::X11Terminal(int width, int height, int fps) : AVSource("x11grab") {
 	this->width = width;
@@ -62,7 +62,7 @@ void X11Terminal::configure(void *_ffrapper) {
 
 	FFMpeg_setFormat((char*) "x11grab");
 	FFMpeg_setFramerate((char*) Functions::numberToString(fps).c_str());
-	FFMpeg_setFrameSize1(width, height);
+	FFMpeg_setFrameSize2(width, height);
 	FFMpeg_setInputFile((char*) ":0.0");
 }
 

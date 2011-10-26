@@ -11,7 +11,7 @@
 namespace br{
 namespace ufscar{
 namespace lince{
-namespace streaming{
+namespace avenconding{
 
 AVSource::AVSource(string format) {
 	this->format = format;

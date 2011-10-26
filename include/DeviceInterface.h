@@ -11,7 +11,7 @@
 namespace br{
 namespace ufscar{
 namespace lince{
-namespace streaming{
+namespace avenconding{
 
 /**
  * Provide a interface with the a virtual Device created in memory.

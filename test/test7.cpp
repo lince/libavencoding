@@ -9,10 +9,10 @@
  * images files called fileshot.jpg using the image codec mjpeg.
  */
 
-#include <streaming/AVInputFile.h>
-#include <streaming/ImageShotter.h>
+#include <avenconding/AVInputFile.h>
+#include <avenconding/ImageShotter.h>
 
-using namespace ::br::ufscar::lince::streaming;
+using namespace ::br::ufscar::lince::avenconding;
 
 int main(int argc, char** argv) {
 	AVInputFile* inputfile = new AVInputFile("/home/caioviel/Desktop/Videos/arg_ger.mp4", "mp4");

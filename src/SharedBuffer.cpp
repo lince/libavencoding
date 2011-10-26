@@ -16,7 +16,7 @@ using namespace cpputil;
 namespace br{
 namespace ufscar{
 namespace lince{
-namespace streaming{
+namespace avenconding{
 
 SharedBuffer::SharedBuffer() : AVSource("shmgrab") {
 	device = DeviceInterface::getInstance();

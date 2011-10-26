@@ -3,7 +3,7 @@
 namespace br{
 namespace ufscar{
 namespace lince{
-namespace streaming{
+namespace avenconding{
 
 
 DeviceException::DeviceException(string m) : msg(m) {

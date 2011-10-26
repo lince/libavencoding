@@ -20,7 +20,7 @@ using namespace std;
 namespace br{
 namespace ufscar{
 namespace lince{
-namespace streaming{
+namespace avenconding{
 
 int AVEncoder::NONE = -1;
 
@@ -212,7 +212,7 @@ void AVEncoder::configure(void* vffrapper) {
 	}
 
 	if (vWidth != NONE && vHeight != NONE) {
-		FFMpeg_setFrameSize1(vWidth, vHeight);
+		FFMpeg_setFrameSize2(vWidth, vHeight);
 	}
 
 	if (vcodec != NONE) {
@@ -230,7 +230,7 @@ void AVEncoder::configure(void* vffrapper) {
 		if (acodec ==  AAC) {
 			FFMpeg_setAudioCodec((char*)"libfaac");
 		} else if (acodec == MP3){
-			FFMpeg_setAudioCodec((char*)"mp3lame");
+			FFMpeg_setAudioCodec((char*)"libmp3lame");
 		} else if (acodec == A_COPY) {
 			FFMpeg_setAudioCodec((char*)"copy");
 		}

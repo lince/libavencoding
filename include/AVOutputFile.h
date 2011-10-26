@@ -23,7 +23,7 @@ using namespace std;
 namespace br {
 namespace ufscar {
 namespace lince {
-namespace streaming {
+namespace avenconding {
 
 /**
  * This class is used to generate a audio/video output file as result of a transcoding process.
