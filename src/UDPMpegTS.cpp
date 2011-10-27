@@ -26,7 +26,7 @@ UDPMpegTS::UDPMpegTS(string ip, int port) : Streaming() {
 	this->port = port;
 	sources = new vector<AVSource*>();
 	encoders = new 	vector<AVEncoder*>();
-	FFMpeg_init(0);
+	FFMpeg_init(5);
 }
 
 UDPMpegTS::~UDPMpegTS() {
@@ -52,20 +52,36 @@ void UDPMpegTS::addStream(AVEncoder *stream) {
 
 void UDPMpegTS::run() {
 	vector<AVSource*>::iterator it;
+	map<AVSource*, string> sourcesById;
+	map<AVSource*, int> sourcesByStream;
+	int idCount = 0;
 	for (it = sources->begin(); it != sources->end(); it++) {
 		AVSource* source = *it;
-		configure(source, (void*)NULL);
+		map<AVSource*, string>::iterator itMap;
+		itMap = sourcesById.find(source);
+		if (itMap == sourcesById.end()) {
+			sourcesById[source] = Functions::numberToString(idCount++);
+			sourcesByStream[source] = 0;
+			configure(source, (void*) NULL);
+		}
 	}
 
 	vector<AVEncoder*>::iterator it2;
 	for (it2 = encoders->begin(); it2 != encoders->end(); it2++) {
 		AVEncoder* encoder = *it2;
-		configure(encoder, (void*)NULL);
+		configure(encoder, (void*) NULL);
 	}
 
 	for (int i=0; i < sources->size(); i++) {
-		string mapOpp = Functions::numberToString(i);
-		mapOpp += ":0";
+		string fileId = sourcesById[sources->at(i)];
+		int stream = encoders->at(i)->getStreamId();
+		if (stream == -1) {
+			stream = sourcesByStream[sources->at(i)]++;
+		}
+		string streamId = Functions::numberToString(stream);
+
+		string mapOpp = fileId + "." + streamId;
+		cout << mapOpp << endl;
 		FFMpeg_setMap((char*) mapOpp.c_str());
 	}
 

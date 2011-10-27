@@ -1,13 +1,13 @@
 /*
- * test5.cpp
+ * videoFileToFileTest.cpp
  *
- *  Last Change: Oct 6, 2010
+ *  Last Change: Oct 27, 2011
  *       Author: Caio César Viel
- *        Email: caio_viel@comp.ufscar.br
+ *        Email: caio_viel@dc.ufscar.br
  *
- * This program transcodes the content of a audio/video file called video.mp4 into a new file,
- * using the video codec h264 and coping the original audio stream to the new file. It's generating
- * a new file called outputfile.mp4
+ * This program transcodes the content of file called "videosample.mp4" into a new file, using the
+ * video codec H264 and audio codec AAC, generating a new file called "newfile.mp4".
+ * It resizes the video to 400x400 during the transcode process.
  */
 #include "../include/AVInputFile.h"
 #include "../include/AVEncoder.h"
@@ -15,8 +15,8 @@
 
 using namespace ::br::ufscar::lince::avenconding;
 
-int main() {
-	AVSource* videoInput = new AVInputFile("sample.avi", "avi");
+int main(int argc, char** argv) {
+	AVSource* videoInput = new AVInputFile("videosample.mp4", "mp4");
 
 	AVEncoder* encoder = new AVEncoder(videoInput);
 	encoder->setVideoCodec(H264);
@@ -26,7 +26,7 @@ int main() {
 	AVEncoder* audio = new AVEncoder(videoInput);
 	audio->setAudioCodec(AAC);
 
-	AVOutputFile* videoOutput = new AVOutputFile("outputfile.mp4");
+	AVOutputFile* videoOutput = new AVOutputFile("newfile.mp4");
 	videoOutput->addStream(encoder);
 	videoOutput->addStream(audio);
 	videoOutput->start();

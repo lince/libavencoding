@@ -1,7 +1,8 @@
 CC=g++
 
-PROGRAMS= streamingRtpScreenTest videoFileToFileTest screenshotTest muxingVideoAndAudioTest
-#test2 test3 test4 test7 test8
+PROGRAMS= \
+		streamingRtpScreenTest videoFileToFileTest screenshotTest muxingVideoAndAudioTest \
+		streamingUDPTest audioFileToFileTest fileshotTest captureCamAndMicTest
 
 TAGS= -L.. -lavenconding -g -O0
 
@@ -13,11 +14,11 @@ streamingRtpScreenTest: streamingRtpScreenTest.cpp
 muxingVideoAndAudioTest: muxingVideoAndAudioTest.cpp
 	$(CC) muxingVideoAndAudioTest.cpp -o muxingVideoAndAudioTest $(TAGS)
 	
-test3: test3.cpp
-	$(CC) test3.cpp -o test3 $(TAGS)
+streamingUDPTest: streamingUDPTest.cpp
+	$(CC) streamingUDPTest.cpp -o streamingUDPTest $(TAGS)
 	
-test4: test4.cpp
-	$(CC) test4.cpp -o test4 $(TAGS)
+audioFileToFileTest: audioFileToFileTest.cpp
+	$(CC) audioFileToFileTest.cpp -o audioFileToFileTest $(TAGS)
 	
 videoFileToFileTest: videoFileToFileTest.cpp
 	$(CC) videoFileToFileTest.cpp -o videoFileToFileTest $(TAGS)
@@ -25,11 +26,11 @@ videoFileToFileTest: videoFileToFileTest.cpp
 screenshotTest: screenshotTest.cpp
 	$(CC) screenshotTest.cpp -o screenshotTest -lcpputil $(TAGS)
 	
-test7: test7.cpp
-	$(CC) test7.cpp -o test7 $(TAGS)
+fileshotTest: fileshotTest.cpp
+	$(CC) fileshotTest.cpp -o fileshotTest $(TAGS)
 	
-test8: test8.cpp
-	$(CC) test8.cpp -o test8 $(TAGS)
+captureCamAndMicTest: captureCamAndMicTest.cpp
+	$(CC) captureCamAndMicTest.cpp -o captureCamAndMicTest $(TAGS)
 	
 clean:
 	rm -f $(PROGRAMS)

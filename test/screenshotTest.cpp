@@ -1,26 +1,25 @@
 /*
- * test6.cpp
+ * screenshotTest.cpp
  *
- *  Last Change: Oct 6, 2010
+ *  Last Change: Oct 27, 2011
  *       Author: Caio César Viel
- *        Email: caio_viel@comp.ufscar.br
+ *        Email: caio_viel@dc.ufscar.br
  *
- * This program take two shot of the x11 (screen) and generate a images files called screenshot1.jpg
- * and screenshot2.jpg. It uses the image codec MJPEG.
+ * This program take shots of the x11 (screen) and generate a images files called screenshotX.jpg
+ * It uses the image codec MJPEG.
  */
 
 #include "../include/X11Terminal.h"
 #include "../include/ImageShotter.h"
-#include <libcpputil/Functions.h>
-
-#include <iostream>
-#include <string>
-using namespace std;
-
 using namespace ::br::ufscar::lince::avenconding;
+
+#include <libcpputil/Functions.h>
 using namespace ::cpputil;
 
-int main() {
+#include <iostream>
+using namespace std;
+
+int main(int argc, char** argv) {
 	AVSource* x11terminal = new X11Terminal(1280, 1024, 24);
 	ImageShotter* shotter = new ImageShotter(x11terminal);
 

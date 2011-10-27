@@ -61,6 +61,8 @@ void ImageShotter::takeShot(string nfilename, int ltime) {
 	settedTime = true;
 	time = Functions::numberToString(ltime);
 	filename = nfilename;
+	started = true;
+	finished = false;
 	start();
 }
 void ImageShotter::takeShot(string nfilename, string stime) {
@@ -68,12 +70,14 @@ void ImageShotter::takeShot(string nfilename, string stime) {
 	time = stime;
 	filename = nfilename;
 	cout<<"Vamos chamar o start"<<endl;
+	started = true;
+	finished = false;
 	start();
 }
 
 void ImageShotter::setImageSize(int width, int heigh) {
 	this->width = width;
-	this->height = height;
+	this->height = heigh;
 }
 
 int ImageShotter::getImageWidht() {
@@ -101,7 +105,7 @@ void ImageShotter::run() {
 	static bool iniciado = false;
 	if (!iniciado) {
 		cout<<"Vamos Chamar o Init!"<<endl;
-		FFMpeg_init(0);
+		FFMpeg_init(5);
 		iniciado = true;
 	}
 	configure(source, (void*) NULL);

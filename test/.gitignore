@@ -17,3 +17,9 @@
 /streamingRtpScreenTest
 /sample.mp3
 /muxingVideoAndAudioTest
+/streamingUDPTest
+/captureCamAndMicTest
+/output.mp4
+/saida.mp4
+/audioFileToFileTest
+/imageFromVideo

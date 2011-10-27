@@ -245,6 +245,7 @@ void AVEncoder::configure(void* vffrapper) {
 	if (audioBitrate != NONE) {
 		string aux = Functions::numberToString(audioBitrate);
 		aux +="k";
+		cout << "Trying to set audiobitrate -> " << aux << endl;
 		FFMpeg_setAudioBitrate((char*) aux.c_str());
 	}
 
