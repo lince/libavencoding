@@ -63,7 +63,9 @@ void X11Terminal::configure(void *_ffrapper) {
 	FFMpeg_setFormat((char*) "x11grab");
 	FFMpeg_setFramerate((char*) Functions::numberToString(fps).c_str());
 	FFMpeg_setFrameSize2(width, height);
-	FFMpeg_setInputFile((char*) ":0.0");
+	if (FFMpeg_setInputFile((char*) ":0.0") != FFMpeg_SUCCESS) {
+		cout << FFMpeg_getErrorStr() << endl;
+	}
 }
 
 int X11Terminal::getHeight() {

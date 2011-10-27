@@ -1,16 +1,17 @@
 CC=g++
 
-PROGRAMS= test1 test2 test3 test4 videoFileToFileTest screenshotTest test7 test8
+PROGRAMS= streamingRtpScreenTest videoFileToFileTest screenshotTest muxingVideoAndAudioTest
+#test2 test3 test4 test7 test8
 
 TAGS= -L.. -lavenconding -g -O0
 
 ALL: $(PROGRAMS)
 
-test1: test1.cpp
-	$(CC) test1.cpp -o test1 $(TAGS)
+streamingRtpScreenTest: streamingRtpScreenTest.cpp
+	$(CC) streamingRtpScreenTest.cpp -o streamingRtpScreenTest $(TAGS)
 	
-test2: test2.cpp
-	$(CC) test2.cpp -o test2 $(TAGS)
+muxingVideoAndAudioTest: muxingVideoAndAudioTest.cpp
+	$(CC) muxingVideoAndAudioTest.cpp -o muxingVideoAndAudioTest $(TAGS)
 	
 test3: test3.cpp
 	$(CC) test3.cpp -o test3 $(TAGS)

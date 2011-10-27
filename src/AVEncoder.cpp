@@ -24,7 +24,7 @@ namespace avenconding{
 
 int AVEncoder::NONE = -1;
 
-AVEncoder::AVEncoder(AVSource* avSource) {
+AVEncoder::AVEncoder(AVSource* avSource, int nStreamId) {
 	if (avSource == NULL) {
 		throw InitializationException(
 				"AVEncoder::AVEncoder(AVSource* avSource)\n"
@@ -33,6 +33,7 @@ AVEncoder::AVEncoder(AVSource* avSource) {
 				"AVEncoder(AVSource* )");
 	}
 	source = avSource;
+	streamId = nStreamId;
 	videoBitrate = NONE;
 	videoFps = NONE;
 	aspectRatio = (AspectRatio) NONE;
@@ -300,6 +301,14 @@ string AVEncoder::getVideoPreset() {
 
 string AVEncoder::getAudioPreset() {
 	return this->apreset;
+}
+
+int AVEncoder::getStreamId() {
+	return this->streamId;
+}
+
+void AVEncoder::setStreamId(int id) {
+	this->streamId = id;
 }
 
 }

@@ -71,7 +71,7 @@ public:
 	 * @param avSource the audio/video source.
 	 * @throw InitializationException if avSource is NULL.
 	 */
-	AVEncoder(AVSource* avSource);
+	AVEncoder(AVSource* avSource, int streamId=-1);
 
 	/**
 	 * Copy Constructor
@@ -289,6 +289,18 @@ public:
 	string getVideoPreset();
 
 	/**
+	 * This method returns the ffmpeg-presets used to coding video.
+	 * @return the ffmpeg preset.
+	 */
+	int getStreamId();
+
+	/**
+	 * This method returns the ffmpeg-presets used to coding video.
+	 * @param id The new stream id.
+	 */
+	void setStreamId(int id);
+
+	/**
 	 * This method returns the ffmpeg-presets used to coding audio.
 	 * @return the ffmpeg preset.
 	 */
@@ -340,6 +352,7 @@ private:
 	int audioChannelsNumber;
 	int threadsNumber;
 	AVSource* source;
+	int streamId;
 	string vpreset, apreset;
 	map<string, string>* properties;
 

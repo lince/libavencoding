@@ -17,22 +17,23 @@
 #include "../include/AVEncoder.h"
 #include "../include/Streaming.h"
 #include "../include/UDPMpegTS.h"
+#include "../include/RTPStream.h"
 
 using namespace ::br::ufscar::lince::avenconding;
 
 int main() {
 	AVSource* device = new X11Terminal(1280, 1024, 25);
-	AVSource* file = new AVInputFile("audio.mp3", "mp3");
+	//AVSource* file = new AVInputFile("audio.mp3", "mp3");
 
 	AVEncoder* encoderVid = new AVEncoder(device);
 	encoderVid->setVideoCodec(H264);
-	encoderVid->setVideoPreset("ultrafast");
+	encoderVid->setVideoPreset("ipod320");
 	encoderVid->setPropertyValue("crf", "22");
 
-	AVEncoder* encoderAud = new AVEncoder(file);
-	encoderAud->setAudioCodec(AAC);
+	//AVEncoder* encoderAud = new AVEncoder(file);
+	//encoderAud->setAudioCodec(AAC);
 
-	Streaming* streammer = new UDPMpegTS("127.0.0.1", 1234);
+	Streaming* streammer = new RTPStream("127.0.0.1", 5004);
 	streammer->addStream(encoderVid);
 	//streammer->addStream(encoderAud);
 	streammer->start();

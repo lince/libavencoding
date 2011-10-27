@@ -50,9 +50,18 @@ AVOutputFile::~AVOutputFile() {
 
 void AVOutputFile::run() {
 	vector<AVSource*>::iterator it;
+	map<AVSource*, string> sourcesById;
+	map<AVSource*, int> sourcesByStream;
+	int idCount = 0;
 	for (it = sources->begin(); it != sources->end(); it++) {
 		AVSource* source = *it;
-		configure(source, (void*) NULL);
+		map<AVSource*, string>::iterator itMap;
+		itMap = sourcesById.find(source);
+		if (itMap == sourcesById.end()) {
+			sourcesById[source] = Functions::numberToString(idCount++);
+			sourcesByStream[source] = 0;
+			configure(source, (void*) NULL);
+		}
 	}
 
 	vector<AVEncoder*>::iterator it2;
@@ -62,9 +71,14 @@ void AVOutputFile::run() {
 	}
 
 	for (int i=0; i < sources->size(); i++) {
-		string mapOpp = Functions::numberToString(i);
-		mapOpp += "." + Functions::numberToString(i);
-		//mapOpp += ":0";
+		string fileId = sourcesById[sources->at(i)];
+		int stream = encoders->at(i)->getStreamId();
+		if (stream == -1) {
+			stream = sourcesByStream[sources->at(i)]++;
+		}
+		string streamId = Functions::numberToString(stream);
+
+		string mapOpp = fileId + "." + streamId;
 		FFMpeg_setMap((char*) mapOpp.c_str());
 	}
 

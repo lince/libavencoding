@@ -16,15 +16,15 @@
 using namespace ::br::ufscar::lince::avenconding;
 
 int main() {
-	AVSource* videoInput = new AVInputFile("sintel_trailer-720p.mp4", "mp4");
+	AVSource* videoInput = new AVInputFile("sample.avi", "avi");
 
 	AVEncoder* encoder = new AVEncoder(videoInput);
 	encoder->setVideoCodec(H264);
-	encoder->setVideoPreset("veryslow");
+	encoder->setVideoPreset("ipod320");
 	encoder->setPropertyValue("crf", "24");
 	encoder->setVideoSize(400, 400);
 	AVEncoder* audio = new AVEncoder(videoInput);
-	audio->setAudioCodec(MP3);
+	audio->setAudioCodec(AAC);
 
 	AVOutputFile* videoOutput = new AVOutputFile("outputfile.mp4");
 	videoOutput->addStream(encoder);
