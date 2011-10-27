@@ -9,7 +9,7 @@
 #ifndef RTPSTREAM_H_
 #define RTPSTREAM_H_
 
-#include <cpputil/InitializationException.h>
+#include <libcpputil/InitializationException.h>
 using namespace cpputil;
 
 #include "Streaming.h"

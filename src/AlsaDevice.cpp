@@ -7,7 +7,7 @@
 
 #include "../include/AlsaDevice.h"
 
-#include <cpputil/Functions.h>
+#include <libcpputil/Functions.h>
 using namespace cpputil;
 
 #include <libffmpeg/libffmpeg.h>

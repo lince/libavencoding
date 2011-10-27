@@ -10,9 +10,9 @@
  * for 8 seconds, after this time, the transcoding process is aborted by the method stop.
  */
 
-#include <avenconding/X11Terminal.h>
-#include <avenconding/AVEncoder.h>
-#include <avenconding/RTPStream.h>
+#include "../include/X11Terminal.h"
+#include "../include/AVEncoder.h"
+#include "../include/RTPStream.h"
 
 using namespace ::br::ufscar::lince::avenconding;
 

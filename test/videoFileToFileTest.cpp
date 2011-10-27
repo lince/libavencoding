@@ -9,9 +9,9 @@
  * using the video codec h264 and coping the original audio stream to the new file. It's generating
  * a new file called outputfile.mp4
  */
-#include <avenconding/AVInputFile.h>
-#include <avenconding/AVEncoder.h>
-#include <avenconding/AVOutputFile.h>
+#include "../include/AVInputFile.h"
+#include "../include/AVEncoder.h"
+#include "../include/AVOutputFile.h"
 
 using namespace ::br::ufscar::lince::avenconding;
 

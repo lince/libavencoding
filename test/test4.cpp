@@ -9,9 +9,9 @@
  * audio codec acc, generating a new file called "output.mp4"
  */
 
-#include <avenconding/AVInputFile.h>
-#include <avenconding/AVEncoder.h>
-#include <avenconding/AVOutputFile.h>
+#include "../include/AVInputFile.h"
+#include "../include/AVEncoder.h"
+#include "../include/AVOutputFile.h"
 using namespace ::br::ufscar::lince::avenconding;
 
 

@@ -8,8 +8,8 @@
 #include "../include/V4L2Device.h"
 using namespace std;
 
-#include <cpputil/NotImplementedException.h>
-#include <cpputil/Functions.h>
+#include <libcpputil/NotImplementedException.h>
+#include <libcpputil/Functions.h>
 using namespace cpputil;
 
 #include <libffmpeg/libffmpeg.h>

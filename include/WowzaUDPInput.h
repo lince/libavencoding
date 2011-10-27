@@ -9,7 +9,7 @@
 #ifndef WOWZAUDPINPUT_H_
 #define WOWZAUDPINPUT_H_
 
-#include <cpputil/Functions.h>
+#include <libcpputil/Functions.h>
 using namespace cpputil;
 
 #include "Streaming.h"

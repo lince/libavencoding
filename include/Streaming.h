@@ -9,8 +9,8 @@
 #ifndef STREAMING_H_
 #define STREAMING_H_
 
-#include <cpputil/Thread.h>
-#include <cpputil/InitializationException.h>
+#include <libcpputil/Thread.h>
+#include <libcpputil/InitializationException.h>
 using namespace cpputil;
 
 #include "Transcoder.h"

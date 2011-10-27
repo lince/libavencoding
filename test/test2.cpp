@@ -11,12 +11,12 @@
  * to the localhost on port 5004.
  */
 
-#include <avenconding/X11Terminal.h>
-#include <avenconding/AVInputFile.h>
-#include <avenconding/AVSource.h>
-#include <avenconding/AVEncoder.h>
-#include <avenconding/Streaming.h>
-#include <avenconding/UDPMpegTS.h>
+#include "../include/X11Terminal.h"
+#include "../include/AVInputFile.h"
+#include "../include/AVSource.h"
+#include "../include/AVEncoder.h"
+#include "../include/Streaming.h"
+#include "../include/UDPMpegTS.h"
 
 using namespace ::br::ufscar::lince::avenconding;
 

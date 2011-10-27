@@ -10,7 +10,7 @@
 
 #include <libffmpeg/libffmpeg.h>
 
-#include <cpputil/Functions.h>
+#include <libcpputil/Functions.h>
 using namespace cpputil;
 
 #include "../include/X11Terminal.h"

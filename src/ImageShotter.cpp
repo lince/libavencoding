@@ -6,8 +6,8 @@
  *        Email: caio_viel@comp.ufscar.br
  */
 
-#include <cpputil/Functions.h>
-#include <cpputil/InitializationException.h>
+#include <libcpputil/Functions.h>
+#include <libcpputil/InitializationException.h>
 using namespace cpputil;
 
 #include <libffmpeg/libffmpeg.h>

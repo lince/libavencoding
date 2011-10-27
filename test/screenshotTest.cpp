@@ -9,9 +9,9 @@
  * and screenshot2.jpg. It uses the image codec MJPEG.
  */
 
-#include <avenconding/X11Terminal.h>
-#include <avenconding/ImageShotter.h>
-#include <cpputil/Functions.h>
+#include "../include/X11Terminal.h"
+#include "../include/ImageShotter.h"
+#include <libcpputil/Functions.h>
 
 #include <iostream>
 #include <string>

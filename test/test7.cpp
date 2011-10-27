@@ -9,8 +9,8 @@
  * images files called fileshot.jpg using the image codec mjpeg.
  */
 
-#include <avenconding/AVInputFile.h>
-#include <avenconding/ImageShotter.h>
+#include "../include/AVInputFile.h"
+#include "../include/ImageShotter.h"
 
 using namespace ::br::ufscar::lince::avenconding;
 

@@ -12,7 +12,7 @@
 #include <string>
 using namespace std;
 
-#include <cpputil/Thread.h>
+#include <libcpputil/Thread.h>
 using namespace cpputil;
 
 #include "AVSource.h"

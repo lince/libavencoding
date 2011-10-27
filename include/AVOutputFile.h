@@ -11,8 +11,8 @@
 
 #include <libffmpeg/libffmpeg.h>
 
-#include <cpputil/Thread.h>
-#include <cpputil/InitializationException.h>
+#include <libcpputil/Thread.h>
+#include <libcpputil/InitializationException.h>
 using namespace cpputil;
 
 #include <vector>

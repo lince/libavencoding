@@ -1,5 +1,5 @@
 CC=g++
-HEADES_DIR= /usr/local/include/avenconding
+HEADES_DIR= /usr/local/include/libavenconding
 LIB_DIR= /usr/local/lib
 
 INCLUDES=	include/AVEncoder.h \
@@ -46,9 +46,9 @@ libavenconding.so: $(INCLUDES) $(SOURCES)
 		-shared -o libavenconding.so -g
 	
 clean:
-	rm -f libstreaming.so
+	rm -f libavenconding.so
 		
-install: libstreaming.so
+install: libavenconding.so
 	install -d $(HEADES_DIR)
 	install -t $(HEADES_DIR) $(INCLUDES)
 	install -t $(LIB_DIR) libavenconding.so

@@ -8,8 +8,8 @@
 
 #include <libffmpeg/libffmpeg.h>
 
-#include <cpputil/Functions.h>
-#include <cpputil/InitializationException.h>
+#include <libcpputil/Functions.h>
+#include <libcpputil/InitializationException.h>
 using namespace cpputil;
 
 #include <iostream>
