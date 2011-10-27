@@ -10,10 +10,8 @@
 #define IMAGESHOTTER_H_
 
 #include <string>
-using namespace std;
-
+#include <libcpputil/logger/Logger.h>
 #include <libcpputil/Thread.h>
-using namespace cpputil;
 
 #include "AVSource.h"
 #include "Transcoder.h"
@@ -33,7 +31,7 @@ enum ImageCodec {MJPEG=1, GIF};
 /**
  * This class can take shots of video sources.
  */
-class ImageShotter : public Transcoder, protected Thread {
+class ImageShotter : public Transcoder, protected cpputil::Thread {
 public:
 	/**
 	 * Constructor

@@ -8,6 +8,8 @@
 #ifndef ALSADEVICE_H_
 #define ALSADEVICE_H_
 
+#include <string>
+
 #include "AVSource.h"
 
 namespace br {

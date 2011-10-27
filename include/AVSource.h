@@ -1,21 +1,20 @@
 /*
  * AVSource.h
  *
- *  Last Change: Oct 6, 2010
+ *  Last Change: Oct 27, 2011
  *       Author: Caio César Viel
- *        Email: caio_viel@comp.ufscar.br
+ *        Email: caio_viel@dc.ufscar.br
  */
 
 #ifndef AVSOURCE_H
 #define AVSOURCE_H
 
 #include <string>
-using namespace std;
 
-namespace br{
-namespace ufscar{
-namespace lince{
-namespace avenconding{
+namespace br {
+namespace ufscar {
+namespace lince {
+namespace avenconding {
 
 class Transcoder;
 
@@ -39,13 +38,13 @@ public:
 	 * inform implicitly the used format.
 	 * @param format the format of the audio/video of the source.
 	 */
-	AVSource(string format);
+	AVSource(std::string format);
 
 	/**
 	 * Return the format of the audio/video of the source
 	 * @return
 	 */
-	virtual string getFormat();
+	virtual std::string getFormat();
 
 	/**
 	 * Virtual Destroctor
@@ -64,7 +63,7 @@ protected:
 	bool configured;
 
 private:
-	string format;
+	std::string format;
 
 };
 

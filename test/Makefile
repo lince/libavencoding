@@ -4,7 +4,7 @@ PROGRAMS= \
 		streamingRtpScreenTest videoFileToFileTest screenshotTest muxingVideoAndAudioTest \
 		streamingUDPTest audioFileToFileTest fileshotTest captureCamAndMicTest
 
-TAGS= -L.. -lavenconding -g -O0
+TAGS= -L.. -lavenconding -lcpputil -g -O0
 
 ALL: $(PROGRAMS)
 
@@ -24,7 +24,7 @@ videoFileToFileTest: videoFileToFileTest.cpp
 	$(CC) videoFileToFileTest.cpp -o videoFileToFileTest $(TAGS)
 	
 screenshotTest: screenshotTest.cpp
-	$(CC) screenshotTest.cpp -o screenshotTest -lcpputil $(TAGS)
+	$(CC) screenshotTest.cpp -o screenshotTest $(TAGS)
 	
 fileshotTest: fileshotTest.cpp
 	$(CC) fileshotTest.cpp -o fileshotTest $(TAGS)

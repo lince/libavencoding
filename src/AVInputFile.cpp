@@ -1,43 +1,62 @@
 /*
  * AVInputFile.cpp
  *
- *  Last Change: Oct 6, 2010
+ *  Last Change: Oct 27, 2011
  *       Author: Caio César Viel
- *        Email: caio_viel@comp.ufscar.br
+ *        Email: caio_viel@dc.ufscar.br
  */
 
 #include <libffmpeg/libffmpeg.h>
 #include "../include/AVInputFile.h"
 
-#include <iostream>
+#include <string>
 using namespace std;
+
+#include <libcpputil/IllegalParameterException.h>
+using namespace cpputil;
+
+#include <libcpputil/logger/Logger.h>
+using namespace cpputil::logger;
 
 namespace br{
 namespace ufscar{
 namespace lince{
 namespace avenconding{
 
-AVInputFile::AVInputFile(string filename,
-		string format) : AVSource(format) {
+AVInputFile::AVInputFile(std::string filename, std::string format) :
+		AVSource(format), Loggable("br::ufscar::lince::avenconding::AVInputFile") {
+	this->trace("begin constructor");
 
 	this->filename = filename;
 }
 
-string AVInputFile::getFilename() {
+std::string AVInputFile::getFilename() {
 	return filename;
 }
 
 void AVInputFile::configure(void *ffrapper_) {
+	trace("begin configure(void*)");
 	/*if (configured) {
 		return;
 	}*/
 	configured = true;
 
-	FFMpeg_setFormat( (char*) getFormat().c_str());
+	if (FFMpeg_setFormat( (char*) getFormat().c_str()) != FFMpeg_SUCCESS) {
+		error("Error trying to set the format.");
+		throw IllegalParameterException(
+				FFMpeg_getErrorStr(),
+				"br::ufscar::lince::avenconding::AVInputFile",
+				"configure(void*)");
+	}
+
 	if (FFMpeg_setInputFile( (char*) getFilename().c_str())
 			!= FFMpeg_SUCCESS) {
 
-		cerr << FFMpeg_getErrorStr() << endl;
+		error("Error trying to set the output file name.");
+		throw IllegalParameterException(
+				FFMpeg_getErrorStr(),
+				"br::ufscar::lince::avenconding::AVInputFile",
+				"configure(void*)");
 	}
 }
 

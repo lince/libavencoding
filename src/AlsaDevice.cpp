@@ -44,7 +44,7 @@ void AlsaDevice::configure(void* ffrapper) {
 	//FFMpeg_setFramerate((char*) captureRate);
 	//FFMpeg_setFrameSize1(width, height);
 	/* hw:1,0 */
-	string deviceName = "hw:";
+	std::string deviceName = "hw:";
 	deviceName += Functions::numberToString(cardId);
 	deviceName += ",";
 	deviceName += Functions::numberToString(interfaceId);

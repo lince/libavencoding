@@ -9,24 +9,31 @@
 #ifndef AVINPUTFILE_H_
 #define AVINPUTFILE_H_
 
+#include <libcpputil/logger/Logger.h>
+
+#include <string>
+
 #include "AVSource.h"
 
-namespace br{
-namespace ufscar{
-namespace lince{
-namespace avenconding{
+namespace br {
+namespace ufscar {
+namespace lince {
+namespace avenconding {
+
+//TODO: Permitir setar o formato do arquivo por um enum.
+//TODO: Permitir abrir o arquivo e obter infomrações sobre ele.
 
 /**
  * This class represents a audio/video file that will be used as a input for trascoding process.
  */
-class AVInputFile : public AVSource {
+class AVInputFile : public AVSource, public cpputil::logger::Loggable  {
 public:
 	/**
 	 * Constructor.
 	 * @param filename The name of the file.
 	 * @format The format of the audio/video in the file.
 	 */
-	AVInputFile(string filename, string format);
+	AVInputFile(std::string filename, std::string format);
 
 	/**
 	 * Virtual Destructor
@@ -37,7 +44,7 @@ public:
 	 * Return the name of the file.
 	 * @return name of the file.
 	 */
-	string getFilename();
+	std::string getFilename();
 
 protected:
 	/**
@@ -49,7 +56,7 @@ protected:
 	void configure(void* ffrapper);
 
 private:
-	string filename;
+	std::string filename;
 
 };
 

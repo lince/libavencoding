@@ -9,14 +9,19 @@
  * audio codec libmp3lame, generating a new file called "newaudio.mp3".
  */
 
+#include <libcpputil/logger/LoggerManager.h>
+using namespace cpputil::logger;
+
 #include "../include/AVInputFile.h"
 #include "../include/AVEncoder.h"
 #include "../include/AVOutputFile.h"
-
 using namespace ::br::ufscar::lince::avenconding;
 
 int main(int argc, char** argv) {
-	AVSource* accFile = new AVInputFile("audiosample.aac", "aa	c");
+	LoggerManager* lm = LoggerManager::getInstance();
+	lm->readConfigurationFile("config.xml");
+
+	AVSource* accFile = new AVInputFile("audiosample.aac", "aac");
 
 	AVEncoder* endocer = new AVEncoder(accFile);
 	endocer->setAudioCodec(MP3);

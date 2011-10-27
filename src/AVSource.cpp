@@ -1,9 +1,9 @@
 /*
  * AVSource.h
  *
- *  Last Change: Oct 6, 2010
+ *  Last Change: Oct 27, 2011
  *       Author: Caio César Viel
- *        Email: caio_viel@comp.ufscar.br
+ *        Email: caio_viel@dc.ufscar.br
  */
 
 #include "../include/AVSource.h"
@@ -13,12 +13,13 @@ namespace ufscar{
 namespace lince{
 namespace avenconding{
 
-AVSource::AVSource(string format) {
+AVSource::AVSource(std::string format) {
+
 	this->format = format;
 	configured = false;
 }
 
-string AVSource::getFormat() {
+std::string AVSource::getFormat() {
 	return this->format;
 }
 
