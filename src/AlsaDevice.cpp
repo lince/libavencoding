@@ -29,11 +29,12 @@ AlsaDevice::AlsaDevice(int cardId, int interfaceId, int captureRate) :
 	this->cardId = cardId;
 	this->interfaceId = interfaceId;
 	this->captureRate = captureRate;
+	this->channelsNumber = 2;
 }
 
 AlsaDevice::~AlsaDevice() {
 	trace("begin destructor");
-	this->unregister();
+	//this->unregister();
 
 }
 
@@ -52,6 +53,11 @@ int AlsaDevice::getCaptureRate() {
 void AlsaDevice::configure(void* ffrapper) {
 	trace("begin configure(void*)");
 
+	/*if (configured) {
+		return;
+	}
+	configured = true;*/
+
 	if (FFMpeg_setFormat((char*) "alsa") != FFMpeg_SUCCESS) {
 		error("Error trying to set format.");
 		throw IllegalParameterException(
@@ -62,6 +68,14 @@ void AlsaDevice::configure(void* ffrapper) {
 
 	if (FFMpeg_setAudioRate(captureRate) != FFMpeg_SUCCESS) {
 		error("Error trying to set audio sample rate.");
+		throw IllegalParameterException(
+				FFMpeg_getErrorStr(),
+				"br::ufscar::lince::avencoding::AlsaDevice",
+				"configure(void*)");
+	}
+
+	if (FFMpeg_setAudioChannels(channelsNumber) != FFMpeg_SUCCESS) {
+		error("Error trying to set audio channels number.");
 		throw IllegalParameterException(
 				FFMpeg_getErrorStr(),
 				"br::ufscar::lince::avencoding::AlsaDevice",
@@ -81,6 +95,14 @@ void AlsaDevice::configure(void* ffrapper) {
 				"br::ufscar::lince::avencoding::AlsaDevice",
 				"configure(void*)");
 	}
+}
+
+void AlsaDevice::setChannelsNumber(int channelsNumber) {
+	this->channelsNumber = channelsNumber;
+}
+
+int AlsaDevice::getChannelsNumber() {
+	return this->channelsNumber;
 }
 
 }

@@ -31,6 +31,10 @@ public:
 
 	int getCaptureRate();
 
+	void setChannelsNumber(int channelsNumber);
+
+	int getChannelsNumber();
+
 protected:
 	/**
 	 * This protected method is internally used to allow the X11Terminal's instance to configure
@@ -44,6 +48,7 @@ private:
 	int cardId;
 	int interfaceId;
 	int captureRate;
+	int channelsNumber;
 };
 
 }

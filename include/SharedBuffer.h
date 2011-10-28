@@ -9,13 +9,15 @@
 #ifndef SHAREDBUFFER_H_
 #define SHAREDBUFFER_H_
 
+#include <libcpputil/logger/Logger.h>
+
 #include "AVSource.h"
 #include "DeviceInterface.h"
 
-namespace br{
-namespace ufscar{
-namespace lince{
-namespace avencoding{
+namespace br {
+namespace ufscar {
+namespace lince {
+namespace avencoding {
 
 /**
  * This class represents a input device that used the Unix Shared Memory to generate images.
@@ -24,7 +26,7 @@ namespace avencoding{
  * An application that generate image and video must put its in a shared buffer, using the
  * DeviceInterface class.
  */
-class SharedBuffer : public AVSource {
+class SharedBuffer : public AVSource, public cpputil::logger::Loggable {
 public:
 	/**
 	 * Construtor
