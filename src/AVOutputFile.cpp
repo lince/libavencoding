@@ -19,7 +19,7 @@ using namespace std;
 namespace br {
 namespace ufscar {
 namespace lince {
-namespace avenconding {
+namespace avencoding {
 
 AVOutputFile::AVOutputFile(string filename, string format, bool fileOverwrite) : Transcoder() {
 	finished = false;
@@ -129,7 +129,7 @@ void AVOutputFile::waitFinishing() {
 	if (!started) {
 		throw new InitializationException(
 				"Transconding Process haven't started yet",
-				"br::ufscar::lince::streaming::AVOutputFile",
+				"br::ufscar::lince::avencoding::AVOutputFile",
 				"waitFinishing()");
 	}
 	Thread::waitForUnlockCondition();

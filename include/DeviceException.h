@@ -8,24 +8,21 @@
 #ifndef DEVICEEXCEPTION_H_
 #define DEVICEEXCEPTION_H_
 
-#include <exception>
+#include <libcpputil/SimpleException.h>
 #include <string>
-
-using namespace std;
 
 namespace br{
 namespace ufscar{
 namespace lince{
-namespace avenconding{
+namespace avencoding{
 
-class DeviceException : public exception {
+class DeviceException : public cpputil::SimpleException {
 public:
-	DeviceException(string m="Device Exception!");
-	~DeviceException() throw();
-	const char* what() const throw();
+	DeviceException(std::string e, std::string c, std::string m) :
+			cpputil::SimpleException (e, c, m) {
 
-private:
-	string msg;
+		setExceptionSign("br::ufscar::lince::avencoding::DeviceException");
+	}
 };
 
 }

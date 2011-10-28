@@ -19,7 +19,7 @@ using namespace std;
 namespace br{
 namespace ufscar{
 namespace lince{
-namespace avenconding{
+namespace avencoding{
 
 WowzaUDPInput::WowzaUDPInput(string ip, int port) : Streaming() {
 	this->ip = ip;

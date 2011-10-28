@@ -13,7 +13,7 @@
 #include "../include/AVEncoder.h"
 #include "../include/AVOutputFile.h"
 
-using namespace ::br::ufscar::lince::avenconding;
+using namespace ::br::ufscar::lince::avencoding;
 
 int main(int argc, char** argv) {
 	AVSource* videoInput = new AVInputFile("videosample.mp4", "mp4");

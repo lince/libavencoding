@@ -21,7 +21,7 @@ using namespace std;
 namespace br {
 namespace ufscar {
 namespace lince {
-namespace avenconding {
+namespace avencoding {
 
 X11Terminal::X11Terminal(int width, int height, int fps) : AVSource("x11grab") {
 	this->width = width;

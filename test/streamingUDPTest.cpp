@@ -14,7 +14,7 @@
 #include "../include/AVEncoder.h"
 #include "../include/UDPMpegTS.h"
 
-using namespace ::br::ufscar::lince::avenconding;
+using namespace ::br::ufscar::lince::avencoding;
 
 int main(int argc, char** argv) {
 

@@ -18,7 +18,7 @@ using namespace cpputil;
 namespace br {
 namespace ufscar {
 namespace lince {
-namespace avenconding {
+namespace avencoding {
 
 /**
  * This class is used to generate a RTP Stream of a audio/video coded of a source.

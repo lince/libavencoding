@@ -8,6 +8,8 @@
 #ifndef ALSADEVICE_H_
 #define ALSADEVICE_H_
 
+#include <libcpputil/logger/Logger.h>
+
 #include <string>
 
 #include "AVSource.h"
@@ -15,9 +17,9 @@
 namespace br {
 namespace ufscar {
 namespace lince {
-namespace avenconding {
+namespace avencoding {
 
-class AlsaDevice : public AVSource {
+class AlsaDevice : public AVSource, public cpputil::logger::Loggable {
 public:
 	AlsaDevice(int cardId, int interfaceId, int captureRate=16000);
 

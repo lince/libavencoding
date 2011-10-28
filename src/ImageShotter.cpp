@@ -20,7 +20,7 @@ using namespace std;
 namespace br {
 namespace ufscar {
 namespace lince {
-namespace avenconding {
+namespace avencoding {
 
 ImageShotter::ImageShotter(AVSource* source) : Thread() {
 	this->source = source;
@@ -42,7 +42,7 @@ void ImageShotter::waitFinishing() {
 	if (!started) {
 		throw new InitializationException(
 				"Transconding Process haven't started yet",
-				"br::ufscar::lince::ImageShotter",
+				"br::ufscar::lince::avencoding::ImageShotter",
 				"waitFinishing()");
 	}
 	Thread::waitForUnlockCondition();

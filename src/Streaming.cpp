@@ -11,7 +11,7 @@
 namespace br{
 namespace ufscar{
 namespace lince{
-namespace avenconding{
+namespace avencoding{
 
 	Streaming::Streaming() : Transcoder() {
 		finished = false;
@@ -26,7 +26,7 @@ namespace avenconding{
 		if (!started) {
 			throw new InitializationException(
 					"Transconding Process haven't started yet",
-					 "br::ufscar::lince::streaming::Streaming",
+					 "br::ufscar::lince::avencoding::Streaming",
 					 "waitFinishing()");
 		}
 		Thread::waitForUnlockCondition();

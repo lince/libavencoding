@@ -18,7 +18,7 @@ using namespace cpputil;
 namespace br{
 namespace ufscar{
 namespace lince{
-namespace avenconding{
+namespace avencoding{
 
 /**
  * Streaming a audio/video stream encoded by some encoder.

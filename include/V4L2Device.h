@@ -8,14 +8,18 @@
 #ifndef V4L2DEVICE_H_
 #define V4L2DEVICE_H_
 
+//TODO: Obter informações sobre o device via api v4l2.
+
 #include "AVSource.h"
+
+#include <libcpputil/logger/Logger.h>
 
 namespace br {
 namespace ufscar {
 namespace lince {
-namespace avenconding {
+namespace avencoding {
 
-class V4L2Device : public AVSource {
+class V4L2Device : public AVSource, public cpputil::logger::Loggable {
 public:
 	/**
 	 * Construtor.
@@ -24,13 +28,13 @@ public:
 	 * it will be assumed the 0 value.
 	 * @param deviceId the id of the video device.
 	 */
-	V4L2Device(int deviceId=0);
+	V4L2Device(int deviceId=0, int fps=24);
 
 	/**
 	 * Construtor.
 	 * @param path the path of the device to open.
 	 */
-	V4L2Device(std::string path);
+	V4L2Device(std::string path, int fps=24);
 
 	/**
 	 * Virtual Destructor
@@ -72,6 +76,7 @@ protected:
 
 private:
 	std::string deviceName;
+	int fps;
 };
 
 }

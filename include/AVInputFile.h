@@ -18,7 +18,7 @@
 namespace br {
 namespace ufscar {
 namespace lince {
-namespace avenconding {
+namespace avencoding {
 
 //TODO: Permitir setar o formato do arquivo por um enum.
 //TODO: Permitir abrir o arquivo e obter infomrações sobre ele.

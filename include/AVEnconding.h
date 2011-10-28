@@ -3,7 +3,7 @@
 namespace br {
 namespace ufscar {
 namespace lince {
-namespace avenconding {
+namespace avencoding {
 
 class MyEnum {
 protected:

@@ -14,6 +14,8 @@
 
 using namespace std;
 
+using namespace cpputil::logger;
+
 #define SHMKEY 7101
 #define SHMINFOKEY 4687
 #define SEMKEY 1246
@@ -31,7 +33,7 @@ using namespace std;
 namespace br{
 namespace ufscar{
 namespace lince{
-namespace avenconding{
+namespace avencoding{
 
 #ifndef SHM_DEVICE_INFO
 #define SHM_DEVICE_INFO
@@ -48,12 +50,15 @@ typedef struct {
 
 DeviceInterface* DeviceInterface::_instance = NULL;
 
-DeviceInterface::DeviceInterface() {
+DeviceInterface::DeviceInterface() : Loggable("br::ufscar::lince::avencoding::DeviceInterface") {
+
+	trace("begin constructor");
 	unmounted = true;
 }
 
 DeviceInterface::~DeviceInterface() {
-
+	trace("begin destructor");
+	unregister();
 }
 
 void DeviceInterface::lock() {
@@ -82,6 +87,8 @@ DeviceInterface* DeviceInterface::getInstance() {
 }
 
 void DeviceInterface::initDeviceInfo() {
+	trace("begin initDeviceInfo()");
+
 	union semun sem_un;
 	DeviceInfo* info;
 
@@ -101,6 +108,8 @@ void DeviceInterface::initDeviceInfo() {
 }
 
 void DeviceInterface::mount(int width, int height, int bitsPerPixel, int fps) {
+	trace ("begin mount(int, int, int, int");
+
 	if (unmounted) {
 		unmounted = false;
 		this->width = width;
@@ -109,9 +118,10 @@ void DeviceInterface::mount(int width, int height, int bitsPerPixel, int fps) {
 		this->fps = fps;
 		this->shmsize = width*height*(bitsPerPixel/8);
 	} else {
-		DeviceException exp("Error: void DeviceInterface::mount\n"
-							"\t\tShared Memory already created.");
-		throw exp;
+		throw DeviceException(
+				"Shared Memory buffer has been already created.",
+				"br::ufscar::lince::avencoding::DeviceInterface",
+				"mount(int, int, int, int");
 	}
 
 	initDeviceInfo();
@@ -120,25 +130,28 @@ void DeviceInterface::mount(int width, int height, int bitsPerPixel, int fps) {
 
 	shmid = shmget(SHMKEY, shmsize ,0777|IPC_CREAT);
 	if (shmid < 0) {
-		DeviceException exp("Error: void DeviceInterface::mount\n"
-							"\t\tCannot create Shared Memory..");
-		throw exp;
+		throw DeviceException(
+				"Can Not create the Shared Memory buffer",
+				"br::ufscar::lince::avencoding::DeviceInterface",
+				"mount(int, int, int, int");
 	}
 
 	semid = semget(SEMKEY,1,0744|IPC_CREAT);
 	if(semid < 0) {
-		DeviceException exp("Error: void DeviceInterface::mount\n"
-							"\t\tCannot create Semaphore.");
-		throw exp;
+		throw DeviceException(
+				"Can Not create the Semaphore",
+				"br::ufscar::lince::avencoding::DeviceInterface",
+				"mount(int, int, int, int");
 	}
 
 	/* Associa a variavel local com o buffer compartilhado */
 	shmdata = (unsigned char *) shmat(shmid,0,0);
 
    	if(shmdata == NULL){
-		DeviceException exp("Error: void DeviceInterface::mount\n"
-							"\t\tCannot allocate Shared Memory.");
-		throw exp;
+		throw DeviceException(
+				"Can Not allocate Shared Memory buffer",
+				"br::ufscar::lince::avencoding::DeviceInterface",
+				"mount(int, int, int, int");
    	}
 
 	/* inicializa o semaforo*/
@@ -147,6 +160,8 @@ void DeviceInterface::mount(int width, int height, int bitsPerPixel, int fps) {
 }
 
 void DeviceInterface::release() {
+	trace("begin release()");
+
 	union semun sem_un;
 	struct shmid_ds shmds;
 
@@ -169,6 +184,8 @@ static unsigned char reverse(unsigned char x) {
 }
 
 void DeviceInterface::putBuffer1(unsigned char* buffer) {
+	trace("begin putBuffer1(unsigned char*)");
+
 	lock();
 	for (int i=0; i < height*width*4; i++) {
 		shmdata[i] = buffer[i];
@@ -177,6 +194,8 @@ void DeviceInterface::putBuffer1(unsigned char* buffer) {
 }
 
 void DeviceInterface::putBuffer2(unsigned char* buffer) {
+	trace("begin putBuffer2(unsigned char*)");
+
 	lock();
 	for (int linha = 0; linha < height; linha++) {
 		for (int coluna = 0; coluna < width; coluna++) {
@@ -192,6 +211,8 @@ void DeviceInterface::putBuffer2(unsigned char* buffer) {
 }
 
 void DeviceInterface::putBuffer3(unsigned char* buffer) {
+	trace("begin putBuffer3(unsigned char*)");
+
 	lock();
 	for (int i = 0; i < height*width; i++) {
 		int origem = i*4;
@@ -204,6 +225,8 @@ void DeviceInterface::putBuffer3(unsigned char* buffer) {
 }
 
 void DeviceInterface::putBuffer4(unsigned char* buffer) {
+	trace("begin putBuffer4(unsigned char*)");
+
 	lock();
 	for (int i=0; i < height*width; i++) {
 		int origem = i*3;

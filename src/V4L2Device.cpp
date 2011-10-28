@@ -9,31 +9,44 @@
 using namespace std;
 
 #include <libcpputil/NotImplementedException.h>
+#include <libcpputil/IllegalParameterException.h>
 #include <libcpputil/Functions.h>
 using namespace cpputil;
+
+#include <libcpputil/logger/Logger.h>
+using namespace cpputil::logger;
 
 #include <libffmpeg/libffmpeg.h>
 
 namespace br {
 namespace ufscar {
 namespace lince {
-namespace avenconding {
+namespace avencoding {
 
-V4L2Device::V4L2Device(int deviceId) : AVSource("video4linux2") {
+V4L2Device::V4L2Device(int deviceId, int fps) :
+		AVSource("video4linux2"), Loggable("br::ufscar::lince::avencoding::V4L2Device") {
+
+	trace("begin constructor");
+
 	if (deviceId > 0) {
 		deviceId = 0;
 	}
-	deviceName = "/dev/video";
-	deviceName += Functions::numberToString(deviceId);
+	deviceName += "/dev/video" + Functions::numberToString(deviceId);
+	this->fps = fps;
 }
 
 
-V4L2Device::V4L2Device(std::string path) : AVSource("video4linux2") {
+V4L2Device::V4L2Device(std::string path, int fps) :
+		AVSource("video4linux2"), Loggable("br::ufscar::lince::avencoding::V4L2Device") {
+
+	trace("begin constructor");
 	this->deviceName = path;
+	this->fps = fps;
 }
 
 V4L2Device::~V4L2Device() {
-
+	trace("begin destructor");
+	unregister();
 }
 
 
@@ -54,10 +67,11 @@ int V4L2Device::getHeight() {
 
 
 int V4L2Device::getFps() {
-	throw NotImplementedException(
+	/*throw NotImplementedException(
 			"This functionality haven't been implemented yet.",
 			"br::ufscar::lince::streaming::V4L2Device",
-			"getFps()");
+			"getFps()");*/
+	return fps;
 }
 
 
@@ -72,10 +86,34 @@ std::string V4L2Device::getDeviceName() {
 void V4L2Device::configure(void* ffrapper) {
 	configured = true;
 
-	FFMpeg_setFormat((char*) "video4linux2");
-	//FFMpeg_setFramerate((char*) Functions::numberToString(fps).c_str());
+	if (FFMpeg_setFormat((char*) "video4linux2") != FFMpeg_SUCCESS) {
+		error("Error trying to set the format.");
+		throw IllegalParameterException(
+				FFMpeg_getErrorStr(),
+				"br::ufscar::lince::avenconding::AVInputFile",
+				"configure(void*)");
+	}
+
+	if (FFMpeg_setFramerate((char*)
+			Functions::numberToString(fps).c_str()) != FFMpeg_SUCCESS) {
+
+		error("Error trying to set the framerate.");
+		throw IllegalParameterException(
+				FFMpeg_getErrorStr(),
+				"br::ufscar::lince::avencoding::AVInputFile",
+				"configure(void*)");
+
+	}
+
 	//FFMpeg_setFrameSize1(width, height);
-	FFMpeg_setInputFile((char*) deviceName.c_str());
+	debug("VL42 Device:" + deviceName);
+	if (FFMpeg_setInputFile((char*) deviceName.c_str()) != FFMpeg_SUCCESS) {
+		error("Error trying to set the format.");
+		throw IllegalParameterException(
+				FFMpeg_getErrorStr(),
+				"br::ufscar::lince::avencoding::AVInputFile",
+				"configure(void*)");
+	}
 }
 
 }

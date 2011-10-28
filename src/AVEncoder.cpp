@@ -20,7 +20,7 @@ using namespace std;
 namespace br{
 namespace ufscar{
 namespace lince{
-namespace avenconding{
+namespace avencoding{
 
 int AVEncoder::NONE = -1;
 

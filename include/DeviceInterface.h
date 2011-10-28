@@ -8,10 +8,12 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+#include <libcpputil/logger/Logger.h>
+
 namespace br{
 namespace ufscar{
 namespace lince{
-namespace avenconding{
+namespace avencoding{
 
 /**
  * Provide a interface with the a virtual Device created in memory.
@@ -19,7 +21,7 @@ namespace avenconding{
  * to allow the application communicate with the coding process, sending its image
  * frames.
  */
-class DeviceInterface {
+class DeviceInterface : public cpputil::logger::Loggable {
 public:
 	/**
 	 * This methods returns the unique instance of the DeviceInterface.
@@ -127,7 +129,6 @@ private:
 	int width;
 	int height;
 	int bitsPerPixel;
-
 };
 
 }

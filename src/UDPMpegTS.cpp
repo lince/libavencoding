@@ -19,7 +19,7 @@ using namespace std;
 namespace br{
 namespace ufscar{
 namespace lince{
-namespace avenconding{
+namespace avencoding{
 
 UDPMpegTS::UDPMpegTS(string ip, int port) : Streaming() {
 	this->ip = ip;

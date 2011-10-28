@@ -1,29 +1,39 @@
 /*
  * AlsaDevice.cpp
  *
- *  Created on: Sep 27, 2011
+ *  Created on: Sep 28, 2011
  *      Author: caioviel
  */
 
 #include "../include/AlsaDevice.h"
 
 #include <libcpputil/Functions.h>
+#include <libcpputil/IllegalParameterException.h>
 using namespace cpputil;
+
+#include <libcpputil/logger/Logger.h>
+using namespace cpputil::logger;
 
 #include <libffmpeg/libffmpeg.h>
 
 namespace br {
 namespace ufscar {
 namespace lince {
-namespace avenconding {
+namespace avencoding {
 
-AlsaDevice::AlsaDevice(int cardId, int interfaceId, int captureRate) : AVSource("alsa") {
+AlsaDevice::AlsaDevice(int cardId, int interfaceId, int captureRate) :
+		AVSource("alsa"),  Loggable("br::ufscar::lince::avencoding::AlsaDevice") {
+
+	trace("begin constructor");
+
 	this->cardId = cardId;
 	this->interfaceId = interfaceId;
 	this->captureRate = captureRate;
 }
 
 AlsaDevice::~AlsaDevice() {
+	trace("begin destructor");
+	this->unregister();
 
 }
 
@@ -40,15 +50,37 @@ int AlsaDevice::getCaptureRate() {
 }
 
 void AlsaDevice::configure(void* ffrapper) {
-	FFMpeg_setFormat((char*) "alsa");
-	//FFMpeg_setFramerate((char*) captureRate);
-	//FFMpeg_setFrameSize1(width, height);
-	/* hw:1,0 */
+	trace("begin configure(void*)");
+
+	if (FFMpeg_setFormat((char*) "alsa") != FFMpeg_SUCCESS) {
+		error("Error trying to set format.");
+		throw IllegalParameterException(
+				FFMpeg_getErrorStr(),
+				"br::ufscar::lince::avencoding::AlsaDevice",
+				"configure(void*)");
+	}
+
+	if (FFMpeg_setAudioRate(captureRate) != FFMpeg_SUCCESS) {
+		error("Error trying to set audio sample rate.");
+		throw IllegalParameterException(
+				FFMpeg_getErrorStr(),
+				"br::ufscar::lince::avencoding::AlsaDevice",
+				"configure(void*)");
+	}
+
 	std::string deviceName = "hw:";
 	deviceName += Functions::numberToString(cardId);
 	deviceName += ",";
 	deviceName += Functions::numberToString(interfaceId);
-	FFMpeg_setInputFile((char*) deviceName.c_str());
+
+	debug("Alsa Input: " + deviceName);
+	if (FFMpeg_setInputFile((char*) deviceName.c_str()) != FFMpeg_SUCCESS) {
+		error("Error trying to set the alsa device.");
+		throw IllegalParameterException(
+				FFMpeg_getErrorStr(),
+				"br::ufscar::lince::avencoding::AlsaDevice",
+				"configure(void*)");
+	}
 }
 
 }

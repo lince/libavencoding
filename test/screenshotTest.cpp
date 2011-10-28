@@ -11,7 +11,7 @@
 
 #include "../include/X11Terminal.h"
 #include "../include/ImageShotter.h"
-using namespace ::br::ufscar::lince::avenconding;
+using namespace ::br::ufscar::lince::avencoding;
 
 #include <libcpputil/Functions.h>
 using namespace ::cpputil;

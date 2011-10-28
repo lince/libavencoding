@@ -1,5 +1,5 @@
 CC=g++
-HEADES_DIR= /usr/local/include/libavenconding
+HEADES_DIR= /usr/local/include/libavencoding
 LIB_DIR= /usr/local/lib
 
 INCLUDES=	include/AVEncoder.h \
@@ -23,7 +23,6 @@ SOURCES=	src/AVEncoder.cpp \
 			src/AVInputFile.cpp \
 			src/AVOutputFile.cpp \
 			src/AVSource.cpp \
-			src/DeviceInterface.cpp \
 			src/ImageShotter.cpp \
 			src/RTPStream.cpp \
 			src/SharedBuffer.cpp \
@@ -31,24 +30,24 @@ SOURCES=	src/AVEncoder.cpp \
 			src/UDPMpegTS.cpp \
 			src/X11Terminal.cpp \
 			src/WowzaUDPInput.cpp \
-			src/DeviceException.cpp \
 			src/V4L2Device.cpp \
-			src/AlsaDevice.cpp
+			src/AlsaDevice.cpp \
+			src/DeviceInterface.cpp
 			
 LIBS= 		-lffmpeg -lcpputil -lX11
 
 
 
-ALL: libavenconding.so
+ALL: libavencoding.so
 
-libavenconding.so: $(INCLUDES) $(SOURCES)
+libavencoding.so: $(INCLUDES) $(SOURCES)
 	$(CC) $(SOURCES) $(LIBS) \
-		-shared -o libavenconding.so -g
+		-shared -o libavencoding.so -g
 	
 clean:
-	rm -f libavenconding.so
+	rm -f libavencoding.so
 		
-install: libavenconding.so
+install: libavencoding.so
 	install -d $(HEADES_DIR)
 	install -t $(HEADES_DIR) $(INCLUDES)
-	install -t $(LIB_DIR) libavenconding.so
+	install -t $(LIB_DIR) libavencoding.so

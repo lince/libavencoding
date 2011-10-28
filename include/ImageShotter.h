@@ -19,7 +19,7 @@
 namespace br {
 namespace ufscar {
 namespace lince {
-namespace avenconding {
+namespace avencoding {
 
 /**
  * Enumeration with the image codecs supported.

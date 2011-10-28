@@ -13,7 +13,7 @@
 #include "../include/AVEncoder.h"
 #include "../include/RTPStream.h"
 
-using namespace ::br::ufscar::lince::avenconding;
+using namespace ::br::ufscar::lince::avencoding;
 
 int main(int argc, char** argv) {
 	AVSource* device = new X11Terminal(1280, 1024, 25);

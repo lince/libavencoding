@@ -11,7 +11,7 @@
 namespace br{
 namespace ufscar{
 namespace lince{
-namespace avenconding{
+namespace avencoding{
 
 AVSource::AVSource(std::string format) {
 

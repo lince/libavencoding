@@ -21,7 +21,7 @@ using namespace cpputil;
 namespace br {
 namespace ufscar {
 namespace lince {
-namespace avenconding {
+namespace avencoding {
 
 RTPStream::RTPStream(string ip, int port) : Streaming() {
 	this->ip = ip;
@@ -41,7 +41,7 @@ void RTPStream::addStream(AVEncoder *stream) {
 		throw InitializationException(
 				"void RTPStream::addStream(AVEncoder *stream)\n"
 				"Trying to set a second stream to a RTPStream",
-				"br::ufscar::lince::RTPStream",
+				"br::ufscar::lince::avencoding::RTPStream",
 				"addStream(AVEncoder* )");
 	}
 }

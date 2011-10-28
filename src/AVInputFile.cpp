@@ -21,10 +21,10 @@ using namespace cpputil::logger;
 namespace br{
 namespace ufscar{
 namespace lince{
-namespace avenconding{
+namespace avencoding{
 
 AVInputFile::AVInputFile(std::string filename, std::string format) :
-		AVSource(format), Loggable("br::ufscar::lince::avenconding::AVInputFile") {
+		AVSource(format), Loggable("br::ufscar::lince::avencoding::AVInputFile") {
 	this->trace("begin constructor");
 
 	this->filename = filename;
@@ -45,7 +45,7 @@ void AVInputFile::configure(void *ffrapper_) {
 		error("Error trying to set the format.");
 		throw IllegalParameterException(
 				FFMpeg_getErrorStr(),
-				"br::ufscar::lince::avenconding::AVInputFile",
+				"br::ufscar::lince::avencoding::AVInputFile",
 				"configure(void*)");
 	}
 
@@ -55,13 +55,14 @@ void AVInputFile::configure(void *ffrapper_) {
 		error("Error trying to set the output file name.");
 		throw IllegalParameterException(
 				FFMpeg_getErrorStr(),
-				"br::ufscar::lince::avenconding::AVInputFile",
+				"br::ufscar::lince::avencoding::AVInputFile",
 				"configure(void*)");
 	}
 }
 
 AVInputFile::~AVInputFile() {
-	// TODO Auto-generated destructor stub
+	trace("begin destructor");
+	this->unregister();
 }
 
 }
