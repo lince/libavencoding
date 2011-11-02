@@ -6,14 +6,17 @@
  *        Email: caio_viel@comp.ufscar.br
  */
 
+#include "../include/X11Terminal.h"
+
 #include <X11/Xlib.h>
 
 #include <libffmpeg/libffmpeg.h>
 
 #include <libcpputil/Functions.h>
+#include <libcpputil/IllegalParameterException.h>
 using namespace cpputil;
 
-#include "../include/X11Terminal.h"
+using namespace cpputil::logger;
 
 #include <iostream>
 using namespace std;
@@ -23,13 +26,20 @@ namespace ufscar {
 namespace lince {
 namespace avencoding {
 
-X11Terminal::X11Terminal(int width, int height, int fps) : AVSource("x11grab") {
+X11Terminal::X11Terminal(int width, int height, int fps) :
+		AVSource("x11grab"), Loggable("br::ufscar::lince::avencoding::X11Terminal") {
+
+	trace("begin Constructor");
+
 	this->width = width;
 	this->height = height;
 	this->fps = fps;
 }
 
-X11Terminal::X11Terminal(int fps) : AVSource("x11grab") {
+X11Terminal::X11Terminal(int fps) :
+		AVSource("x11grab"), Loggable("br::ufscar::lince::avencoding::X11Terminal") {
+
+	trace("begin Constructor");
 	XWindowAttributes wAttributes;
 	Display* display = XOpenDisplay(NULL);
 	Screen* screen = XScreenOfDisplay(display, DefaultScreen(display));
@@ -55,16 +65,46 @@ int X11Terminal::getFps() {
 }
 
 void X11Terminal::configure(void *_ffrapper) {
+	trace("begin configure(void*)");
 	/*if (configured) {
 		return;
 	}*/
 	configured = true;
 
-	FFMpeg_setFormat((char*) "x11grab");
-	FFMpeg_setFramerate((char*) Functions::numberToString(fps).c_str());
-	FFMpeg_setFrameSize2(width, height);
+	if (FFMpeg_setFormat((char*) "x11grab") != FFMpeg_SUCCESS) {
+		error("Error trying to set the format.");
+		throw IllegalParameterException(
+				FFMpeg_getErrorStr(),
+				"br::ufscar::lince::avencoding::X11Terminal",
+				"configure(void*)");
+	}
+
+	if (FFMpeg_setFramerate((char*)
+			Functions::numberToString(fps).c_str()) != FFMpeg_SUCCESS) {
+
+		error("Error trying to set the frame rate.");
+		throw IllegalParameterException(
+				FFMpeg_getErrorStr(),
+				"br::ufscar::lince::avencoding::X11Terminal",
+				"configure(void*)");
+
+
+	}
+	if (FFMpeg_setFrameSize2(width, height) != FFMpeg_SUCCESS) {
+		error("Error trying to set the frame size.");
+		throw IllegalParameterException(
+				FFMpeg_getErrorStr(),
+				"br::ufscar::lince::avencoding::X11Terminal",
+				"configure(void*)");
+
+	}
+
 	if (FFMpeg_setInputFile((char*) ":0.0") != FFMpeg_SUCCESS) {
-		cout << FFMpeg_getErrorStr() << endl;
+		error("Error trying to set the device 0:0.");
+		throw IllegalParameterException(
+				FFMpeg_getErrorStr(),
+				"br::ufscar::lince::avencoding::X11Terminal",
+				"configure(void*)");
 	}
 }
 

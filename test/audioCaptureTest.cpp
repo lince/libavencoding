@@ -16,40 +16,41 @@ using namespace cpputil::logger;
 #include "../include/X11Terminal.h"
 #include "../include/AVEncoder.h"
 #include "../include/AVOutputFile.h"
+#include "../include/AVInputFile.h"
 using namespace ::br::ufscar::lince::avencoding;
 
 int main(int argc, char** argv) {
 	LoggerManager* lm = LoggerManager::getInstance();
 	lm->readConfigurationFile("config.xml");
 
-	X11Terminal* alsa = new X11Terminal(25);
-	//alsa->setChannelsNumber(1);
+	/*X11Terminal* alsa = new X11Terminal(25);
+	//alsa->setChannelsNumber(1);*/
 
-	AVEncoder* endocer = new AVEncoder(alsa);
-	endocer->setVideoCodec(MPEG2);
-	//endocer->setAudioBitrate(192);
+	AlsaDevice* alsa = new AlsaDevice(0,0);
 
-	AVOutputFile* mp3File = new AVOutputFile("newaudio0.mp4");
-	mp3File->addStream(endocer);
+	AVEncoder* audioEnc = new AVEncoder(alsa);
+	audioEnc->setAudioCodec(MP3);
+
+	AVOutputFile* mp3File = new AVOutputFile("capturedAudio0.mp3");
+	mp3File->addStream(audioEnc);
 	mp3File->start();
 	sleep(5);
 	mp3File->stop();
 	mp3File->waitFinishing();
-	delete mp3File;
 
-	mp3File = new AVOutputFile((string) "newaudio1.mp4");
+	mp3File = new AVOutputFile("capturedAudio1.mp3");
+	mp3File->addStream(audioEnc);
 	mp3File->start();
 	sleep(5);
 	mp3File->stop();
 	mp3File->waitFinishing();
-	delete mp3File;
 
-	mp3File = new AVOutputFile((string) "newaudio2.mp4");
+	mp3File = new AVOutputFile("capturedAudio2.mp3");
+	mp3File->addStream(audioEnc);
 	mp3File->start();
 	sleep(5);
 	mp3File->stop();
 	mp3File->waitFinishing();
-	delete mp3File;
 
 	return 0;
 }

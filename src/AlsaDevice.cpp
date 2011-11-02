@@ -34,7 +34,6 @@ AlsaDevice::AlsaDevice(int cardId, int interfaceId, int captureRate) :
 
 AlsaDevice::~AlsaDevice() {
 	trace("begin destructor");
-	//this->unregister();
 
 }
 

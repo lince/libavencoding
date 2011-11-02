@@ -31,7 +31,6 @@ SharedBuffer::SharedBuffer() :
 SharedBuffer::~SharedBuffer() {
 	// TODO Auto-generated destructor stub
 	trace("begin destructor");
-	//unregister();
 }
 
 int SharedBuffer::getHeight() {

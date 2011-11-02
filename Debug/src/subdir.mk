@@ -5,11 +5,11 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../src/AVEncoder.cpp \
+../src/AVEncoding.cpp \
 ../src/AVInputFile.cpp \
 ../src/AVOutputFile.cpp \
 ../src/AVSource.cpp \
 ../src/AlsaDevice.cpp \
-../src/DeviceException.cpp \
 ../src/DeviceInterface.cpp \
 ../src/ImageShotter.cpp \
 ../src/RTPStream.cpp \
@@ -22,11 +22,11 @@ CPP_SRCS += \
 
 OBJS += \
 ./src/AVEncoder.o \
+./src/AVEncoding.o \
 ./src/AVInputFile.o \
 ./src/AVOutputFile.o \
 ./src/AVSource.o \
 ./src/AlsaDevice.o \
-./src/DeviceException.o \
 ./src/DeviceInterface.o \
 ./src/ImageShotter.o \
 ./src/RTPStream.o \
@@ -39,11 +39,11 @@ OBJS += \
 
 CPP_DEPS += \
 ./src/AVEncoder.d \
+./src/AVEncoding.d \
 ./src/AVInputFile.d \
 ./src/AVOutputFile.d \
 ./src/AVSource.d \
 ./src/AlsaDevice.d \
-./src/DeviceException.d \
 ./src/DeviceInterface.d \
 ./src/ImageShotter.d \
 ./src/RTPStream.d \
@@ -58,7 +58,7 @@ CPP_DEPS += \
 # Each subdirectory must supply rules for building sources it contributes
 src/%.o: ../src/%.cpp
 	@echo 'Building file: $<'
-	@echo 'Invoking: Cross G++ Compiler'
+	@echo 'Invoking: GCC C++ Compiler'
 	g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '

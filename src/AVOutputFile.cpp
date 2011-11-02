@@ -127,7 +127,7 @@ bool AVOutputFile::isFinished() {
 
 void AVOutputFile::waitFinishing() {
 	if (!started) {
-		throw new InitializationException(
+		throw InitializationException(
 				"Transconding Process haven't started yet",
 				"br::ufscar::lince::avencoding::AVOutputFile",
 				"waitFinishing()");
@@ -139,6 +139,11 @@ void AVOutputFile::start() {
 	started = true;
 	finished = false;
 	Thread::start();
+}
+
+
+double AVOutputFile::getCurrentTime() {
+	return FFMpeg_getTime();
 }
 
 }

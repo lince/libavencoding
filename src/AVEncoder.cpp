@@ -196,7 +196,7 @@ void AVEncoder::configure(void* vffrapper) {
 
 	if (videoBitrate != NONE) {
 		string videoBitrate = Functions::numberToString(this->videoBitrate);
-		videoBitrate += "kb";
+		videoBitrate += "k";
 		FFMpeg_setVideoBitrate((char*) videoBitrate.c_str());
 	}
 

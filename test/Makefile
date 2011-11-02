@@ -2,7 +2,8 @@ CC=g++
 
 PROGRAMS= \
 		streamingRtpScreenTest videoFileToFileTest screenshotTest muxingVideoAndAudioTest \
-		streamingUDPTest audioFileToFileTest fileshotTest captureCamAndMicTest
+		streamingUDPTest audioFileToFileTest fileshotTest captureCamAndMicTest \
+		audioCaptureTest
 
 TAGS= -L.. -lavencoding -lcpputil -g -O0
 
@@ -31,6 +32,9 @@ fileshotTest: fileshotTest.cpp
 	
 captureCamAndMicTest: captureCamAndMicTest.cpp
 	$(CC) captureCamAndMicTest.cpp -o captureCamAndMicTest $(TAGS)
+	
+audioCaptureTest: audioCaptureTest.cpp
+	$(CC) audioCaptureTest.cpp -o audioCaptureTest $(TAGS)
 	
 clean:
 	rm -f $(PROGRAMS)

@@ -47,6 +47,10 @@ public:
 	 */
 	virtual void waitFinishing() = 0;
 
+	virtual double getCurrentTime() = 0;/*{
+		return 0.0;
+	}*/
+
 protected:
 	/**
 	 * This protected method is internally used to allow the classes configure the transcoding

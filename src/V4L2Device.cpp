@@ -46,7 +46,6 @@ V4L2Device::V4L2Device(std::string path, int fps) :
 
 V4L2Device::~V4L2Device() {
 	trace("begin destructor");
-	unregister();
 }
 
 

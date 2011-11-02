@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LoggerConfig level="trace" region="brazil" >
+	<BlockedClasses>
+		<!--class>LoggableClass0</class-->
+	</BlockedClasses>
+	
+	<!-- Style name="default" / -->
+
+	<!--Style name="networkstream">
+		<styleParam name="protocol">tcp</styleParam>
+		<styleParam name="ipAddress">127.0.0.1</styleParam>
+		<styleParam name="portNumber">5004</styleParam>
+	</Style-->
+
+	<!-- Style name="logfile">
+		<styleParam name="filename">logfile.txt</styleParam>
+		<styleParam name="writemode">append</styleParam>
+	</Style-->
+	
+	<Style name="color">
+		<styleParam name="traceColor">GRAY</styleParam>
+		<styleParam name="debugColor">GRAY</styleParam>
+		<styleParam name="infoColor">GREEN</styleParam>
+		<styleParam name="warningColor">YELLOW</styleParam>
+		<styleParam name="errorColor">RED</styleParam>
+		<styleParam name="fatalColor">RED</styleParam>
+	</Style>
+	
+</LoggerConfig>

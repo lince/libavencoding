@@ -58,7 +58,6 @@ DeviceInterface::DeviceInterface() : Loggable("br::ufscar::lince::avencoding::De
 
 DeviceInterface::~DeviceInterface() {
 	trace("begin destructor");
-	unregister();
 }
 
 void DeviceInterface::lock() {

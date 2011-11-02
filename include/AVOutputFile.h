@@ -88,6 +88,8 @@ public:
 	 */
 	virtual void waitFinishing();
 
+	virtual double getCurrentTime();
+
 protected:
 	bool finished;
 	bool started;

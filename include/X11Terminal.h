@@ -11,6 +11,8 @@
 
 #include "AVSource.h"
 
+#include <libcpputil/logger/Logger.h>
+
 namespace br {
 namespace ufscar {
 namespace lince {
@@ -19,7 +21,7 @@ namespace avencoding {
 /**
  * This class allow to use the X11 Terminal as a video source.
  */
-class X11Terminal: public AVSource {
+class X11Terminal: public AVSource, public cpputil::logger::Loggable {
 public:
 	/**
 	 * Construtor.

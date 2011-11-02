@@ -62,7 +62,6 @@ void AVInputFile::configure(void *ffrapper_) {
 
 AVInputFile::~AVInputFile() {
 	trace("begin destructor");
-	this->unregister();
 }
 
 }
