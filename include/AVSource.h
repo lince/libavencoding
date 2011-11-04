@@ -51,6 +51,11 @@ public:
 	 */
 	virtual ~AVSource() {};
 
+
+	void setStartTime(int seconds);
+
+	void setDurationTime(int seconds);
+
 protected:
 	/**
 	 * This protected method is internally used to allow the AVSource's instance to configure
@@ -61,6 +66,8 @@ protected:
 	virtual void configure(void* ffrapper)=0;
 
 	bool configured;
+	int startTime;
+	int durationTime;
 
 private:
 	std::string format;

@@ -12,6 +12,7 @@
 #include <string>
 using namespace std;
 
+#include <libcpputil/Functions.h>
 #include <libcpputil/IllegalParameterException.h>
 using namespace cpputil;
 
@@ -52,11 +53,35 @@ void AVInputFile::configure(void *ffrapper_) {
 	if (FFMpeg_setInputFile( (char*) getFilename().c_str())
 			!= FFMpeg_SUCCESS) {
 
-		error("Error trying to set the output file name.");
+		error("Error trying to set the input file name.");
 		throw IllegalParameterException(
 				FFMpeg_getErrorStr(),
 				"br::ufscar::lince::avencoding::AVInputFile",
 				"configure(void*)");
+	}
+
+	if (startTime != -1) {
+		info("Setting StartTime");
+		if (FFMpeg_setStartTime1((char*) Functions::numberToString(startTime).c_str()) != FFMpeg_SUCCESS) {
+
+			error("Error trying to set the input file start point.");
+			throw IllegalParameterException(
+					FFMpeg_getErrorStr(),
+					"br::ufscar::lince::avencoding::AVInputFile",
+					"configure(void*)");
+
+		}
+	}
+
+	if (durationTime != -1) {
+		info("Setting DurationTime");
+		if (FFMpeg_setRecordingTime1((char*) Functions::numberToString(durationTime).c_str()) != FFMpeg_SUCCESS) {
+			error("Error trying to set the input file duration.");
+			throw IllegalParameterException(
+					FFMpeg_getErrorStr(),
+					"br::ufscar::lince::avencoding::AVInputFile",
+					"configure(void*)");
+		}
 	}
 }
 

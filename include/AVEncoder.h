@@ -28,7 +28,7 @@ class Transcoder;
  *  - MPEG2 The mpeg2 video codec.
  *  - V_COPY A special that can be used to force the output video just copy the source video.
  */
-enum VideoCodec {H264=1, MPEG2, V_COPY};
+enum VideoCodec {H264=1, MPEG2, V_COPY, MPEG1};
 
 /**
  * Enumeration with the audio codecs supported.
@@ -330,6 +330,18 @@ public:
 	 */
 	void enableCopyAudio();
 
+	void setVideoEnable(bool value);
+
+	void setAudioEnable(bool value);
+
+	bool isVideoEnable();
+
+	bool isAudioEnable();
+
+	void setVideoSameQuality(bool value);
+
+	bool isVideoSameQuality();
+
 protected:
 	/**
 	 * This protected method is internally used to allow the AVEncodere's instance to configure
@@ -355,6 +367,9 @@ private:
 	int streamId;
 	string vpreset, apreset;
 	map<string, string>* properties;
+	bool videoEnable;
+	bool audioEnable;
+	bool videoSameQuality;
 
 	static int NONE;
 };

@@ -17,10 +17,20 @@ AVSource::AVSource(std::string format) {
 
 	this->format = format;
 	configured = false;
+	startTime = -1;
+	durationTime = -1;
 }
 
 std::string AVSource::getFormat() {
 	return this->format;
+}
+
+void AVSource::setStartTime(int seconds) {
+	this->startTime = seconds;
+}
+
+void AVSource::setDurationTime(int seconds) {
+	this->durationTime = seconds;
 }
 
 }

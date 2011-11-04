@@ -48,6 +48,8 @@ AVEncoder::AVEncoder(AVSource* avSource, int nStreamId) {
 	vpreset = "";
 	apreset = "";
 	properties = new map<string, string>();
+	audioEnable = videoEnable = true;
+	videoSameQuality = false;
 }
 
 AVEncoder::AVEncoder(AVEncoder* copyAVEncoder) {
@@ -223,6 +225,8 @@ void AVEncoder::configure(void* vffrapper) {
 			FFMpeg_setVideoCodec((char*)"mpeg2video");
 		} else if (vcodec == V_COPY) {
 			FFMpeg_setVideoCodec((char*)"copy");
+		} else if (vcodec == MPEG1) {
+			FFMpeg_setVideoCodec((char*)"mpeg1video");
 		}
 
 	}
@@ -235,7 +239,18 @@ void AVEncoder::configure(void* vffrapper) {
 		} else if (acodec == A_COPY) {
 			FFMpeg_setAudioCodec((char*)"copy");
 		}
+	}
 
+	if (!videoEnable) {
+		FFMpeg_setDisableAudio(1);
+	}
+
+	if (!audioEnable) {
+		FFMpeg_setDisableAudio(1);
+	}
+
+	if (videoSameQuality) {
+		FFMpeg_setVideoSameQuality(1);
 	}
 
 	if (audioSamplingRate != NONE) {
@@ -310,6 +325,30 @@ int AVEncoder::getStreamId() {
 
 void AVEncoder::setStreamId(int id) {
 	this->streamId = id;
+}
+
+void AVEncoder::setVideoEnable(bool value) {
+	this->videoEnable = value;
+}
+
+void AVEncoder::setAudioEnable(bool value) {
+	this->audioEnable = value;
+}
+
+bool AVEncoder::isVideoEnable() {
+	return videoEnable;
+}
+
+bool AVEncoder::isAudioEnable() {
+	return audioEnable;
+}
+
+void AVEncoder::setVideoSameQuality(bool value) {
+	this->videoSameQuality = value;
+}
+
+bool AVEncoder::isVideoSameQuality() {
+	return this->videoSameQuality;
 }
 
 }
