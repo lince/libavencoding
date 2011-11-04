@@ -17,7 +17,8 @@ INCLUDES=	include/AVEncoder.h \
 			include/WowzaUDPInput.h \
 			include/DeviceException.h \
 			include/V4L2Device.h \
-			include/AlsaDevice.h
+			include/AlsaDevice.h \
+			include/TranscodingException.h
 			
 SOURCES=	src/AVEncoder.cpp \
 			src/AVInputFile.cpp \

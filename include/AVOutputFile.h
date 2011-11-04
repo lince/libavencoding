@@ -13,10 +13,11 @@
 
 #include <libcpputil/Thread.h>
 #include <libcpputil/InitializationException.h>
-using namespace cpputil;
+
+#include <libcpputil/logger/Logger.h>
+
 
 #include <vector>
-using namespace std;
 
 #include "Transcoder.h"
 
@@ -29,14 +30,16 @@ namespace avencoding {
  * This class is used to generate a audio/video output file as result of a transcoding process.
  * It implements the abstract class Transcoder.
  */
-class AVOutputFile: public Transcoder, public Thread {
+class AVOutputFile: public Transcoder, public cpputil::Thread,
+					public cpputil::logger::Loggable {
+
 public:
 	/**
 	 * Construtor
 	 * @param filename the name of the file that will be generated.
 	 * @param format the format of the fila that will be generated.
 	 */
-	AVOutputFile(string filename, string format="", bool fileOverwrite=false);
+	AVOutputFile(std::string filename, std::string format="", bool fileOverwrite=false);
 
 	/**
 	 * Virtual Destructor
@@ -47,7 +50,7 @@ public:
 	 * Return the name of the file that will be generate.
 	 * @param the name of the file.
 	 */
-	string getFilename();
+	std::string getFilename();
 
 	/**
 	 * Abort the transcoding process.
@@ -96,10 +99,10 @@ protected:
 
 private:
 	void run();
-	vector<AVSource*>* sources;
-	vector<AVEncoder*>* encoders;
-	string filename;
-	string format;
+	std::vector<AVSource*>* sources;
+	std::vector<AVEncoder*>* encoders;
+	std::string filename;
+	std::string format;
 
 	bool fileOverwrite;
 };

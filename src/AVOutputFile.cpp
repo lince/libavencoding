@@ -9,19 +9,25 @@
 #include <libffmpeg/libffmpeg.h>
 
 #include <libcpputil/Functions.h>
+#include <libcpputil/IllegalParameterException.h>
 using namespace cpputil;
 
 #include <iostream>
 using namespace std;
 
 #include "../include/AVOutputFile.h"
+#include "../include/TranscodingException.h"
 
 namespace br {
 namespace ufscar {
 namespace lince {
 namespace avencoding {
 
-AVOutputFile::AVOutputFile(string filename, string format, bool fileOverwrite) : Transcoder() {
+AVOutputFile::AVOutputFile(string filename, string format, bool fileOverwrite)
+		: Transcoder(), Thread(), Loggable("br::ufscar::lince::avencoding::AVOutputFile") {
+
+	trace("begin constructor");
+
 	finished = false;
 	started = false;
 	this->filename = filename;
@@ -33,6 +39,8 @@ AVOutputFile::AVOutputFile(string filename, string format, bool fileOverwrite) :
 }
 
 AVOutputFile::~AVOutputFile() {
+	trace("begin destructor");
+
 	vector<AVSource*>::iterator it;
 	for (it = sources->begin(); it != sources->end(); it++) {
 		AVSource* source = *it;
@@ -49,6 +57,8 @@ AVOutputFile::~AVOutputFile() {
 }
 
 void AVOutputFile::run() {
+	trace("begin run()");
+
 	vector<AVSource*>::iterator it;
 	map<AVSource*, string> sourcesById;
 	map<AVSource*, int> sourcesByStream;
@@ -79,28 +89,52 @@ void AVOutputFile::run() {
 		string streamId = Functions::numberToString(stream);
 
 		string mapOpp = fileId + "." + streamId;
-		FFMpeg_setMap((char*) mapOpp.c_str());
+		if (FFMpeg_setMap((char*) mapOpp.c_str()) != FFMpeg_SUCCESS) {
+			error("Error trying to map the i/o streams.");
+			throw IllegalParameterException(
+					FFMpeg_getErrorStr(),
+					"br::ufscar::lince::avencoding::AVOutputFile",
+					"run()");
+		}
 	}
 
 	if (fileOverwrite) {
-		FFMpeg_setOverwriteFile(1);
+		if (FFMpeg_setOverwriteFile(1) != FFMpeg_SUCCESS) {
+			error("Error trying to set the overwrite file option.");
+			throw IllegalParameterException(
+					FFMpeg_getErrorStr(),
+					"br::ufscar::lince::avencoding::AVOutputFile",
+					"run()");
+		}
 	}
 
 	if (format != "") {
-		FFMpeg_setFormat((char*) format.c_str());
+		if (FFMpeg_setFormat((char*) format.c_str()) != FFMpeg_SUCCESS) {
+			error("Error trying to set output file format: " + format);
+			throw IllegalParameterException(
+					FFMpeg_getErrorStr(),
+					"br::ufscar::lince::avencoding::AVOutputFile",
+					"run()");
+		}
 	}
 
 	if (FFMpeg_setOutputFile((char*) filename.c_str())
 			!= FFMpeg_SUCCESS) {
 
-		cerr << FFMpeg_getErrorStr() << endl;
-		return;
+		error("Error trying to set output file name: " + filename);
+		throw IllegalParameterException(
+				FFMpeg_getErrorStr(),
+				"br::ufscar::lince::avencoding::AVOutputFile",
+				"run()");
 	}
 
 	if (FFMpeg_transcode() != FFMpeg_SUCCESS) {
-		cerr << FFMpeg_getErrorStr() << endl;
+		error("Error during transcode process.");
+		throw TranscodingException(
+				FFMpeg_getErrorStr(),
+				"br::ufscar::lince::avencoding::AVOutputFile",
+				"run()");
 	}
-
 
 	FFMpeg_reset(__LINE__);
 	finished = true;
@@ -108,10 +142,14 @@ void AVOutputFile::run() {
 }
 
 void AVOutputFile::stop() {
+	trace("begin stop()");
+
 	FFMpeg_stop();
 }
 
 void AVOutputFile::addStream(AVEncoder *stream) {
+	trace("begin addStream(AVEncoder*)");
+
 	//TODO: Tratamento para verificar se stream adicionados estão coerentes
 	sources->push_back(stream->getSource());
 	encoders->push_back(stream);
@@ -126,6 +164,8 @@ bool AVOutputFile::isFinished() {
 }
 
 void AVOutputFile::waitFinishing() {
+	trace("begin waitFinishing()");
+
 	if (!started) {
 		throw InitializationException(
 				"Transconding Process haven't started yet",
@@ -136,6 +176,8 @@ void AVOutputFile::waitFinishing() {
 }
 
 void AVOutputFile::start() {
+	trace("begin start()");
+
 	started = true;
 	finished = false;
 	Thread::start();
