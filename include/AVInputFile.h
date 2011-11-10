@@ -35,6 +35,8 @@ public:
 	 */
 	AVInputFile(std::string filename, std::string format);
 
+	AVInputFile(std::string filename);
+
 	/**
 	 * Virtual Destructor
 	 */

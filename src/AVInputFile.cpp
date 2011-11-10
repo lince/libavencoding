@@ -31,6 +31,14 @@ AVInputFile::AVInputFile(std::string filename, std::string format) :
 	this->filename = filename;
 }
 
+AVInputFile::AVInputFile(std::string filename) :
+		AVSource(""), Loggable("br::ufscar::lince::avencoding::AVInputFile") {
+
+	this->trace("begin constructor");
+
+	this->filename = filename;
+}
+
 std::string AVInputFile::getFilename() {
 	return filename;
 }
@@ -42,12 +50,17 @@ void AVInputFile::configure(void *ffrapper_) {
 	}*/
 	configured = true;
 
-	if (FFMpeg_setFormat( (char*) getFormat().c_str()) != FFMpeg_SUCCESS) {
-		error("Error trying to set the format.");
-		throw IllegalParameterException(
-				FFMpeg_getErrorStr(),
-				"br::ufscar::lince::avencoding::AVInputFile",
-				"configure(void*)");
+	string format = getFormat();
+	if (format != "") {
+		if (FFMpeg_setFormat( (char*) getFormat().c_str()) != FFMpeg_SUCCESS) {
+			error("Error trying to set the format.");
+			throw IllegalParameterException(
+					FFMpeg_getErrorStr(),
+					"br::ufscar::lince::avencoding::AVInputFile",
+					"configure(void*)");
+		}
+	} else {
+		info("Trying to get the format by the file name");
 	}
 
 	if (FFMpeg_setInputFile( (char*) getFilename().c_str())
