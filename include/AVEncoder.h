@@ -23,12 +23,23 @@ namespace avencoding{
 class Transcoder;
 
 /**
- * Enumeration with the video codecs supported.
- * 	- H264 The h264 (MPEG4 Advanced Video Coding) video codec.
- *  - MPEG2 The mpeg2 video codec.
- *  - V_COPY A special that can be used to force the output video just copy the source video.
+ * This class is a wrapper to a enumeration of video codecs supported by the component.
  */
-enum VideoCodec {H264=1, MPEG2, V_COPY, MPEG1};
+class VideoCodec {
+	/**
+	 * Enumeration with the video codecs supported.
+	 * 	- H264 The h264 (MPEG4 Advanced Video Coding) video codec.
+	 *  - MPEG2 The mpeg2 video codec.
+	 *  - WEBM The Web-M Video Codec used in HTML5 compatible browsers
+	 *  - MPEG1 The mpeg1 video codec.
+	 *  - V_COPY A special that can be used to force the output video just copy the source video.
+	 */
+	enum Type {H264=1, MPEG2, MPEG1, WEBM, V_COPY};
+
+	VideoCodec(VideoCodec::Type type);
+	VideoCodec(const VideoCodec& videoCodec);
+
+};
 
 /**
  * Enumeration with the audio codecs supported.
