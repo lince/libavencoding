@@ -6,9 +6,9 @@
  *        Email: caio_viel@comp.ufscar.br
  */
 
-#include "Streaming.h"
-
 #include <libffmpeg/libffmpeg.h>
+
+#include "Streaming.h"
 
 namespace br{
 namespace ufscar{

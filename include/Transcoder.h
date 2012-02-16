@@ -11,6 +11,7 @@
 
 #include "AVEncoder.h"
 #include "AVSource.h"
+#include "TranscodingException.h"
 
 namespace br{
 namespace ufscar{
@@ -43,13 +44,15 @@ public:
 	 * This method waits until the transcoding process is finished.
 	 * It can be used to create a block program, that will sleep until the coding is finished.
 	 * @throw InitializationException when the transcoding process hasn't begun.
-	 * @throw InitializationException when the transcoding process hasn't begun.
 	 */
 	virtual void waitFinishing() = 0;
 
-	virtual double getCurrentTime() = 0;/*{
-		return 0.0;
-	}*/
+	/**
+	 * This method retorns the current time of the audio/video that is been captured.
+	 * It only works in continuous media transcoder processes.
+	 * @return The current time in seconds.
+	 */
+	virtual double getCurrentTime() = 0;
 
 protected:
 	/**
@@ -59,7 +62,7 @@ protected:
 	 * configure.
 	 * @param enc the encoder parameters that will be configured.
 	 * @param ffrapper a pointer to the FFrapper instance that will processed the transcoding.
-	 * @throw OptionException when parameters are wrong or invalids.
+	 * @throw InitializationException when parameters are wrong or invalids.
 	 */
 	void configure(AVEncoder* enc, void* ffrapper) {
 		enc->configure(ffrapper);
@@ -72,7 +75,7 @@ protected:
 	 * configure.
 	 * @param src the source parameters that will be configured.
 	 * @param ffrapper a pointer to the FFrapper instance that will processed the transcoding.
-	 * @throw OptionException when parameters are wrong or invalids.
+	 * @throw InitializationException when parameters are wrong or invalids.
 	 */
 	void configure(AVSource* src, void* ffrapper) {
 		src->configure(ffrapper);

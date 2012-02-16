@@ -16,7 +16,7 @@
 using namespace ::br::ufscar::lince::avencoding;
 
 int main(int argc, char** argv) {
-	AVInputFile* inputfile = new AVInputFile("videosample.mp4", "mp4");
+	AVInputFile* inputfile = new AVInputFile("videosample.mp4", AVContainer::MP4);
 	ImageShotter* shotter = new ImageShotter(inputfile);
 
 	shotter->setImageSize(200,100);

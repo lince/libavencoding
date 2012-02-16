@@ -6,20 +6,18 @@
  *        Email: caio_viel@comp.ufscar.br
  */
 
-#include "../include/X11Terminal.h"
+
 
 #include <X11/Xlib.h>
-
 #include <libffmpeg/libffmpeg.h>
 
 #include <libcpputil/Functions.h>
-#include <libcpputil/IllegalParameterException.h>
 using namespace cpputil;
 
-using namespace cpputil::logger;
-
-#include <iostream>
+#include "X11Terminal.h"
 using namespace std;
+
+#define CLASS_NAME "br::ufscar::lince::avencoding::X11Terminal"
 
 namespace br {
 namespace ufscar {
@@ -27,7 +25,7 @@ namespace lince {
 namespace avencoding {
 
 X11Terminal::X11Terminal(int width, int height, int fps) :
-		AVSource("x11grab"), Loggable("br::ufscar::lince::avencoding::X11Terminal") {
+		AVSource("x11grab"), logger::Loggable(CLASS_NAME) {
 
 	trace("begin Constructor");
 
@@ -37,9 +35,10 @@ X11Terminal::X11Terminal(int width, int height, int fps) :
 }
 
 X11Terminal::X11Terminal(int fps) :
-		AVSource("x11grab"), Loggable("br::ufscar::lince::avencoding::X11Terminal") {
+		AVSource("x11grab"), logger::Loggable(CLASS_NAME) {
 
 	trace("begin Constructor");
+
 	XWindowAttributes wAttributes;
 	Display* display = XOpenDisplay(NULL);
 	Screen* screen = XScreenOfDisplay(display, DefaultScreen(display));
@@ -51,7 +50,11 @@ X11Terminal::X11Terminal(int fps) :
 	this->fps = fps;
 }
 
-X11Terminal::X11Terminal() : AVSource("x11grab") {
+X11Terminal::X11Terminal() : AVSource("x11grab"),
+		logger::Loggable(CLASS_NAME)  {
+
+	trace("begin constructor");
+
 	X11Terminal(25);
 }
 
@@ -75,7 +78,7 @@ void X11Terminal::configure(void *_ffrapper) {
 		error("Error trying to set the format.");
 		throw IllegalParameterException(
 				FFMpeg_getErrorStr(),
-				"br::ufscar::lince::avencoding::X11Terminal",
+				CLASS_NAME,
 				"configure(void*)");
 	}
 
@@ -85,7 +88,7 @@ void X11Terminal::configure(void *_ffrapper) {
 		error("Error trying to set the frame rate.");
 		throw IllegalParameterException(
 				FFMpeg_getErrorStr(),
-				"br::ufscar::lince::avencoding::X11Terminal",
+				CLASS_NAME,
 				"configure(void*)");
 
 
@@ -94,7 +97,7 @@ void X11Terminal::configure(void *_ffrapper) {
 		error("Error trying to set the frame size.");
 		throw IllegalParameterException(
 				FFMpeg_getErrorStr(),
-				"br::ufscar::lince::avencoding::X11Terminal",
+				CLASS_NAME,
 				"configure(void*)");
 
 	}
@@ -103,7 +106,7 @@ void X11Terminal::configure(void *_ffrapper) {
 		error("Error trying to set the device 0:0.");
 		throw IllegalParameterException(
 				FFMpeg_getErrorStr(),
-				"br::ufscar::lince::avencoding::X11Terminal",
+				CLASS_NAME,
 				"configure(void*)");
 	}
 }

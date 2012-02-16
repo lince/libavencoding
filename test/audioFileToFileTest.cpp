@@ -21,7 +21,7 @@ int main(int argc, char** argv) {
 	LoggerManager* lm = LoggerManager::getInstance();
 	lm->readConfigurationFile("config.xml");
 
-	AVSource* accFile = new AVInputFile("audiosample.aac", "aac");
+	AVSource* accFile = new AVInputFile("audiosample.aac", AVContainer::AAC);
 
 	AVEncoder* endocer = new AVEncoder(accFile);
 	endocer->setAudioCodec(AudioCodec::MP3);

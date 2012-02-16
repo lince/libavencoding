@@ -9,14 +9,13 @@
 #ifndef WOWZAUDPINPUT_H_
 #define WOWZAUDPINPUT_H_
 
+#include <string>
+
 #include <libcpputil/Functions.h>
+#include <libcpputil/logger/Loggable.h>
 using namespace cpputil;
 
 #include "Streaming.h"
-
-#include <vector>
-#include <string>
-using namespace std;
 
 namespace br{
 namespace ufscar{
@@ -27,17 +26,18 @@ namespace avencoding{
  * This class is used to generate a MpegTS of a audio and video stream addressed to the
  * wowza media server.
  */
-class WowzaUDPInput : public Streaming {
+class WowzaUDPInput : public Streaming, public cpputil::logger::Loggable {
 public:
 	/**
 	 * Construtor
 	 * @param ip The ip address of the wowza mediaserver.
 	 * @param ip The port number of the wowza mediaserver.
 	 */
-	WowzaUDPInput(string ip, int port);
+	WowzaUDPInput(std::string ip, int port);
 
 	/**
 	 * Virtual Destructor
+	 * It will delete all the AVSource and AVEncoder associated.
 	 */
 	virtual ~WowzaUDPInput();
 
@@ -58,7 +58,7 @@ public:
 private:
 	AVSource* source;
 	AVEncoder* encoder;
-	string ip;
+	std::string ip;
 	int port;
 	void run();
 

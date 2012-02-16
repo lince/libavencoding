@@ -11,7 +11,7 @@
 #include <libcpputil/Functions.h>
 using namespace cpputil;
 
-#include "../include/AVInputFile.h"
+#include "AVInputFile.h"
 using namespace std;
 
 namespace br{

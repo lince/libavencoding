@@ -9,9 +9,10 @@
 #ifndef X11TERMINAL_H_
 #define X11TERMINAL_H_
 
-#include "AVSource.h"
-
+#include <libcpputil/IllegalParameterException.h>
 #include <libcpputil/logger/Logger.h>
+
+#include "AVSource.h"
 
 namespace br {
 namespace ufscar {
@@ -69,12 +70,6 @@ public:
 	int getFps();
 
 protected:
-	/**
-	 * This protected method is internally used to allow the X11Terminal's instance to configure
-	 * the transcoding process with her parameters.
-	 * @param ffrapper a pointer to the FFrapper instance that will processed the transcoding.
-	 * @throw OptionException when parameters are wrong or invalids.
-	 */
 	void configure(void* ffrapper);
 
 private:

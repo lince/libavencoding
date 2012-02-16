@@ -16,7 +16,7 @@
 using namespace ::br::ufscar::lince::avencoding;
 
 int main(int argc, char** argv) {
-	AVSource* videoInput = new AVInputFile("videosample.mp4", "mp4");
+	AVSource* videoInput = new AVInputFile("videosample.mp4", AVContainer::MP4);
 
 	AVEncoder* encoder = new AVEncoder(videoInput);
 	encoder->setVideoCodec(VideoCodec::H264);

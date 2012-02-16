@@ -42,7 +42,7 @@ public:
 
 	/**
 	 * Return the format of the audio/video of the source
-	 * @return
+	 * @return the format of the source.
 	 */
 	virtual std::string getFormat();
 
@@ -51,9 +51,16 @@ public:
 	 */
 	virtual ~AVSource() {};
 
-
+	/**
+	 * This method is used to explicit define the start point of the source in seconds..
+	 * @param seconds The time of the start point of the source in seconds.
+	 */
 	void setStartTime(int seconds);
 
+	/**
+	 * This method is used to explicit define the duration of the source in seconds
+	 * @param seconds The time of duration of the source in seconds.
+	 */
 	void setDurationTime(int seconds);
 
 protected:
@@ -61,7 +68,7 @@ protected:
 	 * This protected method is internally used to allow the AVSource's instance to configure
 	 * the transcoding process with her parameters.
 	 * @param ffrapper a pointer to the FFrapper instance that will processed the transcoding.
-	 * @throw OptionException when parameters are wrong or invalids.
+	 * @throw IllegalParameterException when parameters are wrong or invalids.
 	 */
 	virtual void configure(void* ffrapper)=0;
 

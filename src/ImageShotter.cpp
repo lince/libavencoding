@@ -91,7 +91,7 @@ void ImageShotter::takeShot(string nfilename, string stime) {
 void ImageShotter::setImageSize(int width, int heigh) {
 	if (width < 0 || height < 0) {
 		throw cpputil::IllegalParameterException(
-				"Invalid size informed."
+				"Invalid size informed.",
 				CLASS_NAME,
 				"setImageSize(int, int)");
 	}

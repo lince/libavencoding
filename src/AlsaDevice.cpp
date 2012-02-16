@@ -5,16 +5,14 @@
  *      Author: caioviel
  */
 
-#include "../include/AlsaDevice.h"
+#include <libffmpeg/libffmpeg.h>
 
 #include <libcpputil/Functions.h>
-#include <libcpputil/IllegalParameterException.h>
 using namespace cpputil;
 
-#include <libcpputil/logger/Logger.h>
+#include "AlsaDevice.h"
 using namespace cpputil::logger;
-
-#include <libffmpeg/libffmpeg.h>
+#define CLASS_NAME "br::ufscar::lince::avencoding::AlsaDevice"
 
 namespace br {
 namespace ufscar {
@@ -22,7 +20,7 @@ namespace lince {
 namespace avencoding {
 
 AlsaDevice::AlsaDevice(int cardId, int interfaceId, int captureRate) :
-		AVSource("alsa"),  Loggable("br::ufscar::lince::avencoding::AlsaDevice") {
+		AVSource("alsa"),  Loggable(CLASS_NAME) {
 
 	trace("begin constructor");
 

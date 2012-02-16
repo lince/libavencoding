@@ -30,7 +30,7 @@ int main(int argc, char** argv) {
 	encoderAud->setAudioCodec(AudioCodec::AAC);
 	encoderAud->setAudioBitrate(192);
 
-	AVOutputFile* ofile = new AVOutputFile("outputfile1.mp4", "mp4");
+	AVOutputFile* ofile = new AVOutputFile("outputfile1.mp4", AVContainer::MP4);
 	ofile->addStream(encoderVid);
 	ofile->addStream(encoderAud);
 	ofile->start();

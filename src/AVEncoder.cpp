@@ -6,6 +6,8 @@
  *        Email: caio_viel@comp.ufscar.br
  */
 
+//TODO: Implement all parameters verification
+
 #include <libffmpeg/libffmpeg.h>
 
 #include <libcpputil/Functions.h>

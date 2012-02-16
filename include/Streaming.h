@@ -11,8 +11,10 @@
 
 #include <libcpputil/Thread.h>
 #include <libcpputil/InitializationException.h>
+#include <libcpputil/IllegalParameterException.h>
 
 #include "Transcoder.h"
+#include "TranscodingException.h"
 
 namespace br{
 namespace ufscar{
@@ -50,7 +52,7 @@ public:
 	 * This method should be called after the streaming and transcoding process was defined.
 	 * It creates a new theard that will process with the process.
 	 * @throw InitializationException if no stream was add.
-	 * @throw OptionException when parameters informed are wrong or invalids.
+	 * @throw IllegalParameterException when parameters informed are wrong or invalids.
 	 * @throw TranscodingException when errors occurs during the transcoding processes.
 	 * @see addStream
 	 */
@@ -60,24 +62,11 @@ public:
 	 * Abort the transcoding process.
 	 * @throw InitializationException if the process hasn't begun.
 	 */
-	virtual void stop()=0;
+	virtual void stop() = 0;
 
-	/**
-	 * This method returns true if the transcoding process is finished.
-	 * It can be used to create a non-block program, that will not sleep until the coding
-	 * is finished.
-	 * @return True if the transcoding process is finished; false otherwise.
-	 */
 	virtual bool isFinished();
 
-	/**
-	 * This method waits until the transcoding process is finished.
-	 * It can be used to create a block program, that will sleep until the coding is finished.
-	 * @throw InitializationException when the transcoding process hasn't begun.
-	 * @throw InitializationException when the transcoding process hasn't begun.
-	 */
 	virtual void waitFinishing();
-
 
 	virtual double getCurrentTime();
 

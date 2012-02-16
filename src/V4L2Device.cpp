@@ -5,18 +5,15 @@
  *      Author: caioviel
  */
 
-#include "../include/V4L2Device.h"
-using namespace std;
+#include <libffmpeg/libffmpeg.h>
 
-#include <libcpputil/NotImplementedException.h>
-#include <libcpputil/IllegalParameterException.h>
 #include <libcpputil/Functions.h>
 using namespace cpputil;
 
-#include <libcpputil/logger/Logger.h>
-using namespace cpputil::logger;
+#include "V4L2Device.h"
+using namespace std;
 
-#include <libffmpeg/libffmpeg.h>
+#define CLASS_NAME "br::ufscar::lince::avencoding::V4L2Device"
 
 namespace br {
 namespace ufscar {
@@ -24,7 +21,7 @@ namespace lince {
 namespace avencoding {
 
 V4L2Device::V4L2Device(int deviceId, int fps) :
-		AVSource("video4linux2"), Loggable("br::ufscar::lince::avencoding::V4L2Device") {
+		AVSource("video4linux2"), logger::Loggable(CLASS_NAME) {
 
 	trace("begin constructor");
 
@@ -37,7 +34,7 @@ V4L2Device::V4L2Device(int deviceId, int fps) :
 
 
 V4L2Device::V4L2Device(std::string path, int fps) :
-		AVSource("video4linux2"), Loggable("br::ufscar::lince::avencoding::V4L2Device") {
+		AVSource("video4linux2"), logger::Loggable(CLASS_NAME) {
 
 	trace("begin constructor");
 	this->deviceName = path;
@@ -52,7 +49,7 @@ V4L2Device::~V4L2Device() {
 int V4L2Device::getWidth() {
 	throw NotImplementedException(
 			"This functionality haven't been implemented yet.",
-			"br::ufscar::lince::streaming::V4L2Device",
+			CLASS_NAME,
 			"getWidth()");
 }
 
@@ -60,7 +57,7 @@ int V4L2Device::getWidth() {
 int V4L2Device::getHeight() {
 	throw NotImplementedException(
 			"This functionality haven't been implemented yet.",
-			"br::ufscar::lince::streaming::V4L2Device",
+			CLASS_NAME,
 			"getHeight()");
 }
 
@@ -89,7 +86,7 @@ void V4L2Device::configure(void* ffrapper) {
 		error("Error trying to set the format.");
 		throw IllegalParameterException(
 				FFMpeg_getErrorStr(),
-				"br::ufscar::lince::avenconding::AVInputFile",
+				CLASS_NAME,
 				"configure(void*)");
 	}
 
@@ -99,7 +96,7 @@ void V4L2Device::configure(void* ffrapper) {
 		error("Error trying to set the framerate.");
 		throw IllegalParameterException(
 				FFMpeg_getErrorStr(),
-				"br::ufscar::lince::avencoding::AVInputFile",
+				CLASS_NAME,
 				"configure(void*)");
 
 	}
@@ -110,7 +107,7 @@ void V4L2Device::configure(void* ffrapper) {
 		error("Error trying to set the format.");
 		throw IllegalParameterException(
 				FFMpeg_getErrorStr(),
-				"br::ufscar::lince::avencoding::AVInputFile",
+				CLASS_NAME,
 				"configure(void*)");
 	}
 }

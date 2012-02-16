@@ -13,13 +13,15 @@ using namespace cpputil;
 #include "AVOutputFile.h"
 using namespace std;
 
+#define CLASS_NAME "br::ufscar::lince::avencoding::AVOutputFile"
+
 namespace br {
 namespace ufscar {
 namespace lince {
 namespace avencoding {
 
 AVOutputFile::AVOutputFile(string filename, AVContainer container, bool fileOverwrite)
-		: Transcoder(), Thread(), Loggable("br::ufscar::lince::avencoding::AVOutputFile") {
+		: Transcoder(), Thread(), Loggable(CLASS_NAME) {
 
 	trace("begin constructor");
 
@@ -88,7 +90,7 @@ void AVOutputFile::run() {
 			error("Error trying to map the i/o streams.");
 			throw IllegalParameterException(
 					FFMpeg_getErrorStr(),
-					"br::ufscar::lince::avencoding::AVOutputFile",
+					CLASS_NAME,
 					"run()");
 		}
 	}
@@ -98,7 +100,7 @@ void AVOutputFile::run() {
 			error("Error trying to set the overwrite file option.");
 			throw IllegalParameterException(
 					FFMpeg_getErrorStr(),
-					"br::ufscar::lince::avencoding::AVOutputFile",
+					CLASS_NAME,
 					"run()");
 		}
 	}
@@ -109,7 +111,7 @@ void AVOutputFile::run() {
 			error("Error trying to set output file format: " + format);
 			throw IllegalParameterException(
 					FFMpeg_getErrorStr(),
-					"br::ufscar::lince::avencoding::AVOutputFile",
+					CLASS_NAME,
 					"run()");
 		}
 	}
@@ -120,7 +122,7 @@ void AVOutputFile::run() {
 		error("Error trying to set output file name: " + filename);
 		throw IllegalParameterException(
 				FFMpeg_getErrorStr(),
-				"br::ufscar::lince::avencoding::AVOutputFile",
+				CLASS_NAME,
 				"run()");
 	}
 
@@ -128,7 +130,7 @@ void AVOutputFile::run() {
 		error("Error during transcode process.");
 		throw TranscodingException(
 				FFMpeg_getErrorStr(),
-				"br::ufscar::lince::avencoding::AVOutputFile",
+				CLASS_NAME,
 				"run()");
 	}
 
@@ -139,6 +141,13 @@ void AVOutputFile::run() {
 
 void AVOutputFile::stop() {
 	trace("begin stop()");
+
+	if (!started) {
+		throw InitializationException(
+				"Transconding Process haven't started yet",
+				CLASS_NAME,
+				"stop()");
+	}
 
 	FFMpeg_stop();
 }
@@ -164,8 +173,8 @@ void AVOutputFile::waitFinishing() {
 
 	if (!started) {
 		throw InitializationException(
-				"Transconding Process haven't started yet",
-				"br::ufscar::lince::avencoding::AVOutputFile",
+				"Transconding Process hasn't started yet",
+				CLASS_NAME,
 				"waitFinishing()");
 	}
 	Thread::waitForUnlockCondition();

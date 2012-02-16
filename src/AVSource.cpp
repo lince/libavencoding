@@ -6,7 +6,7 @@
  *        Email: caio_viel@dc.ufscar.br
  */
 
-#include "../include/AVSource.h"
+#include "AVSource.h"
 
 namespace br{
 namespace ufscar{

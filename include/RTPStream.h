@@ -10,6 +10,7 @@
 #define RTPSTREAM_H_
 
 #include <libcpputil/InitializationException.h>
+#include <libcpputil/logger/Loggable.h>
 using namespace cpputil;
 
 #include "Streaming.h"
@@ -24,7 +25,7 @@ namespace avencoding {
  * This class is used to generate a RTP Stream of a audio/video coded of a source.
  * Only one audio/video stream can be send by a single RTP stream.
  */
-class RTPStream : public Streaming {
+class RTPStream : public Streaming, public cpputil::logger::Loggable {
 
 public:
 	/**
@@ -36,6 +37,7 @@ public:
 
 	/**
 	 * Virtual Destructor
+	 * It will delete all the AVSource and AVEncoder associated.
 	 */
 	virtual ~RTPStream();
 
@@ -48,10 +50,6 @@ public:
 	 */
 	void addStream(AVEncoder* stream);
 
-	/**
-	 * Abort the transcoding process.
-	 * @throw InitializationException if the process hasn't begun.
-	 */
 	void stop();
 
 private:

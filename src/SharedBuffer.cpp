@@ -6,15 +6,15 @@
  *        Email: caio_viel@comp.ufscar.br
  */
 
-#include "../include/SharedBuffer.h"
-
 #include <libffmpeg/libffmpeg.h>
 
 #include <libcpputil/Functions.h>
-#include <libcpputil/IllegalParameterException.h>
 using namespace cpputil;
 
-using namespace cpputil::logger;
+#include "SharedBuffer.h"
+using namespace std;
+
+#define CLASS_NAME "br::ufscar::lince::avencoding::SharedBuffer"
 
 namespace br{
 namespace ufscar{
@@ -22,22 +22,19 @@ namespace lince{
 namespace avencoding{
 
 SharedBuffer::SharedBuffer() :
-		AVSource("shmgrab"), Loggable("br::ufscar::lince::avencoding::SharedBuffer") {
+		AVSource("shmgrab"), logger::Loggable(CLASS_NAME) {
 
 	trace("begin constructor");
 	device = DeviceInterface::getInstance();
 }
 
 SharedBuffer::~SharedBuffer() {
-	// TODO Auto-generated destructor stub
 	trace("begin destructor");
 }
 
 int SharedBuffer::getHeight() {
 	return device->getHeight();
 }
-
-
 
 int SharedBuffer::getWidth() {
 	return device->getWidth();
@@ -55,7 +52,7 @@ void SharedBuffer::configure(void* _ffrapper) {
 		error("Error trying to set the format.");
 		throw IllegalParameterException(
 				FFMpeg_getErrorStr(),
-				"br::ufscar::lince::avencoding::SharedBuffer",
+				CLASS_NAME,
 				"configure(void*)");
 	}
 
@@ -65,7 +62,7 @@ void SharedBuffer::configure(void* _ffrapper) {
 		error("Error trying to set the frame rate.");
 		throw IllegalParameterException(
 				FFMpeg_getErrorStr(),
-				"br::ufscar::lince::avencoding::SharedBuffer",
+				CLASS_NAME,
 				"configure(void*)");
 	}
 
@@ -73,7 +70,7 @@ void SharedBuffer::configure(void* _ffrapper) {
 		error("Error trying to set the file name.");
 		throw IllegalParameterException(
 				FFMpeg_getErrorStr(),
-				"br::ufscar::lince::avencoding::SharedBuffer",
+				CLASS_NAME,
 				"configure(void*)");
 
 	}

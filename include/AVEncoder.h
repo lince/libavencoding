@@ -51,7 +51,9 @@ public:
 	 * AVSource Constructor
 	 * Initialize the codecs with the default values and define the AVSource that
 	 * that will be coding.
+	 * If the streamId is omitted, it will be use used the first stream.
 	 * @param avSource the audio/video source.
+	 * @param streamId The id of the stream that will be considered during the transcoding process.
 	 * @throw InitializationException if avSource is NULL.
 	 */
 	AVEncoder(AVSource* avSource, int streamId=-1);
@@ -272,14 +274,14 @@ public:
 	std::string getVideoPreset();
 
 	/**
-	 * This method returns the ffmpeg-presets used to coding video.
-	 * @return the ffmpeg preset.
+	 * This method returns stream id that will be considered during the transcoding process.
+	 * @return the stream id
 	 */
 	int getStreamId();
 
 	/**
-	 * This method returns the ffmpeg-presets used to coding video.
-	 * @param id The new stream id.
+	 * This method is used to set the stream that will be used during the transcoding process.
+	 * @param id the stream id.
 	 */
 	void setStreamId(int id);
 
@@ -292,7 +294,7 @@ public:
 	/**
 	 * This method is used to set various video/audio coding dependent parameters.
 	 * @param name The parameter name.
-	 * @value the new value of the parameter.
+	 * @param value the new value of the parameter.
 	 */
 	void setPropertyValue(std::string name, std::string value);
 
@@ -313,16 +315,41 @@ public:
 	 */
 	void enableCopyAudio();
 
+	/**
+	 * This method can be used to determine if the video stream will be considered during the transcoding process.
+	 * @param value true, if you desire to use the video stream; false, otherwise.
+	 */
 	void setVideoEnable(bool value);
 
+	/**
+	 * This method can be used to determine if the audio stream will be considered during the transcoding process.
+	 * @param value true, if you desire to use the audio stream; false, otherwise.
+	 */
 	void setAudioEnable(bool value);
 
+	/**
+	 * This method is used to verify if the video stream is enabled in the transcoding process.
+	 * @return true, if the video is enable; false, otherwise.
+	 */
 	bool isVideoEnable();
 
+	/**
+	 * This method is used to verify if the audio stream is enabled in the transcoding process.
+	 * @return true, if the audio is enable; false, otherwise.
+	 */
 	bool isAudioEnable();
 
+	/**
+	 * This method is used to determine if the output video will keep the same quality of the input video.
+	 * It may not works for some codecs and containers.
+	 * @param value true, if the quality is to be keeped; false, otherwise.
+	 */
 	void setVideoSameQuality(bool value);
 
+	/**
+	 * Verifies if the transcoding proccess will try to keep the input video quality into the output video.
+	 * @return true, if the quality is to be keeped; false, otherwise.
+	 */
 	bool isVideoSameQuality();
 
 protected:

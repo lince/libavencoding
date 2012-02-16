@@ -18,7 +18,7 @@ using namespace ::br::ufscar::lince::avencoding;
 
 int main(int argc, char** argv) {
 
-	AVSource* avfile = new AVInputFile("videosample.mp4", "mp4");
+	AVSource* avfile = new AVInputFile("videosample.mp4", AVContainer::MP4);
 
 	AVEncoder* encoderVid = new AVEncoder(avfile, 0);
 	encoderVid->setVideoCodec(VideoCodec::MPEG2);

@@ -6,15 +6,15 @@
  *        Email: caio_viel@comp.ufscar.br
  */
 
-#include "../include/DeviceInterface.h"
-#include "../include/DeviceException.h"
-
-#include <iostream>
 #include <cstdlib>
 
+#include "DeviceInterface.h"
 using namespace std;
-
 using namespace cpputil::logger;
+
+#define CLASS_NAME  "br::ufscar::lince::avencoding::DeviceInterface"
+
+//TODO: Verify parameters of the constructor
 
 #define SHMKEY 7101
 #define SHMINFOKEY 4687
@@ -50,7 +50,9 @@ typedef struct {
 
 DeviceInterface* DeviceInterface::_instance = NULL;
 
-DeviceInterface::DeviceInterface() : Loggable("br::ufscar::lince::avencoding::DeviceInterface") {
+
+
+DeviceInterface::DeviceInterface() : Loggable(CLASS_NAME) {
 
 	trace("begin constructor");
 	unmounted = true;
@@ -94,7 +96,10 @@ void DeviceInterface::initDeviceInfo() {
 
 	int shmid = shmget(SHMINFOKEY, sizeof(DeviceInfo) ,0777|IPC_CREAT);
 	if (shmid < 0) {
-		//TODO throw excpetion
+		throw cpputil::InitializationException(
+				"Couldn't retrive information of the device",
+				CLASS_NAME,
+				"initDeviceInfo()");
 		return;
 	}
 	/* Associa a variavel local com o buffer compartilhado */
@@ -119,7 +124,7 @@ void DeviceInterface::mount(int width, int height, int bitsPerPixel, int fps) {
 	} else {
 		throw DeviceException(
 				"Shared Memory buffer has been already created.",
-				"br::ufscar::lince::avencoding::DeviceInterface",
+				CLASS_NAME,
 				"mount(int, int, int, int");
 	}
 
@@ -131,7 +136,7 @@ void DeviceInterface::mount(int width, int height, int bitsPerPixel, int fps) {
 	if (shmid < 0) {
 		throw DeviceException(
 				"Can Not create the Shared Memory buffer",
-				"br::ufscar::lince::avencoding::DeviceInterface",
+				CLASS_NAME,
 				"mount(int, int, int, int");
 	}
 
@@ -139,7 +144,7 @@ void DeviceInterface::mount(int width, int height, int bitsPerPixel, int fps) {
 	if(semid < 0) {
 		throw DeviceException(
 				"Can Not create the Semaphore",
-				"br::ufscar::lince::avencoding::DeviceInterface",
+				CLASS_NAME,
 				"mount(int, int, int, int");
 	}
 
@@ -149,7 +154,7 @@ void DeviceInterface::mount(int width, int height, int bitsPerPixel, int fps) {
    	if(shmdata == NULL){
 		throw DeviceException(
 				"Can Not allocate Shared Memory buffer",
-				"br::ufscar::lince::avencoding::DeviceInterface",
+				CLASS_NAME,
 				"mount(int, int, int, int");
    	}
 

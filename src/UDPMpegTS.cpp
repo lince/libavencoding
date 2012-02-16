@@ -6,22 +6,26 @@
  *        Email: caio_viel@comp.ufscar.br
  */
 
+#include <libffmpeg/libffmpeg.h>
+
 #include <libcpputil/Functions.h>
 using namespace cpputil;
 
-#include <libffmpeg/libffmpeg.h>
-
-#include <iostream>
+#include "UDPMpegTS.h"
 using namespace std;
 
-#include "../include/UDPMpegTS.h"
+#define CLASS_NAME "br::ufscar::lince::avencoding::UDPMpegTS"
 
 namespace br{
 namespace ufscar{
 namespace lince{
 namespace avencoding{
 
-UDPMpegTS::UDPMpegTS(string ip, int port) : Streaming() {
+UDPMpegTS::UDPMpegTS(string ip, int port) : Streaming(),
+		logger::Loggable(CLASS_NAME ){
+
+	trace("begin constructor");
+
 	this->ip = ip;
 	this->port = port;
 	sources = new vector<AVSource*>();
@@ -30,6 +34,8 @@ UDPMpegTS::UDPMpegTS(string ip, int port) : Streaming() {
 }
 
 UDPMpegTS::~UDPMpegTS() {
+	trace("begin destructor");
+
 	vector<AVSource*>::iterator it;
 	for (it = sources->begin(); it != sources->end(); it++) {
 		AVSource* source = *it;
@@ -46,6 +52,10 @@ UDPMpegTS::~UDPMpegTS() {
 }
 
 void UDPMpegTS::addStream(AVEncoder *stream) {
+	trace("begin addStream(AVEncoder* ");
+
+	//TODO: Check stream.
+
 	sources->push_back(stream->getSource());
 	encoders->push_back(stream);
 }
@@ -82,13 +92,42 @@ void UDPMpegTS::run() {
 
 		string mapOpp = fileId + "." + streamId;
 		cout << mapOpp << endl;
-		FFMpeg_setMap((char*) mapOpp.c_str());
+		if (FFMpeg_setMap((char*) mapOpp.c_str()) != FFMpeg_SUCCESS) {
+			error("Error trying to map the i/o streams.");
+			throw IllegalParameterException(
+					FFMpeg_getErrorStr(),
+					CLASS_NAME,
+					"run()");
+		}
 	}
 
-	FFMpeg_setFormat((char*) "mpegts");
+	if (FFMpeg_setFormat((char*) "mpegts") != FFMpeg_SUCCESS) {
+		error("Error trying the format mpegts.");
+		throw IllegalParameterException(
+				FFMpeg_getErrorStr(),
+				CLASS_NAME,
+				"run()");
+	}
+
 	string outputfile = "udp://" + ip + ":" + Functions::numberToString(port);
-	FFMpeg_setOutputFile((char*) outputfile.c_str());
-	FFMpeg_transcode();
+	debug("UDP output file name: " + outputfile);
+
+	if (FFMpeg_setOutputFile((char*) outputfile.c_str()) != FFMpeg_SUCCESS) {
+		error("Error trying to set the UDP output file: " + outputfile);
+		throw IllegalParameterException(
+				FFMpeg_getErrorStr(),
+				CLASS_NAME,
+				"run()");
+	}
+
+	if (FFMpeg_transcode() != FFMpeg_SUCCESS) {
+		error("Error during transcode process.");
+		throw TranscodingException(
+				FFMpeg_getErrorStr(),
+				CLASS_NAME,
+				"run()");
+	}
+
 	FFMpeg_reset(__LINE__);
 	finished = true;
 	Thread::unlockConditionSatisfied();
@@ -97,6 +136,14 @@ void UDPMpegTS::run() {
 
 
 void UDPMpegTS::stop() {
+	trace("stop");
+
+	if (!started) {
+		throw new cpputil::InitializationException(
+				"Transconding Process haven't started yet",
+				CLASS_NAME,
+				"stop()");
+	}
 	FFMpeg_stop();
 }
 

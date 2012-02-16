@@ -18,8 +18,8 @@
 using namespace ::br::ufscar::lince::avencoding;
 
 int main(int argc, char** argv) {
-	AVSource* vfile = new AVInputFile("videosample.mp4", "mp4");
-	AVSource* afile = new AVInputFile("audiosample.aac", "aac");
+	AVSource* vfile = new AVInputFile("videosample.mp4", AVContainer::MP4);
+	AVSource* afile = new AVInputFile("audiosample.aac", AVContainer::AAC);
 
 	AVEncoder* encoderVid = new AVEncoder(vfile);
 	encoderVid->setVideoCodec(VideoCodec::H264);

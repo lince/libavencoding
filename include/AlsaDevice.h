@@ -8,9 +8,10 @@
 #ifndef ALSADEVICE_H_
 #define ALSADEVICE_H_
 
-#include <libcpputil/logger/Logger.h>
-
 #include <string>
+
+#include <libcpputil/logger/Logger.h>
+#include <libcpputil/IllegalParameterException.h>
 
 #include "AVSource.h"
 

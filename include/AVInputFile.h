@@ -21,7 +21,6 @@ namespace ufscar {
 namespace lince {
 namespace avencoding {
 
-//TODO: Permitir setar o formato do arquivo por um enum.
 //TODO: Permitir abrir o arquivo e obter infomrações sobre ele.
 
 /**
@@ -32,7 +31,7 @@ public:
 	/**
 	 * Constructor.
 	 * @param filename The name of the file.
-	 * @format The format of the audio/video in the file.
+	 * @param container The container of the audio/video in the file.
 	 */
 	AVInputFile(std::string filename, AVContainer container = AVContainer::NONE);
 
@@ -42,12 +41,15 @@ public:
 	virtual ~AVInputFile();
 
 	/**
-	 * Return the name of the file.
+	 * Returns the name of the file.
 	 * @return name of the file.
 	 */
 	std::string getFilename();
 
-
+	/**
+	 * Returns the container of the file
+	 * @return The Container.
+	 */
 	AVContainer getContainer();
 
 protected:

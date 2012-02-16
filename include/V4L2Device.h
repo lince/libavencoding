@@ -9,10 +9,11 @@
 #define V4L2DEVICE_H_
 
 //TODO: Obter informações sobre o device via api v4l2.
+#include <libcpputil/logger/Logger.h>
+#include <libcpputil/NotImplementedException.h>
+#include <libcpputil/IllegalParameterException.h>
 
 #include "AVSource.h"
-
-#include <libcpputil/logger/Logger.h>
 
 namespace br {
 namespace ufscar {
@@ -67,10 +68,10 @@ public:
 
 protected:
 	/**
-	 * This protected method is internally used to allow the X11Terminal's instance to configure
+	 * This protected method is internally used to allow the V4L2Device instance to configure
 	 * the transcoding process with her parameters.
 	 * @param ffrapper a pointer to the FFrapper instance that will processed the transcoding.
-	 * @throw OptionException when parameters are wrong or invalids.
+	 * @throw IllegalParameterException when parameters are wrong or invalids.
 	 */
 	void configure(void* ffrapper);
 

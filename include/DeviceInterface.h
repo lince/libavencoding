@@ -9,6 +9,8 @@
 #include <stdlib.h>
 
 #include <libcpputil/logger/Logger.h>
+#include <libcpputil/InitializationException.h>
+#include "DeviceException.h"
 
 namespace br{
 namespace ufscar{
@@ -54,6 +56,7 @@ public:
 	/**
 	 * This method can be used to put a new image in the device
 	 * with pixel format conversion.
+	 * This can be used to put images from OpenGL default configuration into the buffer.
 	 * @param buffer The buffer that contains the image.
 	 */
 	virtual void putBuffer2(unsigned char* buffer);
@@ -61,10 +64,17 @@ public:
 	/**
 	 * This method can be used to put a new image in the device
 	 * with pixel format conversion.
+	 * This can be used to put images from Ogre3D default configuration into the buffer.
 	 * @param buffer The buffer that contains the image.
 	 */
 	virtual void putBuffer3(unsigned char* buffer);
 
+	/**
+	 * This method can be used to put a new image in the device
+	 * with pixel format conversion.
+	 * This can be used to put images from OpenCV into the buffer.
+	 * @param buffer The buffer that contains the image.
+	 */
 	virtual void putBuffer4(unsigned char* buffer);
 
 	/**

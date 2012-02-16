@@ -10,6 +10,7 @@
 #define SHAREDBUFFER_H_
 
 #include <libcpputil/logger/Logger.h>
+#include <libcpputil/IllegalParameterException.h>
 
 #include "AVSource.h"
 #include "DeviceInterface.h"
@@ -55,7 +56,7 @@ protected:
 	 * This protected method is internally used to allow the SharedBuffer's instance to configure
 	 * the transcoding process with her parameters.
 	 * @param ffrapper a pointer to the FFrapper instance that will processed the transcoding.
-	 * @throw OptionException when parameters are wrong or invalids.
+	 * @throw IllegalParameterException when parameters are wrong or invalids.
 	 */
 	void configure(void* ffrapper);
 

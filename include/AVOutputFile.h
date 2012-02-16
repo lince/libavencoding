@@ -9,13 +9,12 @@
 #ifndef AVOUTPUTFILE_H_
 #define AVOUTPUTFILE_H_
 
+#include <vector>
+
 #include <libcpputil/Thread.h>
 #include <libcpputil/InitializationException.h>
 #include <libcpputil/IllegalParameterException.h>
 #include <libcpputil/logger/Logger.h>
-
-
-#include <vector>
 
 #include "Transcoder.h"
 #include "AVContainer.h"
@@ -43,6 +42,7 @@ public:
 
 	/**
 	 * Virtual Destructor
+	 * It will delete all the AVSource and AVEncoder associated.
 	 */
 	virtual ~AVOutputFile();
 
@@ -62,8 +62,9 @@ public:
 	 * Start the transcoding and streaming process.
 	 * This method should be called after the streaming and transcoding process was defined.
 	 * It creates a new theard that will process with the process.
+	 * Some of the exceptions are throwed by the thread.
 	 * @throw InitializationException if no stream was add.
-	 * @throw OptionException when parameters informed are wrong or invalids.
+	 * @throw IllegalParameterException when parameters informed are wrong or invalids.
 	 * @throw TranscodingException when errors occurs during the transcoding processes.
 	 * @see addStream
 	 */
@@ -77,23 +78,16 @@ public:
 	void addStream(AVEncoder* stream);
 
 	/**
-	 * This method returns true if the transcoding process is finished.
-	 * It can be used to create a non-block program, that will not sleep until the coding
-	 * is finished.
-	 * @return True if the transcoding process is finished; false otherwise.
+	 * Returns the container that will be used to generate the audio/video file.
+	 * @return The container.
 	 */
-	virtual bool isFinished();
-
-	/**
-	 * This method waits until the transcoding process is finished.
-	 * It can be used to create a block program, that will sleep until the coding is finished.
-	 * @throw InitializationException when the transcoding process hasn't begun.
-	 */
-	virtual void waitFinishing();
+	AVContainer getContainer();
 
 	virtual double getCurrentTime();
 
-	AVContainer getContainer();
+	virtual bool isFinished();
+
+	virtual void waitFinishing();
 
 protected:
 	bool finished;

@@ -5,31 +5,36 @@
  *       Author: Caio César Viel
  *        Email: caio_viel@comp.ufscar.br
  */
+#include <libffmpeg/libffmpeg.h>
 
 #include <libcpputil/Functions.h>
 using namespace cpputil;
 
-#include <libffmpeg/libffmpeg.h>
-
-#include <iostream>
+#include "WowzaUDPInput.h"
 using namespace std;
 
-#include "../include/WowzaUDPInput.h"
+#define CLASS_NAME "br::ufscar::lince::avencoding::WowzaUDPInput"
 
 namespace br{
 namespace ufscar{
 namespace lince{
 namespace avencoding{
 
-WowzaUDPInput::WowzaUDPInput(string ip, int port) : Streaming() {
+WowzaUDPInput::WowzaUDPInput(string ip, int port) : Streaming(),
+		logger::Loggable(CLASS_NAME){
+
+	trace("begin constructor");
+
 	this->ip = ip;
 	this->port = port;
 	source = NULL;
 	encoder = NULL;
-	FFMpeg_init(0);
+	FFMpeg_init(5);
 }
 
 WowzaUDPInput::~WowzaUDPInput() {
+	trace("begin destrcutor");
+
 	if (source) {
 		delete source;
 	}
@@ -39,26 +44,79 @@ WowzaUDPInput::~WowzaUDPInput() {
 }
 
 void WowzaUDPInput::addStream(AVEncoder *stream) {
+	trace("begin addStream(AVEncoder*)");
+
 	source = stream->getSource();
 	encoder = stream;
 }
 
 void WowzaUDPInput::run() {
-	vector<AVSource*>::iterator it;
+	trace("begin run()");
+
 	configure(source, (void*)NULL);
-
 	configure(encoder, (void*)NULL);
-	FFMpeg_setVideoPreset((char*)"baseline");
-	FFMpeg_setOther((char*)"g", (char*)"60");
-	FFMpeg_setVideoBitrate((char*)"150000");
 
-	FFMpeg_setFormat((char*)"mpegts");
-	FFMpeg_setVideoBitstreamFilter((char*)"h264_mp4toannexb");
+	if (FFMpeg_setVideoPreset((char*)"baseline") != FFMpeg_SUCCESS) {
+		error("Error trying to set video preset as baseline.");
+		throw IllegalParameterException(
+				FFMpeg_getErrorStr(),
+				CLASS_NAME,
+				"run()");
+	}
+
+	if (FFMpeg_setOther((char*)"g", (char*)"60") != FFMpeg_SUCCESS) {
+		error("Error trying to set property g as 60.");
+		throw IllegalParameterException(
+				FFMpeg_getErrorStr(),
+				CLASS_NAME,
+				"run()");
+	}
+
+	if (FFMpeg_setVideoBitrate((char*)"150000")!= FFMpeg_SUCCESS) {
+		error("Error trying to set video bitrate as 150000.");
+		throw IllegalParameterException(
+				FFMpeg_getErrorStr(),
+				CLASS_NAME,
+				"run()");
+	}
+
+	if (FFMpeg_setFormat((char*)"mpegts") != FFMpeg_SUCCESS) {
+		error("Error trying to set format as mpegts.");
+		throw IllegalParameterException(
+				FFMpeg_getErrorStr(),
+				CLASS_NAME,
+				"run()");
+	}
+
+	if (FFMpeg_setVideoBitstreamFilter((char*)"h264_mp4toannexb") != FFMpeg_SUCCESS) {
+		error("Error trying to set video bitstream filter as h264_mp4toannexb.");
+		throw IllegalParameterException(
+				FFMpeg_getErrorStr(),
+				CLASS_NAME,
+				"run()");
+	}
+
 	string outputfile = "udp://" + ip + ":" +
 			Functions::numberToString(port) + "?pkt_size=1316";
 
-	FFMpeg_setOutputFile((char*) outputfile.c_str());
-	FFMpeg_transcode();
+	debug("UDP output file name: " + outputfile);
+
+	if (FFMpeg_setOutputFile((char*) outputfile.c_str()) != FFMpeg_SUCCESS) {
+		error("Error trying to set UDP output file: " + outputfile);
+		throw IllegalParameterException(
+				FFMpeg_getErrorStr(),
+				CLASS_NAME,
+				"run()");
+	}
+
+	if (FFMpeg_transcode() != FFMpeg_SUCCESS) {
+		error("Error during transcode process.");
+		throw TranscodingException(
+				FFMpeg_getErrorStr(),
+				CLASS_NAME,
+				"run()");
+	}
+
 	FFMpeg_reset(__LINE__);
 	finished = true;
 	Thread::unlockConditionSatisfied();
@@ -67,6 +125,14 @@ void WowzaUDPInput::run() {
 
 
 void WowzaUDPInput::stop() {
+	trace("stop");
+
+	if (!started) {
+		throw new cpputil::InitializationException(
+				"Transconding Process haven't started yet",
+				CLASS_NAME,
+				"stop()");
+	}
 	FFMpeg_stop();
 }
 
