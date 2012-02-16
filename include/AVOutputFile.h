@@ -9,17 +9,17 @@
 #ifndef AVOUTPUTFILE_H_
 #define AVOUTPUTFILE_H_
 
-#include <libffmpeg/libffmpeg.h>
-
 #include <libcpputil/Thread.h>
 #include <libcpputil/InitializationException.h>
-
+#include <libcpputil/IllegalParameterException.h>
 #include <libcpputil/logger/Logger.h>
 
 
 #include <vector>
 
 #include "Transcoder.h"
+#include "AVContainer.h"
+#include "TranscodingException.h"
 
 namespace br {
 namespace ufscar {
@@ -39,7 +39,7 @@ public:
 	 * @param filename the name of the file that will be generated.
 	 * @param format the format of the fila that will be generated.
 	 */
-	AVOutputFile(std::string filename, std::string format="", bool fileOverwrite=false);
+	AVOutputFile(std::string filename, AVContainer container = AVContainer::NONE, bool fileOverwrite=false);
 
 	/**
 	 * Virtual Destructor
@@ -93,6 +93,8 @@ public:
 
 	virtual double getCurrentTime();
 
+	AVContainer getContainer();
+
 protected:
 	bool finished;
 	bool started;
@@ -102,9 +104,9 @@ private:
 	std::vector<AVSource*>* sources;
 	std::vector<AVEncoder*>* encoders;
 	std::string filename;
-	std::string format;
 
 	bool fileOverwrite;
+	AVContainer container;
 };
 
 }

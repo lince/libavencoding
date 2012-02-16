@@ -68,8 +68,6 @@ protected:
 	bool configured;
 	int startTime;
 	int durationTime;
-
-private:
 	std::string format;
 
 };

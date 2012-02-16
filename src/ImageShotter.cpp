@@ -6,14 +6,17 @@
  *        Email: caio_viel@comp.ufscar.br
  */
 
-#include <libcpputil/Functions.h>
-
-using namespace cpputil;
+#include <cstdlib>
+using namespace std;
 
 #include <libffmpeg/libffmpeg.h>
 
+#include <libcpputil/Functions.h>
+using namespace cpputil;
+
 #include "ImageShotter.h"
-using namespace std;
+
+#define CLASS_NAME	"br::ufscar::lince::avencoding::ImageShotter"
 
 namespace br {
 namespace ufscar {
@@ -21,42 +24,34 @@ namespace lince {
 namespace avencoding {
 
 ImageShotter::ImageShotter(AVSource* source, ImageFormat format) : Thread(),
-		cpputil::logger::Loggable("br::ufscar::lince::avencoding::ImageShotter") {
+		cpputil::logger::Loggable(CLASS_NAME) {
 
 	trace("begin constructor");
+
+	if (source == NULL) {
+		throw IllegalParameterException(
+				"AVSource informed as parameter is NULL.",
+				CLASS_NAME,
+				"ImageShotter(AVSource*, ImageFormat)");
+	}
 
 	this->source = source;
 	imageFormat = format;
 	width = height = 0;
 	started = false;
 	finished = false;
+	FFMpeg_init(5);
 }
 
 ImageShotter::~ImageShotter() {
 	trace("begin destrutor");
 
+	delete source;
+
 }
-
-bool ImageShotter::isFinished() {
-	return finished;
-}
-
-void ImageShotter::waitFinishing() {
-	trace("begin waitFinishing()");
-
-	if (!started) {
-		throw new InitializationException(
-				"Transconding Process haven't started yet",
-				"br::ufscar::lince::avencoding::ImageShotter",
-				"waitFinishing()");
-	}
-	Thread::waitForUnlockCondition();
-}
-
 
 void ImageShotter::takeShot(string nfilename) {
 	trace("begin takeShot(string)");
-
 	settedTime = false;
 	filename = nfilename;
 	started = true;
@@ -66,6 +61,13 @@ void ImageShotter::takeShot(string nfilename) {
 
 void ImageShotter::takeShot(string nfilename, int ltime) {
 	trace("begin takeShot(string, int)");
+
+	if (ltime < 0) {
+		throw cpputil::IllegalParameterException(
+				"Invalid time informed: " + Functions::numberToString(ltime),
+				CLASS_NAME,
+				"takeShot(string, int)");
+	}
 
 	settedTime = true;
 	time = Functions::numberToString(ltime);
@@ -77,6 +79,7 @@ void ImageShotter::takeShot(string nfilename, int ltime) {
 void ImageShotter::takeShot(string nfilename, string stime) {
 	trace("begin trakeShot(string, string)");
 
+	//TODO Check parameter stime.
 	settedTime = true;
 	time = stime;
 	filename = nfilename;
@@ -86,6 +89,13 @@ void ImageShotter::takeShot(string nfilename, string stime) {
 }
 
 void ImageShotter::setImageSize(int width, int heigh) {
+	if (width < 0 || height < 0) {
+		throw cpputil::IllegalParameterException(
+				"Invalid size informed."
+				CLASS_NAME,
+				"setImageSize(int, int)");
+	}
+
 	this->width = width;
 	this->height = heigh;
 }
@@ -121,35 +131,68 @@ ImageFormat ImageShotter::getImageFormat() {
 void ImageShotter::run() {
 	trace("begin run()");
 
-	static bool iniciado = false;
-	if (!iniciado) {
-		cout<<"Vamos Chamar o Init!"<<endl;
-		FFMpeg_init(5);
-		iniciado = true;
-	}
 	configure(source, (void*) NULL);
 
-	FFMpeg_setRecordingTime1((char*)"1");
+	if (FFMpeg_setRecordingTime1((char*)"1") != FFMpeg_SUCCESS) {
+		error("Error trying to set recording time to 1");
+		throw IllegalParameterException(
+				FFMpeg_getErrorStr(),
+				"br::ufscar::lince::avencoding::ImageShotter",
+				"run()");
+	}
 	if (settedTime) {
-		cout<<"\n\ttempo inicial setado='"<<time<<"'"<<endl;
-		FFMpeg_setStartTime1((char*) time.c_str());
+		if (FFMpeg_setStartTime1((char*) time.c_str()) != FFMpeg_SUCCESS) {
+			error("Error trying to positioning to take the shot at: " + time);
+			throw IllegalParameterException(
+					FFMpeg_getErrorStr(),
+					"br::ufscar::lince::avencoding::ImageShotter",
+					"run()");
+		}
 	}
 
 	if (imageFormat == ImageFormat::JPEG) {
-		FFMpeg_setFormat((char*)"mjpeg");
+		if (FFMpeg_setFormat((char*)"mjpeg") != FFMpeg_SUCCESS) {
+			error("Error trying to set format as mjpeg");
+			throw IllegalParameterException(
+					FFMpeg_getErrorStr(),
+					"br::ufscar::lince::avencoding::ImageShotter",
+					"run()");
+		}
 	} else {
 		throw NotImplementedException(
 				"Just JPEG ImageFormat is supported for now.",
 				"br::ufscar::lince::avencoding::ImageShotter",
 				"run()");
 	}
+
 	if (height != 0 && width != 0) {
-		FFMpeg_setFrameSize2(width, height);
+		if (FFMpeg_setFrameSize2(width, height) != FFMpeg_SUCCESS) {
+			error("Error trying to set the image size: " +
+					Functions::numberToString(height) + "x" +
+					Functions::numberToString(width));
+
+			throw IllegalParameterException(
+					FFMpeg_getErrorStr(),
+					"br::ufscar::lince::avencoding::ImageShotter",
+					"run()");
+		}
 	}
 
-	FFMpeg_setOutputFile((char*) filename.c_str());
+	if (FFMpeg_setOutputFile((char*) filename.c_str()) != FFMpeg_SUCCESS) {
+		error("Error trying to set the output file name as: " + filename);
+		throw IllegalParameterException(
+				FFMpeg_getErrorStr(),
+				"br::ufscar::lince::avencoding::ImageShotter",
+				"run()");
+	}
 
-	FFMpeg_transcode();
+	if (FFMpeg_transcode() != FFMpeg_SUCCESS) {
+		error("Error during transcode process.");
+		throw TranscodingException(
+				FFMpeg_getErrorStr(),
+				"br::ufscar::lince::avencoding::ImageShotter",
+				"run()");
+	}
 
 	FFMpeg_reset(__LINE__);
 
@@ -165,6 +208,23 @@ double ImageShotter::getCurrentTime() {
 			"br::ufscar::lince::avencoding::ImageShotter",
 			"getCurrentTime()");
 }
+
+bool ImageShotter::isFinished() {
+	return finished;
+}
+
+void ImageShotter::waitFinishing() {
+	trace("begin waitFinishing()");
+
+	if (!started) {
+		throw new InitializationException(
+				"Transconding Process haven't started yet",
+				"br::ufscar::lince::avencoding::ImageShotter",
+				"waitFinishing()");
+	}
+	Thread::waitForUnlockCondition();
+}
+
 
 }
 }

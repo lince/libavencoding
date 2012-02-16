@@ -10,10 +10,11 @@
 #define AVINPUTFILE_H_
 
 #include <libcpputil/logger/Logger.h>
-
+#include <libcpputil/IllegalParameterException.h>
 #include <string>
 
 #include "AVSource.h"
+#include "AVContainer.h"
 
 namespace br {
 namespace ufscar {
@@ -33,9 +34,7 @@ public:
 	 * @param filename The name of the file.
 	 * @format The format of the audio/video in the file.
 	 */
-	AVInputFile(std::string filename, std::string format);
-
-	AVInputFile(std::string filename);
+	AVInputFile(std::string filename, AVContainer container = AVContainer::NONE);
 
 	/**
 	 * Virtual Destructor
@@ -48,6 +47,9 @@ public:
 	 */
 	std::string getFilename();
 
+
+	AVContainer getContainer();
+
 protected:
 	/**
 	 * This protected method is internally used to allow the AVInputFile's instance to configure
@@ -59,6 +61,7 @@ protected:
 
 private:
 	std::string filename;
+	AVContainer container;
 
 };
 

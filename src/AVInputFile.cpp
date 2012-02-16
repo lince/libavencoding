@@ -7,36 +7,26 @@
  */
 
 #include <libffmpeg/libffmpeg.h>
-#include "../include/AVInputFile.h"
-
-#include <string>
-using namespace std;
 
 #include <libcpputil/Functions.h>
-#include <libcpputil/IllegalParameterException.h>
 using namespace cpputil;
 
-#include <libcpputil/logger/Logger.h>
-using namespace cpputil::logger;
+#include "../include/AVInputFile.h"
+using namespace std;
 
 namespace br{
 namespace ufscar{
 namespace lince{
 namespace avencoding{
 
-AVInputFile::AVInputFile(std::string filename, std::string format) :
-		AVSource(format), Loggable("br::ufscar::lince::avencoding::AVInputFile") {
-	this->trace("begin constructor");
+AVInputFile::AVInputFile(std::string filename, AVContainer container) :
+		AVSource(Functions::toUpperCase(container.toString())),
+		logger::Loggable("br::ufscar::lince::avencoding::AVInputFile") {
+
+	trace("begin constructor");
 
 	this->filename = filename;
-}
-
-AVInputFile::AVInputFile(std::string filename) :
-		AVSource(""), Loggable("br::ufscar::lince::avencoding::AVInputFile") {
-
-	this->trace("begin constructor");
-
-	this->filename = filename;
+	this->container = container;
 }
 
 std::string AVInputFile::getFilename() {
@@ -100,6 +90,10 @@ void AVInputFile::configure(void *ffrapper_) {
 
 AVInputFile::~AVInputFile() {
 	trace("begin destructor");
+}
+
+AVContainer AVInputFile::getContainer() {
+	return container;
 }
 
 }

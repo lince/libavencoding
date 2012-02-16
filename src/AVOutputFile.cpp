@@ -7,23 +7,18 @@
  */
 
 #include <libffmpeg/libffmpeg.h>
-
 #include <libcpputil/Functions.h>
-#include <libcpputil/IllegalParameterException.h>
 using namespace cpputil;
 
-#include <iostream>
+#include "AVOutputFile.h"
 using namespace std;
-
-#include "../include/AVOutputFile.h"
-#include "../include/TranscodingException.h"
 
 namespace br {
 namespace ufscar {
 namespace lince {
 namespace avencoding {
 
-AVOutputFile::AVOutputFile(string filename, string format, bool fileOverwrite)
+AVOutputFile::AVOutputFile(string filename, AVContainer container, bool fileOverwrite)
 		: Transcoder(), Thread(), Loggable("br::ufscar::lince::avencoding::AVOutputFile") {
 
 	trace("begin constructor");
@@ -31,7 +26,7 @@ AVOutputFile::AVOutputFile(string filename, string format, bool fileOverwrite)
 	finished = false;
 	started = false;
 	this->filename = filename;
-	this->format = format;
+	this->container = container;
 	this->fileOverwrite = fileOverwrite;
 	sources = new vector<AVSource*>();
 	encoders = new vector<AVEncoder*>();
@@ -108,7 +103,8 @@ void AVOutputFile::run() {
 		}
 	}
 
-	if (format != "") {
+	if (container != AVContainer::NONE) {
+		std::string format = Functions::toLowerCase(container.toString());
 		if (FFMpeg_setFormat((char*) format.c_str()) != FFMpeg_SUCCESS) {
 			error("Error trying to set output file format: " + format);
 			throw IllegalParameterException(
@@ -186,6 +182,10 @@ void AVOutputFile::start() {
 
 double AVOutputFile::getCurrentTime() {
 	return FFMpeg_getTime();
+}
+
+AVContainer AVOutputFile::getContainer() {
+	return container;
 }
 
 }
