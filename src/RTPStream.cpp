@@ -9,14 +9,14 @@
 #include <iostream>
 #include <string.h>
 
-using namespace std;
-
 #include <libcpputil/Functions.h>
 using namespace cpputil;
 
 #include <libffmpeg/libffmpeg.h>
 
-#include "../include/RTPStream.h"
+#include "RTPStream.h"
+using namespace std;
+
 
 namespace br {
 namespace ufscar {

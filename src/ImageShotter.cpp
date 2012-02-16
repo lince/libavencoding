@@ -7,30 +7,33 @@
  */
 
 #include <libcpputil/Functions.h>
-#include <libcpputil/InitializationException.h>
+
 using namespace cpputil;
 
 #include <libffmpeg/libffmpeg.h>
 
-#include <iostream>
+#include "ImageShotter.h"
 using namespace std;
-
-#include "../include/ImageShotter.h"
 
 namespace br {
 namespace ufscar {
 namespace lince {
 namespace avencoding {
 
-ImageShotter::ImageShotter(AVSource* source) : Thread() {
+ImageShotter::ImageShotter(AVSource* source, ImageFormat format) : Thread(),
+		cpputil::logger::Loggable("br::ufscar::lince::avencoding::ImageShotter") {
+
+	trace("begin constructor");
+
 	this->source = source;
-	codec = MJPEG;
+	imageFormat = format;
 	width = height = 0;
 	started = false;
 	finished = false;
 }
 
 ImageShotter::~ImageShotter() {
+	trace("begin destrutor");
 
 }
 
@@ -39,6 +42,8 @@ bool ImageShotter::isFinished() {
 }
 
 void ImageShotter::waitFinishing() {
+	trace("begin waitFinishing()");
+
 	if (!started) {
 		throw new InitializationException(
 				"Transconding Process haven't started yet",
@@ -50,6 +55,8 @@ void ImageShotter::waitFinishing() {
 
 
 void ImageShotter::takeShot(string nfilename) {
+	trace("begin takeShot(string)");
+
 	settedTime = false;
 	filename = nfilename;
 	started = true;
@@ -58,6 +65,8 @@ void ImageShotter::takeShot(string nfilename) {
 }
 
 void ImageShotter::takeShot(string nfilename, int ltime) {
+	trace("begin takeShot(string, int)");
+
 	settedTime = true;
 	time = Functions::numberToString(ltime);
 	filename = nfilename;
@@ -66,10 +75,11 @@ void ImageShotter::takeShot(string nfilename, int ltime) {
 	start();
 }
 void ImageShotter::takeShot(string nfilename, string stime) {
+	trace("begin trakeShot(string, string)");
+
 	settedTime = true;
 	time = stime;
 	filename = nfilename;
-	cout<<"Vamos chamar o start"<<endl;
 	started = true;
 	finished = false;
 	start();
@@ -88,20 +98,29 @@ int ImageShotter::getImageHeight() {
 	return this->height;
 }
 
-void ImageShotter::setImageCodec(ImageCodec codec) {
-	this->codec = codec;
+void ImageShotter::setImageFormat(ImageFormat format) {
+	this->imageFormat = format;
 }
 
-void ImageShotter::setImageCodec(string vcodec) {
-	//TODO: Implementar
+void ImageShotter::setImageFormat(string str) {
+	try {
+		this->imageFormat = ImageFormat(str);
+	} catch (SimpleException& ex) {
+		throw IllegalParameterException(
+				"Tyring to convert a invalid string '" + str
+				+ "' into a ImageFormat",
+				"br::ufscar::lince::avencoding::ImageShotter",
+				"setImageFormat(string)");
+	}
 }
 
-ImageCodec ImageShotter::getImageCodec() {
-	return codec;
+ImageFormat ImageShotter::getImageFormat() {
+	return imageFormat;
 }
 
 void ImageShotter::run() {
-	cout<<"Run chamado!"<<endl;
+	trace("begin run()");
+
 	static bool iniciado = false;
 	if (!iniciado) {
 		cout<<"Vamos Chamar o Init!"<<endl;
@@ -115,24 +134,36 @@ void ImageShotter::run() {
 		cout<<"\n\ttempo inicial setado='"<<time<<"'"<<endl;
 		FFMpeg_setStartTime1((char*) time.c_str());
 	}
-	cout<<"Vamos setar o formato"<<endl;
-	FFMpeg_setFormat((char*)"mjpeg");
+
+	if (imageFormat == ImageFormat::JPEG) {
+		FFMpeg_setFormat((char*)"mjpeg");
+	} else {
+		throw NotImplementedException(
+				"Just JPEG ImageFormat is supported for now.",
+				"br::ufscar::lince::avencoding::ImageShotter",
+				"run()");
+	}
 	if (height != 0 && width != 0) {
 		FFMpeg_setFrameSize2(width, height);
 	}
-	cout<<"Vamos setar o outputfile"<<endl;
+
 	FFMpeg_setOutputFile((char*) filename.c_str());
 
-	cout<<"Vamos chamar o Transcode"<<"'"<<endl;
 	FFMpeg_transcode();
 
-	cout<<"ImageShotter::run() - Vamos chamar o reset"<<"'"<<endl;
 	FFMpeg_reset(__LINE__);
 
-	cout<<"saindo do ImageShotter::run()\n\n\n";
 	finished = true;
 	started = false;
 	Thread::unlockConditionSatisfied();
+}
+
+double ImageShotter::getCurrentTime() {
+	error("Method getCurrentTime called by an instance of ImageShotter.");
+	throw InitializationException(
+			"You shoudn't call this method with a ImageShotter instances.",
+			"br::ufscar::lince::avencoding::ImageShotter",
+			"getCurrentTime()");
 }
 
 }

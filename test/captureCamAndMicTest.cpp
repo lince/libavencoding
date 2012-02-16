@@ -22,12 +22,12 @@ int main(int argc, char** argv) {
 	AVSource* alsaDevice = new AlsaDevice(0, 0);
 
 	AVEncoder* encoderVid = new AVEncoder(x11Device);
-	encoderVid->setVideoCodec(H264);
+	encoderVid->setVideoCodec(VideoCodec::H264);
 	encoderVid->setVideoPreset("baseline");
 	encoderVid->setPropertyValue("crf", "22");
 
 	AVEncoder* encoderAud = new AVEncoder(alsaDevice);
-	encoderAud->setAudioCodec(AAC);
+	encoderAud->setAudioCodec(AudioCodec::AAC);
 	encoderAud->setAudioBitrate(192);
 
 	AVOutputFile* ofile = new AVOutputFile("outputfile1.mp4", "mp4");

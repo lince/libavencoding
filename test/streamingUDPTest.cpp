@@ -21,10 +21,10 @@ int main(int argc, char** argv) {
 	AVSource* avfile = new AVInputFile("videosample.mp4", "mp4");
 
 	AVEncoder* encoderVid = new AVEncoder(avfile, 0);
-	encoderVid->setVideoCodec(MPEG2);
+	encoderVid->setVideoCodec(VideoCodec::MPEG2);
 
 	AVEncoder* encoderAud = new AVEncoder(avfile, 1);
-	encoderAud->setAudioCodec(AAC);
+	encoderAud->setAudioCodec(AudioCodec::AAC);
 
 	Streaming* streammer = new UDPMpegTS("127.0.0.1", 1234);
 	streammer->addStream(encoderVid);

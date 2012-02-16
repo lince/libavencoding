@@ -19,12 +19,12 @@ int main(int argc, char** argv) {
 	AVSource* videoInput = new AVInputFile("videosample.mp4", "mp4");
 
 	AVEncoder* encoder = new AVEncoder(videoInput);
-	encoder->setVideoCodec(H264);
+	encoder->setVideoCodec(VideoCodec::H264);
 	encoder->setVideoPreset("ipod320");
 	encoder->setPropertyValue("crf", "24");
 	encoder->setVideoSize(400, 400);
 	AVEncoder* audio = new AVEncoder(videoInput);
-	audio->setAudioCodec(AAC);
+	audio->setAudioCodec(AudioCodec::AAC);
 
 	AVOutputFile* videoOutput = new AVOutputFile("newfile.mp4");
 	videoOutput->addStream(encoder);

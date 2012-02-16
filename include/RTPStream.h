@@ -32,7 +32,7 @@ public:
 	 * @param ip The ip address of the destiny host.
 	 * @param ip The port number of the destiny process.
 	 */
-	RTPStream(string ip, int port);
+	RTPStream(std::string ip, int port);
 
 	/**
 	 * Virtual Destructor
@@ -57,7 +57,7 @@ public:
 private:
 	void run();
 	AVEncoder* output;
-	string ip;
+	std::string ip;
 	int port;
 };
 

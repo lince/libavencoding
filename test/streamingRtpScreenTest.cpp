@@ -13,13 +13,15 @@
 #include "../include/AVEncoder.h"
 #include "../include/RTPStream.h"
 
+#include <string>
+
 using namespace ::br::ufscar::lince::avencoding;
 
 int main(int argc, char** argv) {
 	AVSource* device = new X11Terminal(1280, 1024, 25);
 
 	AVEncoder* encoderVid = new AVEncoder(device);
-	encoderVid->setVideoCodec(H264);
+	encoderVid->setVideoCodec(VideoCodec::H264);
 	encoderVid->setVideoPreset("ipod320");
 	encoderVid->setPropertyValue("crf", "22");
 

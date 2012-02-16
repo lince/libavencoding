@@ -22,12 +22,12 @@ int main(int argc, char** argv) {
 	AVSource* afile = new AVInputFile("audiosample.aac", "aac");
 
 	AVEncoder* encoderVid = new AVEncoder(vfile);
-	encoderVid->setVideoCodec(H264);
+	encoderVid->setVideoCodec(VideoCodec::H264);
 	encoderVid->setVideoPreset("ipod320");
 	encoderVid->setPropertyValue("crf", "22");
 
 	AVEncoder* encoderAud = new AVEncoder(afile);
-	encoderAud->setAudioCodec(AAC);
+	encoderAud->setAudioCodec(AudioCodec::AAC);
 
 	AVOutputFile* outFile = new AVOutputFile("outputfile.mp4");
 	outFile->addStream(encoderVid);

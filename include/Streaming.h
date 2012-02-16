@@ -11,7 +11,6 @@
 
 #include <libcpputil/Thread.h>
 #include <libcpputil/InitializationException.h>
-using namespace cpputil;
 
 #include "Transcoder.h"
 
@@ -26,7 +25,7 @@ namespace avencoding{
  * This abstract class must be implemented by all the classes that realize a
  * transcoding process and the output format is a network stream, like rpt, udp and etc.
  */
-class Streaming : public Thread, public Transcoder {
+class Streaming : public cpputil::Thread, public Transcoder {
 public:
 	/**
 	 * Construtor.
@@ -78,6 +77,9 @@ public:
 	 * @throw InitializationException when the transcoding process hasn't begun.
 	 */
 	virtual void waitFinishing();
+
+
+	virtual double getCurrentTime();
 
 protected:
 	bool finished;

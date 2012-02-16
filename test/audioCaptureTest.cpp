@@ -29,7 +29,7 @@ int main(int argc, char** argv) {
 	AlsaDevice* alsa = new AlsaDevice(0,0);
 
 	AVEncoder* audioEnc = new AVEncoder(alsa);
-	audioEnc->setAudioCodec(MP3);
+	audioEnc->setAudioCodec(AudioCodec::MP3);
 
 	AVOutputFile* mp3File = new AVOutputFile("capturedAudio0.mp3");
 	mp3File->addStream(audioEnc);

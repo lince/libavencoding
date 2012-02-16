@@ -24,11 +24,11 @@ int main(int argc, char** argv) {
 	AVSource* accFile = new AVInputFile("audiosample.aac", "aac");
 
 	AVEncoder* endocer = new AVEncoder(accFile);
-	endocer->setAudioCodec(MP3);
+	endocer->setAudioCodec(AudioCodec::MP3);
 	endocer->setAudioChannelsNumber(2);
 	endocer->setAudioBitrate(192);
 
-	AVOutputFile* mp3File = new AVOutputFile((string) "newaudio.mp3");
+	AVOutputFile* mp3File = new AVOutputFile("newaudio.mp3");
 	mp3File->addStream(endocer);
 	mp3File->start();
 

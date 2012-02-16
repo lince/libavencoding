@@ -10,11 +10,16 @@
 #define IMAGESHOTTER_H_
 
 #include <string>
-#include <libcpputil/logger/Logger.h>
+
+#include <libcpputil/logger/Loggable.h>
 #include <libcpputil/Thread.h>
+#include <libcpputil/InitializationException.h>
+#include <libcpputil/IllegalParameterException.h>
+#include <libcpputil/NotImplementedException.h>
 
 #include "AVSource.h"
 #include "Transcoder.h"
+#include "ImageFormat.h"
 
 namespace br {
 namespace ufscar {
@@ -22,22 +27,17 @@ namespace lince {
 namespace avencoding {
 
 /**
- * Enumeration with the image codecs supported.
- * 	- MJPEG The mjpeg (jpg) image codec.
- *  - GIF The gif image codec.
- */
-enum ImageCodec {MJPEG=1, GIF};
-
-/**
  * This class can take shots of video sources.
  */
-class ImageShotter : public Transcoder, protected cpputil::Thread {
+class ImageShotter : public Transcoder,
+					 protected cpputil::Thread,
+					 public cpputil::logger::Loggable {
 public:
 	/**
 	 * Constructor
 	 * @param source The source of the images.
 	 */
-	ImageShotter(AVSource* source);
+	ImageShotter(AVSource* source, ImageFormat format = ImageFormat::JPEG);
 
 	/**
 	 * Virtual Destructor
@@ -52,7 +52,7 @@ public:
 	 * @throw OptionException when parameters informed are wrong or invalids.
 	 * @throw TranscodingException when errors occurs during the transcoding processes.
 	 */
-	void takeShot(string filename);
+	void takeShot(std::string filename);
 
 	/**
 	 * Take a shot of the specific moment of the source and save in a file.
@@ -64,7 +64,7 @@ public:
 	 * @throw OptionException when parameters informed are wrong or invalids.
 	 * @throw TranscodingException when errors occurs during the transcoding processes.
 	 */
-	void takeShot(string filename, int time);
+	void takeShot(std::string filename, int time);
 
 	/**
 	 * Take a shot of the specific moment of the source and save in a file.
@@ -76,7 +76,7 @@ public:
 	 * @throw OptionException when parameters informed are wrong or invalids.
 	 * @throw TranscodingException when errors occurs during the transcoding processes.
 	 */
-	void takeShot(string filename, string time);
+	void takeShot(std::string filename, std::string time);
 
 	/**
 	 * This methods set the size of the captured images.
@@ -98,25 +98,25 @@ public:
 	int getImageHeight();
 
 	/**
-	 * This methods set the image codec used during the transcoding process.
-	 * @param codec the image codec, defined by the enumeration ImageCodec.
+	 * This methods set the image format used during the transcoding process.
+	 * @param format the image format, defined by the enumeration ImageFormat.
 	 * @see ImageCodec.
 	 */
-	void setImageCodec(ImageCodec codec);
+	void setImageFormat(ImageFormat format);
 
 	/**
-	 * This methods set the image codec used during the transcoding process.
-	 * @param codec String that represents a image codec.
-	 * @throw IllegalParameterException When codec is bad formated or a invalid image codec.
+	 * This methods set the image format used during the transcoding process.
+	 * @param str String that represents a image format.
+	 * @throw IllegalParameterException When codec is bad formated or a invalid image format.
 	*/
-	void setImageCodec(string codec);
+	void setImageFormat(std::string str);
 
 	/**
 	 * This method returns the current image codec.
 	 * @return A value from enumeration ImageCodec that represents the current image codec.
 	 * @see AspectRatio
 	 */
-	ImageCodec getImageCodec();
+	ImageFormat getImageFormat();
 
 	/**
 	 * This method returns true if the transcoding process is finished.
@@ -134,6 +134,8 @@ public:
 	 */
 	void waitFinishing();
 
+	virtual double getCurrentTime();
+
 private:
 	void run();
 
@@ -142,9 +144,9 @@ private:
 	int width;
 	void* ffrapper;
 	bool settedTime;
-	string time;
-	string filename;
-	ImageCodec codec;
+	std::string time;
+	std::string filename;
+	ImageFormat imageFormat;
 
 	bool finished;
 	bool started;

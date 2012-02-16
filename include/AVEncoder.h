@@ -11,9 +11,15 @@
 
 #include <string>
 #include <map>
-using namespace std;
+
+#include <libcpputil/InitializationException.h>
+#include <libcpputil/IllegalParameterException.h>
+#include <libcpputil/NotImplementedException.h>
 
 #include "AVSource.h"
+#include "AudioCodec.h"
+#include "VideoCodec.h"
+#include "AspectRatio.h"
 
 namespace br{
 namespace ufscar{
@@ -21,40 +27,6 @@ namespace lince{
 namespace avencoding{
 
 class Transcoder;
-
-/**
- * This class is a wrapper to a enumeration of video codecs supported by the component.
- */
-class VideoCodec {
-	/**
-	 * Enumeration with the video codecs supported.
-	 * 	- H264 The h264 (MPEG4 Advanced Video Coding) video codec.
-	 *  - MPEG2 The mpeg2 video codec.
-	 *  - WEBM The Web-M Video Codec used in HTML5 compatible browsers
-	 *  - MPEG1 The mpeg1 video codec.
-	 *  - V_COPY A special that can be used to force the output video just copy the source video.
-	 */
-	enum Type {H264=1, MPEG2, MPEG1, WEBM, V_COPY};
-
-	VideoCodec(VideoCodec::Type type);
-	VideoCodec(const VideoCodec& videoCodec);
-
-};
-
-/**
- * Enumeration with the audio codecs supported.
- *  - AAC The aac (Advanced Audio Coding) audio codec.
- *  - MP3 The mpeg layer 3 audio codec.
- *  - A_COPY A special that can be used to force the output audio just copy the source audio.
- */
-enum AudioCodec {AAC=1, MP3, A_COPY};
-
-/**
- * Enumeration with the Aspect Ratios supported
- *  - AR_4X3 The letterbox aspect ratio.
- *  - AR_16X9 The widescreen aspect ratio.
- */
-enum AspectRatio {AR_4X3=1, AR_16X9};
 
 /**
  * This class is used to define the video and audio coding parameters of some audio and
@@ -138,7 +110,7 @@ public:
 	 * @param aspectRatio String that represents a aspect ratio. Must follow the pattern "X:Y", like "4:3".
 	 * @throw IllegalParameterException When aspectRatio is bad formated or a invalid aspect ratio value.
 	 */
-	void setAspectRatio(string aspectRatio);
+	void setAspectRatio(std::string aspectRatio);
 
 	/**
 	 * This method returns the current video aspect ratio.
@@ -161,7 +133,7 @@ public:
 	 * You can use video size name too, like "HDTV" or "VGA" as parameters.
 	 * @throw IllegalParameterException When videoSize contains a invalid values for video size.
 	 */
-	void setVideoSize(string videoSize);
+	void setVideoSize(std::string videoSize);
 
 	/**
 	 * This method returns the current video's width.
@@ -187,7 +159,7 @@ public:
 	 * @param vcodec A string that a represent a video codec. Some valid strings are "h264", "mpeg2video".
 	 * @throw IllegalParameterException When vcodec contains a invalid video codec.
 	 */
-	void setVideoCodec(string vcodec);
+	void setVideoCodec(std::string vcodec);
 
 	/**
 	 * This method returns the current video codec.
@@ -249,7 +221,7 @@ public:
 	 * @param acodec A string that a represent a audio codec. Some valid strings are "mp3", "aac".
 	 * @throw IllegalParameterException When acodec contains a invalid audio codec.
 	 */
-	void setAudioCodec(string acodec);
+	void setAudioCodec(std::string acodec);
 
 	/**
 	 * This method returns the current audio codec.
@@ -284,20 +256,20 @@ public:
 	 * ffmpeg-presets are a set of predefined configurations for several codecs.
 	 * @param preset the ffmpeg preset.
 	 */
-	void setVideoPreset(string preset);
+	void setVideoPreset(std::string preset);
 
 	/**
 	 * This method is used to set a ffmpeg-presets to the audio coding process.
 	 * ffmpeg-presets are a set of predefined configurations for several codecs.
 	 * @param preset the ffmpeg preset.
 	 */
-	void setAudioPreset(string preset);
+	void setAudioPreset(std::string preset);
 
 	/**
 	 * This method returns the ffmpeg-presets used to coding video.
 	 * @return the ffmpeg preset.
 	 */
-	string getVideoPreset();
+	std::string getVideoPreset();
 
 	/**
 	 * This method returns the ffmpeg-presets used to coding video.
@@ -315,21 +287,21 @@ public:
 	 * This method returns the ffmpeg-presets used to coding audio.
 	 * @return the ffmpeg preset.
 	 */
-	string getAudioPreset();
+	std::string getAudioPreset();
 
 	/**
 	 * This method is used to set various video/audio coding dependent parameters.
 	 * @param name The parameter name.
 	 * @value the new value of the parameter.
 	 */
-	void setPropertyValue(string name, string value);
+	void setPropertyValue(std::string name, std::string value);
 
 	/**
 	 * This method returns the value of various video/audio coding dependent parameters.
 	 * @param name The parameter name.
 	 * @return the current value of the parameter.
 	 */
-	string getPropertyValue(string name);
+	std::string getPropertyValue(std::string name);
 
 	/**
 	 * This method force the coding process to copy the video of its source without transconding.
@@ -376,8 +348,8 @@ private:
 	int threadsNumber;
 	AVSource* source;
 	int streamId;
-	string vpreset, apreset;
-	map<string, string>* properties;
+	std::string vpreset, apreset;
+	std::map<std::string, std::string>* properties;
 	bool videoEnable;
 	bool audioEnable;
 	bool videoSameQuality;

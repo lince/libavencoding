@@ -9,13 +9,10 @@
 #include <libffmpeg/libffmpeg.h>
 
 #include <libcpputil/Functions.h>
-#include <libcpputil/InitializationException.h>
 using namespace cpputil;
 
-#include <iostream>
+#include "AVEncoder.h"
 using namespace std;
-
-#include "../include/AVEncoder.h"
 
 namespace br{
 namespace ufscar{
@@ -36,11 +33,8 @@ AVEncoder::AVEncoder(AVSource* avSource, int nStreamId) {
 	streamId = nStreamId;
 	videoBitrate = NONE;
 	videoFps = NONE;
-	aspectRatio = (AspectRatio) NONE;
 	vWidth = NONE;
 	vHeight = NONE;
-	vcodec = (VideoCodec) NONE;
-	acodec = (AudioCodec) NONE;
 	audioSamplingRate = NONE;
 	audioBitrate = NONE;
 	audioChannelsNumber = NONE;
@@ -102,7 +96,15 @@ void AVEncoder::setAspectRatio(AspectRatio aspectRatio) {
 }
 
 void AVEncoder::setAspectRatio(string aspectRatio) {
-	//TODO Implementar
+	try {
+		this->aspectRatio = AspectRatio(aspectRatio);
+	} catch (SimpleException& ex) {
+		throw IllegalParameterException(
+				"Tyring to convert a invalid string '" + aspectRatio
+				+ "' into a AspectRatio",
+				"br::ufscar::lince::avencoding::AVEncoder",
+				"setAspectRatio(string)");
+	}
 }
 
 AspectRatio AVEncoder::getAspectRatio() {
@@ -116,6 +118,10 @@ void AVEncoder::setVideoSize(int width, int height) {
 
 void AVEncoder::setVideoSize(string videoSize) {
 	//TODO Implementar
+	throw NotImplementedException(
+			"Please, use the setVideoSize(int, int) instead.",
+			"br::ufscar::lince::avenconding::AVEncoder",
+			"setVideoSize(string)");
 }
 
 int AVEncoder::getVideoWidht() {
@@ -131,7 +137,15 @@ void AVEncoder::setVideoCodec(VideoCodec vcodec) {
 }
 
 void AVEncoder::setVideoCodec(string vcodec) {
-	//TODO implementar
+	try {
+		this->vcodec = VideoCodec(vcodec);
+	} catch (SimpleException& ex) {
+		throw IllegalParameterException(
+				"Tyring to convert a invalid string '" + vcodec
+				+ "' into a VideoCodec",
+				"br::ufscar::lince::avencoding::AVEncoder",
+				"setVideoCodec(string)");
+	}
 }
 
 VideoCodec AVEncoder::getVideoCodec() {
@@ -167,7 +181,15 @@ void AVEncoder::setAudioCodec(AudioCodec acodec) {
 }
 
 void AVEncoder::setAudioCodec(string acodec) {
-	//TODO implementar;
+	try {
+		this->acodec = AudioCodec(acodec);
+	} catch (SimpleException& ex) {
+		throw IllegalParameterException(
+				"Tyring to convert a invalid string '" + acodec
+				+ "' into a AudioCodec",
+				"br::ufscar::lince::avencoding::AVEncoder",
+				"setAudioCodec(string)");
+	}
 }
 
 AudioCodec AVEncoder::getAudioCodec() {
@@ -206,8 +228,8 @@ void AVEncoder::configure(void* vffrapper) {
 		FFMpeg_setFramerate((char*) (Functions::numberToString(videoFps)).c_str() );
 	}
 
-	if (aspectRatio != NONE) {
-		if (aspectRatio == AR_4X3) {
+	if (aspectRatio != AspectRatio::NONE) {
+		if (aspectRatio == AspectRatio::AR_4X3) {
 			FFMpeg_setFramerate((char*)"4x3");
 		} else {
 			FFMpeg_setFramerate((char*)"16x9");
@@ -218,25 +240,25 @@ void AVEncoder::configure(void* vffrapper) {
 		FFMpeg_setFrameSize2(vWidth, vHeight);
 	}
 
-	if (vcodec != NONE) {
-		if (vcodec == H264) {
+	if (vcodec != VideoCodec::NONE) {
+		if (vcodec == VideoCodec::H264) {
 			FFMpeg_setVideoCodec((char*)"libx264");
-		} else if (vcodec == MPEG2){
+		} else if (vcodec == VideoCodec::MPEG2){
 			FFMpeg_setVideoCodec((char*)"mpeg2video");
-		} else if (vcodec == V_COPY) {
+		} else if (vcodec == VideoCodec::COPY) {
 			FFMpeg_setVideoCodec((char*)"copy");
-		} else if (vcodec == MPEG1) {
+		} else if (vcodec == VideoCodec::MPEG1) {
 			FFMpeg_setVideoCodec((char*)"mpeg1video");
 		}
 
 	}
 
-	if (acodec != NONE) {
-		if (acodec ==  AAC) {
+	if (acodec != AudioCodec::NONE) {
+		if (acodec ==  AudioCodec::AAC) {
 			FFMpeg_setAudioCodec((char*)"libfaac");
-		} else if (acodec == MP3){
+		} else if (acodec == AudioCodec::MP3){
 			FFMpeg_setAudioCodec((char*)"libmp3lame");
-		} else if (acodec == A_COPY) {
+		} else if (acodec == AudioCodec::COPY) {
 			FFMpeg_setAudioCodec((char*)"copy");
 		}
 	}
@@ -291,12 +313,12 @@ void AVEncoder::configure(void* vffrapper) {
 }
 
 void AVEncoder::enableCopyVideo() {
-	this->vcodec = V_COPY;
+	this->vcodec = VideoCodec::COPY;
 
 }
 
 void AVEncoder::enableCopyAudio() {
-	this->acodec = A_COPY;
+	this->acodec = AudioCodec::COPY;
 }
 
 
