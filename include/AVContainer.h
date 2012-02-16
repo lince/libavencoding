@@ -9,24 +9,28 @@ namespace ufscar {
 namespace lince {
 namespace avencoding {
 
+/**
+ * A class that wrappers the AVContainer enumeration options.
+ */
 class AVContainer{
 public:
 	enum Type {
 		NONE=0, // Demuxer, Muxer
-		MPEG, // mjpeg, mpjpeg
-		AVI, // avi, avi
-		MP4, // _, mp4
-		OGG, // ogg, ogg
-		WEBM, // _, webm
-		FLV, // flv, flc
-		MKV, // matroska, matroska
-		MP3, // mp3, mp3
-		AAC, // aac, adts
-		WAV, // wav, wav
-		OGA, //ogg, ogg
-		FLA, // flac, flac
-		MKA, // _, matroska_audio
-		MOV, // mov, mov
+		MPEG, // mpeg, mpeg				Checked
+		AVI, // avi, avi				Checked
+		MP4, // _, mp4 -> 				Checked
+		OGG, // ogg, ogg				Checked
+		WEBM, // _, webm -> 			Checked
+		FLV, // flv, flc				Checked
+		MKV, // matroska, matroska		Checked
+		MP3, // mp3, mp3				Checked
+		AAC, // aac, adts				Checked
+		WAV, // wav, wav				Checked
+		OGA, //ogg, ogg					Checked
+		FLA, // flac, flac				Checked
+		MKA, // _, matroska_audio		Checked
+		MOV, // mov, mov				Checked
+		AC3, // ac3, ac3				Checked*
 	};
 
 public:

@@ -9,17 +9,23 @@ namespace ufscar {
 namespace lince {
 namespace avencoding {
 
+//TODO: Add fla audio
+
+/**
+ * A class that wrappers the AudioCodec enumeration options.
+ */
 class AudioCodec{
 public:
 	enum Type {
 		NONE=0,
-		VORBIS, //libvorbis
-		PCM16, //pcm_u16le
-		PCM32, //pcm_u32le
-		AAC, //libfaac
-		AC3, //ac3
-		MP3, //libmp3lame
-		COPY,
+		VORBIS, //libvorbis -> 			Checked
+		PCM16, //pcm_u16le				Checked
+		PCM32, //pcm_u32le				Checked
+		AAC, //libfaac -> 				Checked
+		AC3, //ac3						Checked
+		MP3, //libmp3lame				Checked
+		COPY, //						Checked
+		FLAC, //flac					Checked*
 	};
 
 public:

@@ -20,8 +20,8 @@ namespace lince{
 namespace avencoding{
 
 AVInputFile::AVInputFile(std::string filename, AVContainer container) :
-		AVSource(Functions::toUpperCase(container.toString())),
-		logger::Loggable("br::ufscar::lince::avencoding::AVInputFile") {
+						AVSource(Functions::toUpperCase(container.toString())),
+						logger::Loggable("br::ufscar::lince::avencoding::AVInputFile") {
 
 	trace("begin constructor");
 
@@ -40,9 +40,24 @@ void AVInputFile::configure(void *ffrapper_) {
 	}*/
 	configured = true;
 
-	string format = getFormat();
-	if (format != "") {
-		if (FFMpeg_setFormat( (char*) getFormat().c_str()) != FFMpeg_SUCCESS) {
+
+	if (container != AVContainer::NONE) {
+		string format = getFormat();
+		if (container == AVContainer::MKV) {
+			format = "matroska\0";
+		} else if (container == AVContainer::MPEG) {
+			format = "mpeg\0";
+		} else if (container == AVContainer::MOV) {
+			format = "mov\0";
+		} else if (container == AVContainer::OGA) {
+			format = "ogg\0";
+		} else if (container == AVContainer::MKA) {
+			format = "matroska\0";
+		} else if (container == AVContainer::FLA) {
+			format = "flac\0";
+		}
+
+		if (FFMpeg_setFormat( (char*) format.c_str()) != FFMpeg_SUCCESS) {
 			error("Error trying to set the format.");
 			throw IllegalParameterException(
 					FFMpeg_getErrorStr(),

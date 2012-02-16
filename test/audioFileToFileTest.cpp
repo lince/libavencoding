@@ -21,14 +21,15 @@ int main(int argc, char** argv) {
 	LoggerManager* lm = LoggerManager::getInstance();
 	lm->readConfigurationFile("config.xml");
 
-	AVSource* accFile = new AVInputFile("audiosample.aac", AVContainer::AAC);
+	AVSource* accFile = new AVInputFile("newaudio4.AC3", AVContainer::AC3);
+	//accFile->setDurationTime(60);
 
 	AVEncoder* endocer = new AVEncoder(accFile);
-	endocer->setAudioCodec(AudioCodec::MP3);
+	endocer->setAudioCodec(AudioCodec::FLAC);
 	endocer->setAudioChannelsNumber(2);
 	endocer->setAudioBitrate(192);
 
-	AVOutputFile* mp3File = new AVOutputFile("newaudio.mp3");
+	AVOutputFile* mp3File = new AVOutputFile("newaudio4.FLA", AVContainer::FLA);
 	mp3File->addStream(endocer);
 	mp3File->start();
 

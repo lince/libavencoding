@@ -9,6 +9,9 @@ namespace ufscar {
 namespace lince {
 namespace avencoding {
 
+/**
+ * A class that wrappers the ImageFormat options.
+ */
 class ImageFormat{
 public:
 	enum Type {

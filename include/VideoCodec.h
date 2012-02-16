@@ -9,17 +9,21 @@ namespace ufscar {
 namespace lince {
 namespace avencoding {
 
+/**
+ * A class that wrappers the VideoCodec enumeration options.
+ */
 class VideoCodec{
 public:
 	enum Type {
 		NONE,
-		THEORA, //libtheora -> Checked
-		H264, //libx264 -> Checked
-		MPEG2, //mpeg2video
-		MPEG1, //mpeg1video
-		VP8, //libvpx
-		XVID, //libxvid
-		COPY,
+		THEORA, //libtheora -> 			Checked
+		H264, //libx264 -> 				Checked
+		MPEG2, //mpeg2video -> 			Checked
+		MPEG1, //mpeg1video ->			Checked
+		VP8, //libvpx ->				Checked
+		XVID, //libxvid ->				Checked
+		COPY, //						Checked
+		FLV, //FLV						Checked*
 	};
 
 public:

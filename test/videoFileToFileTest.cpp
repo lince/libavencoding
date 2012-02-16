@@ -33,13 +33,13 @@ int main(int argc, char** argv) {
 	AVSource* videoInput = new AVInputFile("videosample.mp4", AVContainer::MP4);
 
 	AVEncoder* videoEnc = new AVEncoder(videoInput);
-	videoEnc->setVideoCodec(VideoCodec::VP8);
+	videoEnc->setVideoCodec(VideoCodec::H264);
 	videoEnc->setVideoBitrate(15000);
 
 	AVEncoder* audioEnc = new AVEncoder(videoInput);
-	audioEnc->setAudioCodec(AudioCodec::VORBIS);
+	audioEnc->setAudioCodec(AudioCodec::AC3);
 
-	AVOutputFile* videoOutput = new AVOutputFile("newfile.webm", AVContainer::WEBM, true);
+	AVOutputFile* videoOutput = new AVOutputFile("video.mkv", AVContainer::MKV, true);
 	videoOutput->addStream(videoEnc);
 	videoOutput->addStream(audioEnc);
 	videoOutput->setExceptionListener(handler);

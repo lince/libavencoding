@@ -20,6 +20,12 @@ namespace ufscar {
 namespace lince {
 namespace avencoding {
 
+
+/**
+ * This class is used to grab video data from Video4Linux compatible devices.
+ * Which instance of V4L2Device is bounded with a Video4Linux compatible device.
+ * This bound is represented by the identification number of the device.
+ */
 class V4L2Device : public AVSource, public cpputil::logger::Loggable {
 public:
 	/**

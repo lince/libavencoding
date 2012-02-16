@@ -9,6 +9,9 @@ namespace ufscar {
 namespace lince {
 namespace avencoding {
 
+/**
+ * A class that wrappers the AspectRatio enumeration options.
+ */
 class AspectRatio{
 public:
 	enum Type {

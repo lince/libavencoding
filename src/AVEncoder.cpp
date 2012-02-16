@@ -247,19 +247,21 @@ void AVEncoder::configure(void* vffrapper) {
 	if (vcodec != VideoCodec::NONE) {
 		std::string aux = "";
 		if (vcodec == VideoCodec::H264) {
-			aux = "libx264";
+			aux = "libx264\0";
 		} else if (vcodec == VideoCodec::MPEG2){
-			aux = "mpeg2video";
+			aux = "mpeg2video\0";
 		} else if (vcodec == VideoCodec::COPY) {
-			aux = "copy";
+			aux = "copy\0";
 		} else if (vcodec == VideoCodec::MPEG1) {
-			aux = "mpeg1video";
+			aux = "mpeg1video\0";
 		} else if (vcodec == VideoCodec::THEORA) {
-			aux = "libtheora";
+			aux = "libtheora\0";
 		} else if (vcodec == VideoCodec::VP8) {
-			aux = "libvpx";
+			aux = "libvpx\0";
 		} else if (vcodec == VideoCodec::XVID) {
-			aux = "libxvid";
+			aux = "libxvid\0";
+		} else if (vcodec == VideoCodec::FLV) {
+			aux = "flv\0";
 		}
 
 		if (FFMpeg_setVideoCodec((char*)aux.c_str()) != FFMpeg_SUCCESS) {
@@ -282,10 +284,15 @@ void AVEncoder::configure(void* vffrapper) {
 		} else if (acodec == AudioCodec::VORBIS) {
 			aux = "libvorbis";
 		} else if (acodec == AudioCodec::PCM16) {
-
+			aux = "pcm_s16le";
 		} else if (acodec == AudioCodec::PCM32) {
-
+			aux = "pcm_s32le";
+		} else if (acodec == AudioCodec::AC3) {
+			aux = "ac3";
+		} else if (acodec == AudioCodec::FLAC) {
+			aux = "flac";
 		}
+
 
 		if (FFMpeg_setAudioCodec((char*) aux.c_str()) != FFMpeg_SUCCESS) {
 			throw IllegalParameterException(

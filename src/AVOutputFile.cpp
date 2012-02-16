@@ -106,10 +106,39 @@ void AVOutputFile::run() {
 	}
 
 	if (container != AVContainer::NONE) {
-		char* format = (char*) Functions::toLowerCase(container.toString()).c_str();
+		char* format = (char*) "";
 		if (container == AVContainer::WEBM) {
 			format = (char*) "webm\0";
+		} else if (container == AVContainer::MP4) {
+			format = (char*) "mp4\0";
+		} else if (container == AVContainer::AVI) {
+			format = (char*) "avi\0";
+		}  else if (container == AVContainer::MPEG) {
+			format = (char*) "mpeg\0";
+		}  else if (container == AVContainer::OGG) {
+			format = (char*) "ogg\0";
+		}  else if (container == AVContainer::FLV) {
+			format = (char*) "flv\0";
+		}  else if (container == AVContainer::MKV) {
+			format = (char*) "matroska\0";
+		}  else if (container == AVContainer::MP3) {
+			format = (char*) "mp3\0";
+		}  else if (container == AVContainer::AAC) {
+			format = (char*) "adts\0";
+		}  else if (container == AVContainer::WAV) {
+			format = (char*) "wav\0";
+		} else if (container == AVContainer::OGA) {
+			format = (char*) "ogg\0";
+		} else if (container == AVContainer::FLA) {
+			format = (char*) "flac\0";
+		} else if (container == AVContainer::MKA) {
+			format = (char*) "matroska\0";
+		} else if (container == AVContainer::MOV) {
+			format = (char*) "mov\0";
+		} else if (container == AVContainer::AC3) {
+			format = (char*) "ac3\0";
 		}
+
 
 		info((string)"Container Format: " + format);
 		if (FFMpeg_setFormat(format) != FFMpeg_SUCCESS) {
