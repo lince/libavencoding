@@ -106,9 +106,14 @@ void AVOutputFile::run() {
 	}
 
 	if (container != AVContainer::NONE) {
-		std::string format = Functions::toLowerCase(container.toString());
-		if (FFMpeg_setFormat((char*) format.c_str()) != FFMpeg_SUCCESS) {
-			error("Error trying to set output file format: " + format);
+		char* format = (char*) Functions::toLowerCase(container.toString()).c_str();
+		if (container == AVContainer::WEBM) {
+			format = (char*) "webm\0";
+		}
+
+		info((string)"Container Format: " + format);
+		if (FFMpeg_setFormat(format) != FFMpeg_SUCCESS) {
+			error((string)"Error trying to set output file format: " + format);
 			throw IllegalParameterException(
 					FFMpeg_getErrorStr(),
 					CLASS_NAME,

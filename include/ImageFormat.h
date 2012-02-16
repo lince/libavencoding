@@ -13,10 +13,10 @@ class ImageFormat{
 public:
 	enum Type {
 		NONE=0,
-		PNG,
-		JPEG,
-		GIF,
-		TIFF,
+		PNG, //png
+		JPEG, //mjpeg
+		GIF, //gif
+		TIFF, //tiff
 	};
 
 public:

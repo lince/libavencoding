@@ -13,11 +13,12 @@ class VideoCodec{
 public:
 	enum Type {
 		NONE,
-		THEORA,
-		H264,
-		MPEG2,
-		MPEG1,
-		VP8,
+		THEORA, //libtheora -> Checked
+		H264, //libx264 -> Checked
+		MPEG2, //mpeg2video
+		MPEG1, //mpeg1video
+		VP8, //libvpx
+		XVID, //libxvid
 		COPY,
 	};
 

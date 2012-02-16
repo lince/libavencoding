@@ -9,26 +9,40 @@
  * video codec H264 and audio codec AAC, generating a new file called "newfile.mp4".
  * It resizes the video to 400x400 during the transcode process.
  */
-#include "../include/AVInputFile.h"
-#include "../include/AVEncoder.h"
-#include "../include/AVOutputFile.h"
+#include "AVInputFile.h"
+#include "AVEncoder.h"
+#include "AVOutputFile.h"
 
 using namespace ::br::ufscar::lince::avencoding;
 
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+class ExceptionHandler : public cpputil::ThreadExceptionListener {
+public:
+	void catchExceptionOnThread(cpputil::SimpleException& ex) throw() {
+		cout << ex.what();
+		exit(1);
+	}
+};
+
 int main(int argc, char** argv) {
+	ExceptionHandler* handler = new ExceptionHandler();
+
 	AVSource* videoInput = new AVInputFile("videosample.mp4", AVContainer::MP4);
 
-	AVEncoder* encoder = new AVEncoder(videoInput);
-	encoder->setVideoCodec(VideoCodec::H264);
-	encoder->setVideoPreset("ipod320");
-	encoder->setPropertyValue("crf", "24");
-	encoder->setVideoSize(400, 400);
-	AVEncoder* audio = new AVEncoder(videoInput);
-	audio->setAudioCodec(AudioCodec::AAC);
+	AVEncoder* videoEnc = new AVEncoder(videoInput);
+	videoEnc->setVideoCodec(VideoCodec::VP8);
+	videoEnc->setVideoBitrate(15000);
 
-	AVOutputFile* videoOutput = new AVOutputFile("newfile.mp4");
-	videoOutput->addStream(encoder);
-	videoOutput->addStream(audio);
+	AVEncoder* audioEnc = new AVEncoder(videoInput);
+	audioEnc->setAudioCodec(AudioCodec::VORBIS);
+
+	AVOutputFile* videoOutput = new AVOutputFile("newfile.webm", AVContainer::WEBM, true);
+	videoOutput->addStream(videoEnc);
+	videoOutput->addStream(audioEnc);
+	videoOutput->setExceptionListener(handler);
 	videoOutput->start();
 
 	videoOutput->waitFinishing();

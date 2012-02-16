@@ -34,17 +34,11 @@ public:
 
 	/**
 	 * Construtor.
-	 * It will assume the size of current screen as width and height.
+	 * It will retrieve the size of current screen as width and height.
+	 * If fps is omitted, it will assume value 25 frames per second frequency.
 	 * @param fps The frames per second frequency of the screen.
 	 */
-	X11Terminal(int fps);
-
-	/**
-	 * Construtor
-	 * It will assume the size of current screen as width and height and 25 as frames
-	 * per second frequency.
-	 */
-	X11Terminal();
+	X11Terminal(int fps=25);
 
 	/**
 	 * Virtual Destructor

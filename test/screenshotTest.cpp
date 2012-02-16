@@ -20,11 +20,11 @@ using namespace ::cpputil;
 using namespace std;
 
 int main(int argc, char** argv) {
-	AVSource* x11terminal = new X11Terminal(1280, 1024, 24);
-	ImageShotter* shotter = new ImageShotter(x11terminal);
+	AVSource* x11terminal = new X11Terminal(24);
+	ImageShotter* shotter = new ImageShotter(x11terminal, ImageFormat::JPEG);
 
-	shotter->setImageSize(800, 600);
-	shotter->takeShot("screenshot1.jpg");
+	shotter->setImageSize(1920, 1080);
+	shotter->takeShot("screenshot.jpg");
 	shotter->waitFinishing();
 
 	shotter->takeShot("screenshot2.jpg");

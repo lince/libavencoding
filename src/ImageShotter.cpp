@@ -119,7 +119,7 @@ void ImageShotter::setImageFormat(string str) {
 		throw IllegalParameterException(
 				"Tyring to convert a invalid string '" + str
 				+ "' into a ImageFormat",
-				"br::ufscar::lince::avencoding::ImageShotter",
+				CLASS_NAME,
 				"setImageFormat(string)");
 	}
 }
@@ -133,35 +133,69 @@ void ImageShotter::run() {
 
 	configure(source, (void*) NULL);
 
-	if (FFMpeg_setRecordingTime1((char*)"1") != FFMpeg_SUCCESS) {
+	if (FFMPeg_setVideoMaxFrames(1) != FFMpeg_SUCCESS) {
+		error("Error trying to set max frame number to 1");
+		throw IllegalParameterException(
+				FFMpeg_getErrorStr(),
+				CLASS_NAME,
+				"run()");
+	}
+
+	/*if (FFMpeg_setRecordingTime1((char*)"1") != FFMpeg_SUCCESS) {
 		error("Error trying to set recording time to 1");
 		throw IllegalParameterException(
 				FFMpeg_getErrorStr(),
-				"br::ufscar::lince::avencoding::ImageShotter",
+				CLASS_NAME,
 				"run()");
-	}
+	}*/
 	if (settedTime) {
 		if (FFMpeg_setStartTime1((char*) time.c_str()) != FFMpeg_SUCCESS) {
 			error("Error trying to positioning to take the shot at: " + time);
 			throw IllegalParameterException(
 					FFMpeg_getErrorStr(),
-					"br::ufscar::lince::avencoding::ImageShotter",
+					CLASS_NAME,
 					"run()");
 		}
 	}
 
 	if (imageFormat == ImageFormat::JPEG) {
-		if (FFMpeg_setFormat((char*)"mjpeg") != FFMpeg_SUCCESS) {
-			error("Error trying to set format as mjpeg");
+		char* format = "";
+		char* vcodec = "";
+
+		if (imageFormat == ImageFormat::JPEG) {
+			vcodec = (char*) "mjpeg\0";
+			format = (char*) "mjpeg\0";
+		} else if (imageFormat == ImageFormat::GIF) {
+			format = (char*) "gif\0";
+			vcodec = (char*) "gif\0";
+		} else if (imageFormat == ImageFormat::TIFF) {
+			format = (char*) "tiff\0";
+			vcodec = (char*) "tiff\0";
+		} else if (imageFormat == ImageFormat::PNG) {
+			format = (char*) "rawvideo\0";
+			vcodec = (char*) "png\0";
+		}
+
+		if (FFMpeg_setVideoCodec(vcodec) != FFMpeg_SUCCESS) {
+			error((string) "Error trying to set codec: " + vcodec);
 			throw IllegalParameterException(
 					FFMpeg_getErrorStr(),
-					"br::ufscar::lince::avencoding::ImageShotter",
+					CLASS_NAME,
 					"run()");
 		}
+
+		if (FFMpeg_setFormat(format) != FFMpeg_SUCCESS) {
+			error((string) "Error trying to set format: " + format);
+			throw IllegalParameterException(
+					FFMpeg_getErrorStr(),
+					CLASS_NAME,
+					"run()");
+		}
+
 	} else {
 		throw NotImplementedException(
 				"Just JPEG ImageFormat is supported for now.",
-				"br::ufscar::lince::avencoding::ImageShotter",
+				CLASS_NAME,
 				"run()");
 	}
 
@@ -173,16 +207,25 @@ void ImageShotter::run() {
 
 			throw IllegalParameterException(
 					FFMpeg_getErrorStr(),
-					"br::ufscar::lince::avencoding::ImageShotter",
+					CLASS_NAME,
 					"run()");
 		}
+	}
+
+
+	if (FFMpeg_setVideoSameQuality(1) != FFMpeg_SUCCESS) {
+		error("Error trying to set video same as true");
+		throw IllegalParameterException(
+				FFMpeg_getErrorStr(),
+				CLASS_NAME,
+				"run()");
 	}
 
 	if (FFMpeg_setOutputFile((char*) filename.c_str()) != FFMpeg_SUCCESS) {
 		error("Error trying to set the output file name as: " + filename);
 		throw IllegalParameterException(
 				FFMpeg_getErrorStr(),
-				"br::ufscar::lince::avencoding::ImageShotter",
+				CLASS_NAME,
 				"run()");
 	}
 
@@ -190,7 +233,7 @@ void ImageShotter::run() {
 		error("Error during transcode process.");
 		throw TranscodingException(
 				FFMpeg_getErrorStr(),
-				"br::ufscar::lince::avencoding::ImageShotter",
+				CLASS_NAME,
 				"run()");
 	}
 

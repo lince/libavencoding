@@ -81,7 +81,7 @@ AudioCodec::Type AudioCodec::getType() const {
 }
 
 char* AudioCodec::typeToString(AudioCodec::Type type) {
-	for (int i = 0; i < 7; i++) {
+	for (int i = 0; i < 8; i++) {
 		if (type == types[i]) {
 			return strTypes[i];
 		}
@@ -94,7 +94,7 @@ char* AudioCodec::typeToString(AudioCodec::Type type) {
 
 AudioCodec::Type AudioCodec::stringToType(const std::string& str) {
 	std::string aux = cpputil::Functions::toUpperCase(str);
-	for (int i = 0; i < 7; i++) {
+	for (int i = 0; i < 8; i++) {
 		if (aux == strTypes[i]) {
 			return types[i];
 		}
@@ -112,6 +112,7 @@ char** AudioCodec::initializeStrTypes() {
 	aux[2] = (char*) "PCM16";
 	aux[3] = (char*) "PCM32";
 	aux[4] = (char*) "AAC";
+	aux[5] = (char*) "AC3";
 	aux[5] = (char*) "MP3";
 	aux[6] = (char*) "COPY";
 	return aux;
@@ -120,14 +121,15 @@ char** AudioCodec::initializeStrTypes() {
 char** AudioCodec::strTypes = AudioCodec::initializeStrTypes();
 
 AudioCodec::Type* AudioCodec::initializeTypes() {
-	AudioCodec::Type* aux = new AudioCodec::Type[7];
+	AudioCodec::Type* aux = new AudioCodec::Type[8];
 	aux[0] = NONE;
 	aux[1] = VORBIS;
 	aux[2] = PCM16;
 	aux[3] = PCM32;
 	aux[4] = AAC;
-	aux[5] = MP3;
-	aux[6] = COPY;
+	aux[5] = AC3;
+	aux[6] = MP3;
+	aux[7] = COPY;
 	return aux;
 }
 

@@ -81,7 +81,7 @@ AVContainer::Type AVContainer::getType() const {
 }
 
 char* AVContainer::typeToString(AVContainer::Type type) {
-	for (int i = 0; i < 14; i++) {
+	for (int i = 0; i < 15; i++) {
 		if (type == types[i]) {
 			return strTypes[i];
 		}
@@ -94,7 +94,7 @@ char* AVContainer::typeToString(AVContainer::Type type) {
 
 AVContainer::Type AVContainer::stringToType(const std::string& str) {
 	std::string aux = cpputil::Functions::toUpperCase(str);
-	for (int i = 0; i < 14; i++) {
+	for (int i = 0; i < 15; i++) {
 		if (aux == strTypes[i]) {
 			return types[i];
 		}
@@ -106,7 +106,7 @@ AVContainer::Type AVContainer::stringToType(const std::string& str) {
 }
 
 char** AVContainer::initializeStrTypes() {
-	char** aux = new char*[14];
+	char** aux = new char*[15];
 	aux[0] = (char*) "NONE";
 	aux[1] = (char*) "MPEG";
 	aux[2] = (char*) "AVI";
@@ -121,13 +121,14 @@ char** AVContainer::initializeStrTypes() {
 	aux[11] = (char*) "OGA";
 	aux[12] = (char*) "FLA";
 	aux[13] = (char*) "MKA";
+	aux[14] = (char*) "MOV";
 	return aux;
 }
 
 char** AVContainer::strTypes = AVContainer::initializeStrTypes();
 
 AVContainer::Type* AVContainer::initializeTypes() {
-	AVContainer::Type* aux = new AVContainer::Type[14];
+	AVContainer::Type* aux = new AVContainer::Type[15];
 	aux[0] = NONE;
 	aux[1] = MPEG;
 	aux[2] = AVI;
@@ -142,6 +143,7 @@ AVContainer::Type* AVContainer::initializeTypes() {
 	aux[11] = OGA;
 	aux[12] = FLA;
 	aux[13] = MKA;
+	aux[14] = MOV;
 	return aux;
 }
 

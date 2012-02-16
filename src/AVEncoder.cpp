@@ -16,6 +16,8 @@ using namespace cpputil;
 #include "AVEncoder.h"
 using namespace std;
 
+#define CLASS_NAME "br::ufscar::lince::avencoding::AVEncoder"
+
 namespace br{
 namespace ufscar{
 namespace lince{
@@ -243,25 +245,53 @@ void AVEncoder::configure(void* vffrapper) {
 	}
 
 	if (vcodec != VideoCodec::NONE) {
+		std::string aux = "";
 		if (vcodec == VideoCodec::H264) {
-			FFMpeg_setVideoCodec((char*)"libx264");
+			aux = "libx264";
 		} else if (vcodec == VideoCodec::MPEG2){
-			FFMpeg_setVideoCodec((char*)"mpeg2video");
+			aux = "mpeg2video";
 		} else if (vcodec == VideoCodec::COPY) {
-			FFMpeg_setVideoCodec((char*)"copy");
+			aux = "copy";
 		} else if (vcodec == VideoCodec::MPEG1) {
-			FFMpeg_setVideoCodec((char*)"mpeg1video");
+			aux = "mpeg1video";
+		} else if (vcodec == VideoCodec::THEORA) {
+			aux = "libtheora";
+		} else if (vcodec == VideoCodec::VP8) {
+			aux = "libvpx";
+		} else if (vcodec == VideoCodec::XVID) {
+			aux = "libxvid";
+		}
+
+		if (FFMpeg_setVideoCodec((char*)aux.c_str()) != FFMpeg_SUCCESS) {
+			throw IllegalParameterException(
+					"Error trying to set videocodec as: " + vcodec.toString(),
+					CLASS_NAME,
+					"configure(void*)");
 		}
 
 	}
 
 	if (acodec != AudioCodec::NONE) {
+		std::string aux = "";
 		if (acodec ==  AudioCodec::AAC) {
-			FFMpeg_setAudioCodec((char*)"libfaac");
+			aux = "libfaac";
 		} else if (acodec == AudioCodec::MP3){
-			FFMpeg_setAudioCodec((char*)"libmp3lame");
+			aux = "libmp3lame";
 		} else if (acodec == AudioCodec::COPY) {
-			FFMpeg_setAudioCodec((char*)"copy");
+			aux = "copy";
+		} else if (acodec == AudioCodec::VORBIS) {
+			aux = "libvorbis";
+		} else if (acodec == AudioCodec::PCM16) {
+
+		} else if (acodec == AudioCodec::PCM32) {
+
+		}
+
+		if (FFMpeg_setAudioCodec((char*) aux.c_str()) != FFMpeg_SUCCESS) {
+			throw IllegalParameterException(
+					"Error trying to set audiocodec as: " + acodec.toString(),
+					CLASS_NAME,
+					"configure(void*)");
 		}
 	}
 

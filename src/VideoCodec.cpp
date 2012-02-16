@@ -81,7 +81,7 @@ VideoCodec::Type VideoCodec::getType() const {
 }
 
 char* VideoCodec::typeToString(VideoCodec::Type type) {
-	for (int i = 0; i < 7; i++) {
+	for (int i = 0; i < 8; i++) {
 		if (type == types[i]) {
 			return strTypes[i];
 		}
@@ -94,7 +94,7 @@ char* VideoCodec::typeToString(VideoCodec::Type type) {
 
 VideoCodec::Type VideoCodec::stringToType(const std::string& str) {
 	std::string aux = cpputil::Functions::toUpperCase(str);
-	for (int i = 0; i < 7; i++) {
+	for (int i = 0; i < 8; i++) {
 		if (aux == strTypes[i]) {
 			return types[i];
 		}
@@ -106,28 +106,30 @@ VideoCodec::Type VideoCodec::stringToType(const std::string& str) {
 }
 
 char** VideoCodec::initializeStrTypes() {
-	char** aux = new char*[7];
+	char** aux = new char*[8];
 	aux[0] = (char*) "NONE";
 	aux[1] = (char*) "THEORA";
 	aux[2] = (char*) "H264";
 	aux[3] = (char*) "MPEG2";
 	aux[4] = (char*) "MPEG1";
 	aux[5] = (char*) "VP8";
-	aux[6] = (char*) "COPY";
+	aux[6] = (char*) "XVID";
+	aux[7] = (char*) "COPY";
 	return aux;
 }
 
 char** VideoCodec::strTypes = VideoCodec::initializeStrTypes();
 
 VideoCodec::Type* VideoCodec::initializeTypes() {
-	VideoCodec::Type* aux = new VideoCodec::Type[7];
+	VideoCodec::Type* aux = new VideoCodec::Type[8];
 	aux[0] = NONE;
 	aux[1] = THEORA;
 	aux[2] = H264;
 	aux[3] = MPEG2;
 	aux[4] = MPEG1;
 	aux[5] = VP8;
-	aux[6] = COPY;
+	aux[6] = XVID;
+	aux[7] = COPY;
 	return aux;
 }
 

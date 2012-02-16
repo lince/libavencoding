@@ -12,20 +12,21 @@ namespace avencoding {
 class AVContainer{
 public:
 	enum Type {
-		NONE=0,
-		MPEG,
-		AVI,
-		MP4,
-		OGG,
-		WEBM,
-		FLV,
-		MKV,
-		MP3,
-		AAC,
-		WAV,
-		OGA,
-		FLA,
-		MKA,
+		NONE=0, // Demuxer, Muxer
+		MPEG, // mjpeg, mpjpeg
+		AVI, // avi, avi
+		MP4, // _, mp4
+		OGG, // ogg, ogg
+		WEBM, // _, webm
+		FLV, // flv, flc
+		MKV, // matroska, matroska
+		MP3, // mp3, mp3
+		AAC, // aac, adts
+		WAV, // wav, wav
+		OGA, //ogg, ogg
+		FLA, // flac, flac
+		MKA, // _, matroska_audio
+		MOV, // mov, mov
 	};
 
 public:

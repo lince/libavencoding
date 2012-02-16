@@ -50,13 +50,6 @@ X11Terminal::X11Terminal(int fps) :
 	this->fps = fps;
 }
 
-X11Terminal::X11Terminal() : AVSource("x11grab"),
-		logger::Loggable(CLASS_NAME)  {
-
-	trace("begin constructor");
-
-	X11Terminal(25);
-}
 
 X11Terminal::~X11Terminal() {
 	// TODO Auto-generated destructor stub
