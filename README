@@ -1,43 +1,70 @@
-h2. Introdução
+-------------------- Library AVEncoding --------------------
 
-Este documento mostra como instalar e utilizar a API de Streaming. Além dele, você deve encontrar na raiz do diretório streaming-cpp os diretórios bindings, doc, include, src e test. Nos diretórios include e src está o código-fonte da biblioteca que contém a Streaming API. A documentação do código-fonte pode ser encontrada no diretório doc. Várias aplicações exemplo desenvolvidas com a API podem ser encontradas no diretório test. Dentro do
-diretório bindings está localizado o código-fonte da interface para a linguagem Java da API desenvolvida com o framework JNI.
+The library avencoding can realize audio/video transcoding and streaming in the must used formats.
+It's developed for Linux, but can be compiled to other plataforms because it use cmake for generate compiling scripts.
 
-h2. Dependências
-*lince-util http://lince.dc.ufscar.br/redmine/projects/xpta/wiki/Lince-Util)
-*libffmpeg (http://lince.dc.ufscar.br/redmine/projects/xpta/wiki/Libffmpeg)
-*Java-JDK (http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+Some features present are:
 
-h2. Instalação
-Dentro do diretório raiz do streaming-cpp:
+-> Easy file transcoding API;
+-> RTP and UDP streming;
+-> Capture audio e video from devices such as X11, alsa e video4linux; e
+-> Take snapshots and generate image files from devices or files.
+
+-------------------- Dependencies --------------------
+
+The libavencoding has the following dependencies:
+
+-> cmake (sudo apt-get install cmake)
+-> libx11-dev (sudo apt-get install libx11-dev)
+-> libcpputil (https://github.com/lince/libcpputil)
+-> libffmpgeg-c (https://github.com/lince/libffmpeg-c)
+
+-------------------- Installing --------------------
+
+The steps to compile and install the libavencoding are the following:
+
+$ git clone git://github.com/lince/libavencoding.git libavencoding
+$ cd libavencoding
+$ mkdir build
+$ cd build
+$ cmake ..
 $ make
 $ sudo make install
 
-Os arquivos de cabeçalho da Streaming API serão instalados em /usr/local/include/streaming e a biblioteca libstreaming.so será instalada em /usr/local/lib.
+Optionaly, you also can generate the documentation of the library, in the root directory:
 
-Para instalar a interface Java, é necessário definir a variável de ambiente $JAVA_HOME. Considerando que a Java-JDK esteja instalada no diretório /opt/java:
-$ export JAVA_HOME=/opt/java/
+$ dogygen
 
-Em seguida, no diretório streaming-cpp/bindings/java/:
-$ make
-$ sudo make install
+-------------------- Using --------------------
 
-A biblioteca libstreamingjava.so será instalada em /usr/local/lib.
+To use the library you must include the header files of the desired class and link the library with a -lavencoding.
 
-Lembre-se de adicionar o arquivo libstreaming.jar ao CLASSPATH para poder utilizar a API
-em aplicações Java.
+For utilization samples, see the test files on directory test. For API documentation, see the directory doc.
 
-h2. Utilização
-Para compilar uma aplicação que utiliza a Streaming API, é necessário linkar a biblioteca libstreaming.so, como pode ser visto no exemplo:
-$ g++ exemplo.cpp -o exemplo –lstreaming
+-------------------- Directories Structure --------------------
 
-h2. Aplicações Exemplo
-No diretório streaming-cpp/test/ existem algumas aplicações exemplo desenvolvidas utilizando a API. Para compilá-las:
-$ cd test
-$ make
+The root director libavencoding contains four directories and, due to installing process, two more can be generated.
+The directories and their descriptions are the following:
 
-A aplicação test1.cpp, por exemplo, captura o terminal X11 e o codifica em vídeo utilizando o
-codificador h.264. O vídeo resultante é enviado por RTP para o endereço 127.0.0.1 (localhost)
-na porta 5004. Para testar a aplicação, faça:
-$ ./test1
+-> include: It's here that the c++ headers file are.
+-> src: It's here that the c++ source files of the library are.
+-> bindings: It's here that the code for bindings with other language is. Actually there is only code for java.
+-> test: It's here that several programs designed to test our library are. You can use it as samples code.
+-> build: This directory is used durring the compilation process. You can delete it if you want.
+-> doc: It's that the doxygen puts the generated documentation files.
 
+-------------------- The MIT License (MIT) --------------------
+
+Copyright (c) 2012 LINCE-UFSCar
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+-------------------- Contact --------------------
+
+You can access our page on github: https://github.com/lince/libavencoding
+Or send e-mail directly to the developer: caioviel@gmail.com
